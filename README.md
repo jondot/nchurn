@@ -22,6 +22,22 @@ As outputs, NChurn supports
 
 NChurn can also take top # of items to display, cut off churn level, and a date to go back up to.
 
+Background
+----------------
+From this work http://research.microsoft.com/apps/pubs/default.aspx?id=69126
+
+    Code is not static; it evolves over time to meet new requirements. The way code
+    evolved in the past can be used to predict its evolution in the future. In particular,
+    there is an often accepted notion that code that changes a lot is of lower quality—
+    and thus more defect-prone than unchanged code.
+
+    Key Points
+    - The more a component has changed (churned), the more likely it is to have
+      defects.
+    Code churn measures can be used to predict defect-prone components.
+
+NChurn currently gives a view of *file churn* and will hopefully expand into analyzing files and languages themselves in the future.
+
 Getting Started
 ---------------
 
