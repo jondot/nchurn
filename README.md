@@ -24,6 +24,19 @@ NChurn can also take top # of items to display, cut off churn level, and a date 
 
 Getting Started
 ---------------
+
+	$ NChurn -h
+	NChurn 0.1.0.0
+	Usage: NChurn
+	       NChurn -c 4 -d 24-3-2010 -t 10
+
+	  d, from-date    Past date to calculate churn from, to now.
+	  c, churn        Minimal churn rate. Churn results below are cut off.
+	  t, top          Return this number of top records.
+	  r, report       Type of report to output.
+	  help            Dispaly this help screen.
+
+  
 Any combination of parameters work.
 
 	$ NChurn -t 5 -c 3        # take top 5, cut off at level 3 and below.
