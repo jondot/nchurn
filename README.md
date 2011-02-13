@@ -4,7 +4,7 @@ NChurn
 NChurn is a utility that helps asses the churn level of your files in your repository.  
 Churn can help you detect which files are changed the most in their life time. This helps identify potential bug hives, and improper design.  
 The best thing to do is to plug NChurn into your build process and store history of each run. Then, you can plot the evolution of your repository's churn.  
-*Developers* see note about building below
+_Developers_ see note about building below
 
 NChurn currently supports file-level churns for
 
@@ -99,8 +99,8 @@ You can build NChurn in 2 ways:
 * Visual studio
 * Rake (albacore)
 
-To build with rake (the recommended way), make sure to `bundle install`, then look at your options with `rake -T`.
-*Note:* I've excluded tf.log and tf.log.result from the repository, out of discreteness. Make sure to exclude from project or even better contribute back a log we can publicly use.
+To build with rake (the recommended way), make sure to `bundle install`, then look at your options with `rake -T`.  
+_Note:_ I've excluded tf.log and tf.log.result from the repository, out of discreteness. Make sure to exclude from project or even better contribute back a log we can publicly use.
 
 Contribute
 ----------
