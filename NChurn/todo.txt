@@ -1,0 +1,19 @@
+﻿todo
+
+
+sc
+- markdown readme
+- examples
+
+Build
+- (LOW) coverage .net 40
+
+Logic
+- Support Hg
+- Support Darcs
+- look into c# analyzer for methods/class
+
+Testing
+- Units
+- Integration for date ranges
+- Integration for min.churn

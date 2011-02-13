@@ -1,0 +1,453 @@
+------------------------------------------------------------------------
+r29520 | SND\dotan_cp | 2008-12-31 01:22:48 +0200 (Wed, 31 Dec 2008) | 1 line
+Changed paths:
+   A /ActionPack.sln
+   A /ActionView
+   A /ActionView/ActionPack.csproj
+   A /ActionView/ActionSupport.csproj
+   A /ActionView/Common
+   A /ActionView/Common/Duration.cs
+   A /ActionView/Duration.cs
+   A /ActionView/Extensions
+   A /ActionView/Extensions/ArrayExtensions.cs
+   A /ActionView/Extensions/DateTimeExtensions.cs
+   A /ActionView/Extensions/NumericExtensions.cs
+   A /ActionView/Extensions/StringExtensions.cs
+   A /ActionView/Helpers
+   A /ActionView/Helpers/DateHelper.cs
+   A /ActionView/Helpers/Inflector.cs
+   A /ActionView/Helpers/NumberHelper.cs
+   A /ActionView/Helpers/TextHelper.cs
+   A /ActionView/NumericExtensions.cs
+   A /ActionView/Properties
+   A /ActionView/Properties/AssemblyInfo.cs
+   A /ActionView/StringExtensions.cs
+   A /ActionView/TimeExtensions.cs
+   A /ActionView/todo.txt
+   A /ActionView.Tests
+   A /ActionView.Tests/AcceptanceTest.cs
+   A /ActionView.Tests/ActionPack.Tests.csproj
+   A /ActionView.Tests/ActionSupport
+   A /ActionView.Tests/ActionSupport/AcceptanceTest.cs
+   A /ActionView.Tests/ActionSupport/StringExtensionsTest.cs
+   A /ActionView.Tests/ActionSupport.Tests.csproj
+   A /ActionView.Tests/ActionView
+   A /ActionView.Tests/ActionView/DateHelperTests.cs
+   A /ActionView.Tests/ActionView/NumberHelperTests.cs
+   A /ActionView.Tests/ActionView/TextHelperTests.cs
+   A /ActionView.Tests/Facets
+   A /ActionView.Tests/Facets/ArrayExtensions.cs
+   A /ActionView.Tests/Facets/StringExtensions.cs
+   A /ActionView.Tests/Properties
+   A /ActionView.Tests/Properties/AssemblyInfo.cs
+   A /ActionView.Tests/StringExtensionsTest.cs
+
+
+------------------------------------------------------------------------
+r29519 | SND\dotan_cp | 2008-12-31 01:19:58 +0200 (Wed, 31 Dec 2008) | 1 line
+Changed paths:
+   D /ActionPack.sln
+   D /ActionView
+   D /ActionView/ActionView.csproj
+   D /ActionView/DateHelper.cs
+   D /ActionView/Inflector.cs
+   D /ActionView/NumberHelper.cs
+   D /ActionView/Properties
+   D /ActionView/Properties/AssemblyInfo.cs
+   D /ActionView/TextHelper.cs
+   D /ActionView.Tests
+   D /ActionView.Tests/ActionView.Tests.csproj
+   D /ActionView.Tests/DateHelperTests.cs
+   D /ActionView.Tests/NumberHelperTests.cs
+   D /ActionView.Tests/Properties
+   D /ActionView.Tests/Properties/AssemblyInfo.cs
+   D /ActionView.Tests/TextHelperTests.cs
+
+
+------------------------------------------------------------------------
+r29518 | SND\dotan_cp | 2008-12-31 01:18:59 +0200 (Wed, 31 Dec 2008) | 1 line
+Changed paths:
+   D /ActionSupport.Tests
+   D /ActionSupport.Tests/AcceptanceTest.cs
+   D /ActionSupport.Tests/ActionPack.Tests.csproj
+   D /ActionSupport.Tests/ActionSupport
+   D /ActionSupport.Tests/ActionSupport/AcceptanceTest.cs
+   D /ActionSupport.Tests/ActionSupport/StringExtensionsTest.cs
+   D /ActionSupport.Tests/ActionSupport.Tests.csproj
+   D /ActionSupport.Tests/ActionView
+   D /ActionSupport.Tests/ActionView/DateHelperTests.cs
+   D /ActionSupport.Tests/ActionView/NumberHelperTests.cs
+   D /ActionSupport.Tests/ActionView/TextHelperTests.cs
+   D /ActionSupport.Tests/Facets
+   D /ActionSupport.Tests/Facets/ArrayExtensions.cs
+   D /ActionSupport.Tests/Facets/StringExtensions.cs
+   D /ActionSupport.Tests/Properties
+   D /ActionSupport.Tests/Properties/AssemblyInfo.cs
+   D /ActionSupport.Tests/StringExtensionsTest.cs
+
+
+------------------------------------------------------------------------
+r29517 | SND\dotan_cp | 2008-12-31 01:18:45 +0200 (Wed, 31 Dec 2008) | 1 line
+Changed paths:
+   D /ActionSupport
+   D /ActionSupport/ActionPack.csproj
+   D /ActionSupport/ActionSupport.csproj
+   D /ActionSupport/Common
+   D /ActionSupport/Common/Duration.cs
+   D /ActionSupport/Duration.cs
+   D /ActionSupport/Extensions
+   D /ActionSupport/Extensions/ArrayExtensions.cs
+   D /ActionSupport/Extensions/DateTimeExtensions.cs
+   D /ActionSupport/Extensions/NumericExtensions.cs
+   D /ActionSupport/Extensions/StringExtensions.cs
+   D /ActionSupport/Helpers
+   D /ActionSupport/Helpers/DateHelper.cs
+   D /ActionSupport/Helpers/Inflector.cs
+   D /ActionSupport/Helpers/NumberHelper.cs
+   D /ActionSupport/Helpers/TextHelper.cs
+   D /ActionSupport/NumericExtensions.cs
+   D /ActionSupport/Properties
+   D /ActionSupport/Properties/AssemblyInfo.cs
+   D /ActionSupport/StringExtensions.cs
+   D /ActionSupport/TimeExtensions.cs
+   D /ActionSupport/todo.txt
+
+
+------------------------------------------------------------------------
+r29516 | SND\dotan_cp | 2008-12-31 01:16:17 +0200 (Wed, 31 Dec 2008) | 1 line
+Changed paths:
+   M /ActionPack.sln
+   M /ActionSupport.Tests/ActionPack.Tests.csproj
+
+refactored the source tree
+------------------------------------------------------------------------
+r29506 | SND\dotan_cp | 2008-12-30 20:23:07 +0200 (Tue, 30 Dec 2008) | 1 line
+Changed paths:
+   A /ActionPack.sln
+   A /ActionSupport
+   A /ActionSupport/ActionPack.csproj
+   A /ActionSupport/ActionSupport.csproj
+   A /ActionSupport/Common
+   A /ActionSupport/Common/Duration.cs
+   A /ActionSupport/Duration.cs
+   A /ActionSupport/Extensions
+   A /ActionSupport/Extensions/ArrayExtensions.cs
+   A /ActionSupport/Extensions/DateTimeExtensions.cs
+   A /ActionSupport/Extensions/NumericExtensions.cs
+   A /ActionSupport/Extensions/StringExtensions.cs
+   A /ActionSupport/Helpers
+   A /ActionSupport/Helpers/DateHelper.cs
+   A /ActionSupport/Helpers/Inflector.cs
+   A /ActionSupport/Helpers/NumberHelper.cs
+   A /ActionSupport/Helpers/TextHelper.cs
+   A /ActionSupport/NumericExtensions.cs
+   A /ActionSupport/Properties
+   A /ActionSupport/Properties/AssemblyInfo.cs
+   A /ActionSupport/StringExtensions.cs
+   A /ActionSupport/TimeExtensions.cs
+   A /ActionSupport/todo.txt
+   A /ActionSupport.Tests
+   A /ActionSupport.Tests/AcceptanceTest.cs
+   A /ActionSupport.Tests/ActionPack.Tests.csproj
+   A /ActionSupport.Tests/ActionSupport
+   A /ActionSupport.Tests/ActionSupport/AcceptanceTest.cs
+   A /ActionSupport.Tests/ActionSupport/StringExtensionsTest.cs
+   A /ActionSupport.Tests/ActionSupport.Tests.csproj
+   A /ActionSupport.Tests/ActionView
+   A /ActionSupport.Tests/ActionView/DateHelperTests.cs
+   A /ActionSupport.Tests/ActionView/NumberHelperTests.cs
+   A /ActionSupport.Tests/ActionView/TextHelperTests.cs
+   A /ActionSupport.Tests/Facets
+   A /ActionSupport.Tests/Facets/ArrayExtensions.cs
+   A /ActionSupport.Tests/Facets/StringExtensions.cs
+   A /ActionSupport.Tests/Properties
+   A /ActionSupport.Tests/Properties/AssemblyInfo.cs
+   A /ActionSupport.Tests/StringExtensionsTest.cs
+   A /ActionView
+   A /ActionView/ActionView.csproj
+   A /ActionView/DateHelper.cs
+   A /ActionView/Inflector.cs
+   A /ActionView/NumberHelper.cs
+   A /ActionView/Properties
+   A /ActionView/Properties/AssemblyInfo.cs
+   A /ActionView/TextHelper.cs
+   A /ActionView.Tests
+   A /ActionView.Tests/ActionView.Tests.csproj
+   A /ActionView.Tests/DateHelperTests.cs
+   A /ActionView.Tests/NumberHelperTests.cs
+   A /ActionView.Tests/Properties
+   A /ActionView.Tests/Properties/AssemblyInfo.cs
+   A /ActionView.Tests/TextHelperTests.cs
+
+
+------------------------------------------------------------------------
+r29505 | SND\dotan_cp | 2008-12-30 20:21:21 +0200 (Tue, 30 Dec 2008) | 1 line
+Changed paths:
+   D /ActionSupport
+   D /ActionSupport/ActionPack.sln
+   D /ActionSupport/ActionSupport
+   D /ActionSupport/ActionSupport/ActionPack.csproj
+   D /ActionSupport/ActionSupport/ActionSupport.csproj
+   D /ActionSupport/ActionSupport/Common
+   D /ActionSupport/ActionSupport/Common/Duration.cs
+   D /ActionSupport/ActionSupport/Duration.cs
+   D /ActionSupport/ActionSupport/Extensions
+   D /ActionSupport/ActionSupport/Extensions/ArrayExtensions.cs
+   D /ActionSupport/ActionSupport/Extensions/DateTimeExtensions.cs
+   D /ActionSupport/ActionSupport/Extensions/NumericExtensions.cs
+   D /ActionSupport/ActionSupport/Extensions/StringExtensions.cs
+   D /ActionSupport/ActionSupport/Helpers
+   D /ActionSupport/ActionSupport/Helpers/DateHelper.cs
+   D /ActionSupport/ActionSupport/Helpers/Inflector.cs
+   D /ActionSupport/ActionSupport/Helpers/NumberHelper.cs
+   D /ActionSupport/ActionSupport/Helpers/TextHelper.cs
+   D /ActionSupport/ActionSupport/NumericExtensions.cs
+   D /ActionSupport/ActionSupport/Properties
+   D /ActionSupport/ActionSupport/Properties/AssemblyInfo.cs
+   D /ActionSupport/ActionSupport/StringExtensions.cs
+   D /ActionSupport/ActionSupport/TimeExtensions.cs
+   D /ActionSupport/ActionSupport/todo.txt
+   D /ActionSupport/ActionSupport.Tests
+   D /ActionSupport/ActionSupport.Tests/AcceptanceTest.cs
+   D /ActionSupport/ActionSupport.Tests/ActionPack.Tests.csproj
+   D /ActionSupport/ActionSupport.Tests/ActionSupport
+   D /ActionSupport/ActionSupport.Tests/ActionSupport/AcceptanceTest.cs
+   D /ActionSupport/ActionSupport.Tests/ActionSupport/StringExtensionsTest.cs
+   D /ActionSupport/ActionSupport.Tests/ActionSupport.Tests.csproj
+   D /ActionSupport/ActionSupport.Tests/ActionView
+   D /ActionSupport/ActionSupport.Tests/ActionView/DateHelperTests.cs
+   D /ActionSupport/ActionSupport.Tests/ActionView/NumberHelperTests.cs
+   D /ActionSupport/ActionSupport.Tests/ActionView/TextHelperTests.cs
+   D /ActionSupport/ActionSupport.Tests/Facets
+   D /ActionSupport/ActionSupport.Tests/Facets/ArrayExtensions.cs
+   D /ActionSupport/ActionSupport.Tests/Facets/StringExtensions.cs
+   D /ActionSupport/ActionSupport.Tests/Properties
+   D /ActionSupport/ActionSupport.Tests/Properties/AssemblyInfo.cs
+   D /ActionSupport/ActionSupport.Tests/StringExtensionsTest.cs
+   D /ActionSupport/ActionView
+   D /ActionSupport/ActionView/ActionView.csproj
+   D /ActionSupport/ActionView/DateHelper.cs
+   D /ActionSupport/ActionView/Inflector.cs
+   D /ActionSupport/ActionView/NumberHelper.cs
+   D /ActionSupport/ActionView/Properties
+   D /ActionSupport/ActionView/Properties/AssemblyInfo.cs
+   D /ActionSupport/ActionView/TextHelper.cs
+   D /ActionSupport/ActionView.Tests
+   D /ActionSupport/ActionView.Tests/ActionView.Tests.csproj
+   D /ActionSupport/ActionView.Tests/DateHelperTests.cs
+   D /ActionSupport/ActionView.Tests/NumberHelperTests.cs
+   D /ActionSupport/ActionView.Tests/Properties
+   D /ActionSupport/ActionView.Tests/Properties/AssemblyInfo.cs
+   D /ActionSupport/ActionView.Tests/TextHelperTests.cs
+
+
+------------------------------------------------------------------------
+r29504 | SND\dotan_cp | 2008-12-30 20:18:51 +0200 (Tue, 30 Dec 2008) | 1 line
+Changed paths:
+   A /ActionSupport
+   A /ActionSupport/ActionPack.sln
+   A /ActionSupport/ActionSupport
+   A /ActionSupport/ActionSupport/ActionPack.csproj
+   A /ActionSupport/ActionSupport/ActionSupport.csproj
+   A /ActionSupport/ActionSupport/Common
+   A /ActionSupport/ActionSupport/Common/Duration.cs
+   A /ActionSupport/ActionSupport/Duration.cs
+   A /ActionSupport/ActionSupport/Extensions
+   A /ActionSupport/ActionSupport/Extensions/ArrayExtensions.cs
+   A /ActionSupport/ActionSupport/Extensions/DateTimeExtensions.cs
+   A /ActionSupport/ActionSupport/Extensions/NumericExtensions.cs
+   A /ActionSupport/ActionSupport/Extensions/StringExtensions.cs
+   A /ActionSupport/ActionSupport/Helpers
+   A /ActionSupport/ActionSupport/Helpers/DateHelper.cs
+   A /ActionSupport/ActionSupport/Helpers/Inflector.cs
+   A /ActionSupport/ActionSupport/Helpers/NumberHelper.cs
+   A /ActionSupport/ActionSupport/Helpers/TextHelper.cs
+   A /ActionSupport/ActionSupport/NumericExtensions.cs
+   A /ActionSupport/ActionSupport/Properties
+   A /ActionSupport/ActionSupport/Properties/AssemblyInfo.cs
+   A /ActionSupport/ActionSupport/StringExtensions.cs
+   A /ActionSupport/ActionSupport/TimeExtensions.cs
+   A /ActionSupport/ActionSupport/todo.txt
+   A /ActionSupport/ActionSupport.Tests
+   A /ActionSupport/ActionSupport.Tests/AcceptanceTest.cs
+   A /ActionSupport/ActionSupport.Tests/ActionPack.Tests.csproj
+   A /ActionSupport/ActionSupport.Tests/ActionSupport
+   A /ActionSupport/ActionSupport.Tests/ActionSupport/AcceptanceTest.cs
+   A /ActionSupport/ActionSupport.Tests/ActionSupport/StringExtensionsTest.cs
+   A /ActionSupport/ActionSupport.Tests/ActionSupport.Tests.csproj
+   A /ActionSupport/ActionSupport.Tests/ActionView
+   A /ActionSupport/ActionSupport.Tests/ActionView/DateHelperTests.cs
+   A /ActionSupport/ActionSupport.Tests/ActionView/NumberHelperTests.cs
+   A /ActionSupport/ActionSupport.Tests/ActionView/TextHelperTests.cs
+   A /ActionSupport/ActionSupport.Tests/Facets
+   A /ActionSupport/ActionSupport.Tests/Facets/ArrayExtensions.cs
+   A /ActionSupport/ActionSupport.Tests/Facets/StringExtensions.cs
+   A /ActionSupport/ActionSupport.Tests/Properties
+   A /ActionSupport/ActionSupport.Tests/Properties/AssemblyInfo.cs
+   A /ActionSupport/ActionSupport.Tests/StringExtensionsTest.cs
+   A /ActionSupport/ActionView
+   A /ActionSupport/ActionView/ActionView.csproj
+   A /ActionSupport/ActionView/DateHelper.cs
+   A /ActionSupport/ActionView/Inflector.cs
+   A /ActionSupport/ActionView/NumberHelper.cs
+   A /ActionSupport/ActionView/Properties
+   A /ActionSupport/ActionView/Properties/AssemblyInfo.cs
+   A /ActionSupport/ActionView/TextHelper.cs
+   A /ActionSupport/ActionView.Tests
+   A /ActionSupport/ActionView.Tests/ActionView.Tests.csproj
+   A /ActionSupport/ActionView.Tests/DateHelperTests.cs
+   A /ActionSupport/ActionView.Tests/NumberHelperTests.cs
+   A /ActionSupport/ActionView.Tests/Properties
+   A /ActionSupport/ActionView.Tests/Properties/AssemblyInfo.cs
+   A /ActionSupport/ActionView.Tests/TextHelperTests.cs
+
+
+------------------------------------------------------------------------
+r29503 | SND\dotan_cp | 2008-12-30 20:17:36 +0200 (Tue, 30 Dec 2008) | 1 line
+Changed paths:
+   D /ActionPack.sln
+   D /ActionSupport
+   D /ActionSupport/ActionPack.csproj
+   D /ActionSupport/ActionSupport
+   D /ActionSupport/ActionSupport/Duration.cs
+   D /ActionSupport/ActionSupport/NumericExtensions.cs
+   D /ActionSupport/ActionSupport/StringExtensions.cs
+   D /ActionSupport/ActionSupport/TimeExtensions.cs
+   D /ActionSupport/ActionSupport.csproj
+   D /ActionSupport/ActionView
+   D /ActionSupport/ActionView/DateHelper.cs
+   D /ActionSupport/ActionView/Inflector.cs
+   D /ActionSupport/ActionView/NumberHelper.cs
+   D /ActionSupport/ActionView/TextHelper.cs
+   D /ActionSupport/Duration.cs
+   D /ActionSupport/Facets
+   D /ActionSupport/Facets/ArrayExtensions.cs
+   D /ActionSupport/Facets/StringExtensions.cs
+   D /ActionSupport/NumericExtensions.cs
+   D /ActionSupport/Properties
+   D /ActionSupport/Properties/AssemblyInfo.cs
+   D /ActionSupport/StringExtensions.cs
+   D /ActionSupport/TimeExtensions.cs
+   D /ActionSupport/bin
+   D /ActionSupport/bin/Debug
+   D /ActionSupport/obj
+   D /ActionSupport/obj/Debug
+   D /ActionSupport/obj/Debug/TempPE
+   D /ActionSupport/todo.txt
+   D /ActionSupport.Tests
+   D /ActionSupport.Tests/AcceptanceTest.cs
+   D /ActionSupport.Tests/ActionPack.Tests.csproj
+   D /ActionSupport.Tests/ActionSupport
+   D /ActionSupport.Tests/ActionSupport/AcceptanceTest.cs
+   D /ActionSupport.Tests/ActionSupport/StringExtensionsTest.cs
+   D /ActionSupport.Tests/ActionSupport.Tests.csproj
+   D /ActionSupport.Tests/ActionView
+   D /ActionSupport.Tests/ActionView/DateHelperTests.cs
+   D /ActionSupport.Tests/ActionView/NumberHelperTests.cs
+   D /ActionSupport.Tests/ActionView/TextHelperTests.cs
+   D /ActionSupport.Tests/Facets
+   D /ActionSupport.Tests/Facets/ArrayExtensions.cs
+   D /ActionSupport.Tests/Facets/StringExtensions.cs
+   D /ActionSupport.Tests/Properties
+   D /ActionSupport.Tests/Properties/AssemblyInfo.cs
+   D /ActionSupport.Tests/StringExtensionsTest.cs
+   D /ActionSupport.Tests/bin
+   D /ActionSupport.Tests/bin/Debug
+   D /ActionSupport.Tests/obj
+   D /ActionSupport.Tests/obj/Debug
+   D /ActionSupport.Tests/obj/Debug/TempPE
+   D /ActionView
+   D /ActionView/ActionView.csproj
+   D /ActionView/DateHelper.cs
+   D /ActionView/Inflector.cs
+   D /ActionView/NumberHelper.cs
+   D /ActionView/Properties
+   D /ActionView/Properties/AssemblyInfo.cs
+   D /ActionView/TextHelper.cs
+   D /ActionView.Tests
+   D /ActionView.Tests/ActionView.Tests.csproj
+   D /ActionView.Tests/DateHelperTests.cs
+   D /ActionView.Tests/NumberHelperTests.cs
+   D /ActionView.Tests/Properties
+   D /ActionView.Tests/Properties/AssemblyInfo.cs
+   D /ActionView.Tests/TextHelperTests.cs
+
+
+------------------------------------------------------------------------
+r19520 | SND\dotan_cp | 2008-07-12 23:24:04 +0300 (Sat, 12 Jul 2008) | 1 line
+Changed paths:
+   A /ActionPack.sln
+   A /ActionSupport
+   A /ActionSupport/ActionPack.csproj
+   A /ActionSupport/ActionSupport
+   A /ActionSupport/ActionSupport/Duration.cs
+   A /ActionSupport/ActionSupport/NumericExtensions.cs
+   A /ActionSupport/ActionSupport/StringExtensions.cs
+   A /ActionSupport/ActionSupport/TimeExtensions.cs
+   A /ActionSupport/ActionSupport.csproj
+   A /ActionSupport/ActionView
+   A /ActionSupport/ActionView/DateHelper.cs
+   A /ActionSupport/ActionView/Inflector.cs
+   A /ActionSupport/ActionView/NumberHelper.cs
+   A /ActionSupport/ActionView/TextHelper.cs
+   A /ActionSupport/Duration.cs
+   A /ActionSupport/Facets
+   A /ActionSupport/Facets/ArrayExtensions.cs
+   A /ActionSupport/Facets/StringExtensions.cs
+   A /ActionSupport/NumericExtensions.cs
+   A /ActionSupport/Properties
+   A /ActionSupport/Properties/AssemblyInfo.cs
+   A /ActionSupport/StringExtensions.cs
+   A /ActionSupport/TimeExtensions.cs
+   A /ActionSupport/bin
+   A /ActionSupport/bin/Debug
+   A /ActionSupport/obj
+   A /ActionSupport/obj/Debug
+   A /ActionSupport/obj/Debug/TempPE
+   A /ActionSupport/todo.txt
+   A /ActionSupport.Tests
+   A /ActionSupport.Tests/AcceptanceTest.cs
+   A /ActionSupport.Tests/ActionPack.Tests.csproj
+   A /ActionSupport.Tests/ActionSupport
+   A /ActionSupport.Tests/ActionSupport/AcceptanceTest.cs
+   A /ActionSupport.Tests/ActionSupport/StringExtensionsTest.cs
+   A /ActionSupport.Tests/ActionSupport.Tests.csproj
+   A /ActionSupport.Tests/ActionView
+   A /ActionSupport.Tests/ActionView/DateHelperTests.cs
+   A /ActionSupport.Tests/ActionView/NumberHelperTests.cs
+   A /ActionSupport.Tests/ActionView/TextHelperTests.cs
+   A /ActionSupport.Tests/Facets
+   A /ActionSupport.Tests/Facets/ArrayExtensions.cs
+   A /ActionSupport.Tests/Facets/StringExtensions.cs
+   A /ActionSupport.Tests/Properties
+   A /ActionSupport.Tests/Properties/AssemblyInfo.cs
+   A /ActionSupport.Tests/StringExtensionsTest.cs
+   A /ActionSupport.Tests/bin
+   A /ActionSupport.Tests/bin/Debug
+   A /ActionSupport.Tests/obj
+   A /ActionSupport.Tests/obj/Debug
+   A /ActionSupport.Tests/obj/Debug/TempPE
+   A /ActionView
+   A /ActionView/ActionView.csproj
+   A /ActionView/DateHelper.cs
+   A /ActionView/Inflector.cs
+   A /ActionView/NumberHelper.cs
+   A /ActionView/Properties
+   A /ActionView/Properties/AssemblyInfo.cs
+   A /ActionView/TextHelper.cs
+   A /ActionView.Tests
+   A /ActionView.Tests/ActionView.Tests.csproj
+   A /ActionView.Tests/DateHelperTests.cs
+   A /ActionView.Tests/NumberHelperTests.cs
+   A /ActionView.Tests/Properties
+   A /ActionView.Tests/Properties/AssemblyInfo.cs
+   A /ActionView.Tests/TextHelperTests.cs
+
+
+------------------------------------------------------------------------
+r19515 | RNO\_MCLWEB | 2008-07-12 22:42:35 +0300 (Sat, 12 Jul 2008) | 1 line
+Changed paths:
+   A /
+
+Created team project folder $/mvcactionpack via the Team Project Creation Wizard
+------------------------------------------------------------------------

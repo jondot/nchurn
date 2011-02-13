@@ -1,0 +1,22 @@
+GIT
+  remote: http://github.com/jondot/Albacore.git
+  revision: 4e56d1405f8d4cdc91a06d61f0bedccf65045f31
+  specs:
+    albacore (0.2.2)
+      rake (>= 0.8.7)
+      rubyzip (>= 0.9.4)
+
+GEM
+  remote: http://rubygems.org/
+  remote: http://gemcutter.org/
+  specs:
+    rake (0.8.7)
+    rubyzip (0.9.4)
+    version_bumper (0.1.0)
+
+PLATFORMS
+  x86-mingw32
+
+DEPENDENCIES
+  albacore!
+  version_bumper
