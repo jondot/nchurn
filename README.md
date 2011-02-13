@@ -26,10 +26,58 @@ Getting Started
 ---------------
 Any combination of parameters work.
 
-    $ NChurn -t 5 -c 3        # take top 5, cut off at level 3 and below.
-    $ NChurn -d 24-12-2010    # calculate for 24th of Dec, 2010 up to now.
-    $ NChurn -c 2 -r xml      # cut off at 2, report output as XML.
- 
+	$ NChurn -t 5 -c 3        # take top 5, cut off at level 3 and below.
+	$ NChurn -d 24-12-2010    # calculate for 24th of Dec, 2010 up to now.
+	$ NChurn -c 2 -r xml      # cut off at 2, report output as XML.
+
+Here is a sample of a run, which cuts off at 8, and uses the default table report:
+
+	$ NChurn -c 8
+	+--------------------------------------------------+
+	| lib/rubikon/application/instance_methods.rb | 48 |
+	| lib/rubikon/application.rb                  | 30 |
+	| test/test.rb                                | 30 |
+	| lib/rubikon/command.rb                      | 28 |
+	| lib/rubikon/parameter.rb                    | 17 |
+	| test/application_tests.rb                   | 14 |
+	| Rakefile                                    | 13 |
+	| lib/rubikon/application/dsl_methods.rb      | 12 |
+	| README.md                                   | 11 |
+	| samples/helloworld/hello_world.rb           | 11 |
+	| lib/rubikon.rb                              | 10 |
+	| lib/rubikon/exceptions.rb                   | 10 |
+	| lib/rubikon/flag.rb                         | 10 |
+	| lib/rubikon/action.rb                       | 9  |
+	| lib/rubikon/application/base.rb             | 9  |
+	| lib/rubikon/option.rb                       | 9  |
+	| lib/rubikon/progress_bar.rb                 | 9  |
+	| samples/helloworld.rb                       | 9  |
+	+--------------------------------------------------+
+
+And here is an example of taking the top 4 records on NChurn's git repo, output as xml report.
+
+	$ NChurn -t 4 -r xml
+	<?xml version="1.0" encoding="IBM437"?>
+	<NChurnAnalysisResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/NChurn.Core.Reporters">
+	  <FileChurns>
+	    <FileChurn>
+	      <File>README.md</File>
+	      <Value>2</Value>
+	    </FileChurn>
+	    <FileChurn>
+	      <File>.gitignore</File>
+	      <Value>1</Value>
+	    </FileChurn>
+	    <FileChurn>
+	      <File>AssemblyInfo.cs</File>
+	      <Value>1</Value>
+	    </FileChurn>
+	    <FileChurn>
+	      <File>Gemfile</File>
+	      <Value>1</Value>
+	    </FileChurn>
+	  </FileChurns>
+	</NChurnAnalysisResult>
 
 Contribute
 ----------
