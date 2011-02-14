@@ -4,7 +4,7 @@ NChurn
 NChurn is a utility that helps asses the churn level of your files in your repository.  
 Churn can help you detect which files are changed the most in their life time. This helps identify potential bug hives, and improper design.  
 The best thing to do is to plug NChurn into your build process and store history of each run. Then, you can plot the evolution of your repository's churn.  
-
+_Developers_ see note about building below
 
 NChurn currently supports file-level churns for
 
@@ -22,6 +22,22 @@ As outputs, NChurn supports
 
 
 NChurn can also take top # of items to display, cut off churn level, and a date to go back up to.
+
+Background
+----------------
+From this work http://research.microsoft.com/apps/pubs/default.aspx?id=69126
+
+    Code is not static; it evolves over time to meet new requirements. The way code
+    evolved in the past can be used to predict its evolution in the future. In particular,
+    there is an often accepted notion that code that changes a lot is of lower quality—
+    and thus more defect-prone than unchanged code.
+
+    Key Points
+    - The more a component has changed (churned), the more likely it is to have
+      defects.
+    Code churn measures can be used to predict defect-prone components.
+
+NChurn currently gives a view of *file churn* and will hopefully expand into analyzing files and languages themselves in the future.
 
 Getting Started
 ---------------
@@ -92,6 +108,16 @@ And here is an example of taking the top 4 records on NChurn's git repo, output 
 	    </FileChurn>
 	  </FileChurns>
 	</NChurnAnalysisResult>
+
+Building
+----------
+You can build NChurn in 2 ways:
+
+* Visual studio
+* Rake (albacore)
+
+To build with rake (the recommended way), make sure to `bundle install`, then look at your options with `rake -T`.  
+_Note:_ I've excluded tf.log and tf.log.result from the repository, out of discreteness. Make sure to exclude from project or even better contribute back a log we can publicly use.
 
 Contribute
 ----------
