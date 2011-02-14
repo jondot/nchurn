@@ -14,12 +14,21 @@ msbuild :build => :assemblyinfo do |msb|
   msb.solution = "NChurn.sln"
 end
 
-desc "Deploy version"
-output :deploy => [:test, :merge] do |out|
-	out.from 'NChurn/bin/release'
+output :output => [:test, :merge] do |out|
+	out.from '.'
 	out.to 'out'
-	out.file 'NChurn.exe'
+	out.file 'NChurn/bin/release/NChurn.exe', :as=>'NChurn.exe'
+	out.file 'LICENSE.txt'
+	out.file 'README.md'
+	out.file 'VERSION'
 end
+
+zip :deploy => :output do | zip |
+    zip.directories_to_zip "out"
+    zip.output_file = "nchurn.v#{bumper_version.to_s}.zip"
+    zip.output_path = File.dirname(__FILE__)
+end
+
 
 desc "Test"
 nunit :test => :build do |nunit|
