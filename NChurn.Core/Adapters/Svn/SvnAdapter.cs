@@ -17,7 +17,7 @@ namespace NChurn.Core.Adapters.Svn
 
         public override IEnumerable<string> ChangedResources(DateTime backTo)
         {
-            string text = CommandRunner.ExecuteAndGetOutput(string.Format(@"svn log {{{0}}}:{{{1}}} --verbose", backTo.ToString("yyyy-MM-dd"), DateTime.Now.ToString("yyyy-MM-dd")));
+            string text = CommandRunner.ExecuteAndGetOutput(string.Format(@"svn log --revision {{{0}}}:{{{1}}} --verbose", backTo.ToString("yyyy-MM-dd"), DateTime.Now.ToString("yyyy-MM-dd")));
             return ParseLines(text);
         }
 
