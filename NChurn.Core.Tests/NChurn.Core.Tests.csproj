@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Integration\Adapters\HgTest.cs" />
     <Compile Include="Integration\Adapters\TfTest.cs" />
     <Compile Include="Integration\Adapters\SvnTest.cs" />
     <Compile Include="TestHelpers.cs" />
@@ -60,6 +61,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Fixtures\git.log.result">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fixtures\hg.log">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fixtures\hg.log.result">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Fixtures\svn.log">

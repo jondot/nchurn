@@ -1,0 +1,2923 @@
+changeset:   2675:750cbce2397c
+tag:         tip
+user:        Steve Streeting <steve@stevestreeting.com>
+date:        Mon Feb 14 12:57:55 2011 +0000
+files:       OgreMain/include/OgreLight.h OgreMain/src/OgreLight.cpp OgreMain/src/OgreSceneManager.cpp
+description:
+Add ability to clip spotlight light volumes at a custom near plane
+This is useful when rendering spots which start from an aperture rather than a point (e.g. when fitting to spot geometry which has a rear reflector so the virtual origin is behind the geometry)
+
+
+changeset:   2674:0ff764b3969a
+user:        Mattan Furst <matanf@simigon.com>
+date:        Sun Feb 13 13:18:34 2011 +0200
+files:       Samples/Media/RTShaderLib/materials/RTShaderSystem.material
+description:
+Fixed typo in RTShaderSystem.material script
+
+
+changeset:   2673:e2c065f9d968
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Thu Feb 10 11:16:50 2011 -0300
+files:       OgreMain/include/OgreCompositorLogic.h OgreMain/include/OgreCompositorManager.h OgreMain/src/OgreCompositorManager.cpp Samples/Compositor/include/Compositor.h Samples/DeferredShading/include/DeferredShading.h Samples/DeferredShading/src/DeferredShading.cpp
+description:
+[Papercut] Added unregisterCompositorLogic and therefore fixed a few mem. leaks in Compositor & DeferredShading samples
+
+
+changeset:   2672:44436e91ed68
+parent:      2659:a0dc871a6f23
+user:        Steve Streeting <steve@stevestreeting.com>
+date:        Wed Feb 09 12:14:43 2011 +0000
+files:       AUTHORS
+description:
+Added cose
+
+
+changeset:   2671:790d99840172
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Tue Feb 08 00:15:43 2011 -0600
+files:       CMake/Dependencies.cmake CMakeLists.txt
+description:
+OS X: A few CMake fixes to ease building for universal libraries.  Upping the minimum OS to 10.5(it's required for x86_64).  Also updating the list of Boost versions to be current.
+
+
+changeset:   2670:dd56825ff304
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Tue Feb 08 00:08:54 2011 -0600
+files:       CMakeLists.txt
+description:
+iOS: 2 fixes.  The compiler should be g++ instead of gcc and switching the architecture to build for both armv6 and armv7.
+
+
+changeset:   2669:6390c7ea372d
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Tue Feb 08 00:06:28 2011 -0600
+files:       CMake/Dependencies.cmake
+description:
+iOS: Don't search for X11 if building for iOS.  I'm surprised that this hasn't been found until now.  Apparently most devs have the X11 package installed.
+
+
+changeset:   2668:9bd5af21542c
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Tue Feb 08 00:04:37 2011 -0600
+files:       RenderSystems/GLES/src/EAGL/OgreEAGLWindow.mm
+description:
+iOS: Clean up the FSAA/framebuffer code in swapBuffers.  This should resolve issues on iOS 4.1 that have been reported. Bug #384
+
+
+changeset:   2667:3f556044296c
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Tue Feb 08 00:01:19 2011 -0600
+files:       RenderSystems/GL/src/OgreGLFrameBufferObject.cpp
+description:
+GL: Only bind up to the max supported number of render targets since not all implementations support 8.  This prevents a few OpenGL errors.
+
+
+changeset:   2666:36d8a7c913a5
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Mon Feb 07 23:59:50 2011 -0600
+files:       RenderSystems/GL/include/OSX/OgreOSXCGLContext.h RenderSystems/GL/include/OSX/OgreOSXCarbonContext.h RenderSystems/GL/include/OSX/OgreOSXCocoaContext.h RenderSystems/GL/include/OSX/OgreOSXRenderTexture.h RenderSystems/GL/src/OSX/OgreOSXWindow.cpp
+description:
+OS X: These classes should have been inheriting from GeneralAllocatedObject all along so they can take advantage of Ogre's memory tracking.
+
+
+changeset:   2665:7c590596fbff
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Mon Feb 07 23:57:45 2011 -0600
+files:       RenderSystems/GL/src/OSX/OgreOSXCarbonWindow.cpp
+description:
+OS X: Use correct pixel format attribute name for specifying FSAA in Carbon windows.
+
+
+changeset:   2664:4d7007386725
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Mon Jan 17 09:04:32 2011 -0600
+files:       RenderSystems/GLES/src/OgreGLESPixelFormat.cpp
+description:
+GLES: Use the correct GL type for BGRA textures
+
+
+changeset:   2663:a002dc9cef12
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Mon Jan 17 09:03:22 2011 -0600
+files:       Samples/Browser/include/SampleBrowser.h Samples/Browser/include/SampleBrowser_iOS.h
+description:
+iOS: Rework some of the sample browser code to shut down properly on iOS
+
+
+changeset:   2662:4e8ea27d4179
+branch:      v1-7
+user:        Steve Streeting <steve@stevestreeting.com>
+date:        Wed Feb 02 17:45:42 2011 +0000
+files:       OgreMain/include/OgreSceneManager.h OgreMain/src/OgreSceneManager.cpp
+description:
+Fix a problem with using some of the lower-level renderable callbacks such as RenderObjectListener to alter shader parameter state - mGpuParamsDirty would not be updated to reflect this and as such things like manual param variances within light iteration loops would not be propagated.
+Allow user to mark GPU params dirty themselves to resolve this.
+
+
+changeset:   2661:b4f158cbdd52
+branch:      v1-7
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Wed Feb 02 14:15:57 2011 +0100
+files:       OgreMain/include/OgreRoot.h OgreMain/src/OgreRoot.cpp
+description:
+[Papercut] Add destroyRenderTarget function to Ogre::Root
+
+
+changeset:   2660:d3ba1177cddf
+branch:      v1-7
+parent:      2656:e88ed30bb85c
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Wed Feb 02 13:44:09 2011 +0100
+files:       OgreMain/src/OgreDataStream.cpp
+description:
+Changed DataStream::getAsString and MemoryDataStream constructors to deal with streams of unknown size
+
+
+changeset:   2659:a0dc871a6f23
+user:        "Robin Southern <betajaen@ihoed.com>"
+date:        Sun Jan 02 14:43:40 2011 +0000
+files:       OgreMain/include/OgrePrerequisites.h
+description:
+Added iterator and const_iterator typedefs to Ogre deque, vector, list, set, map and multimap types.
+
+
+changeset:   2658:cce023ce2679
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Wed Feb 02 00:17:45 2011 +0100
+files:       OgreMain/include/OgreHardwareVertexBuffer.h OgreMain/src/OgreHardwareVertexBuffer.cpp
+description:
+[Papercut] Added proper const qualifiers to VertexDeclaration methods
+
+
+changeset:   2657:3e42f01b9b8c
+parent:      2655:d1cb54e117b3
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Tue Feb 01 23:44:26 2011 +0100
+files:       CMake/Templates/samples_d.cfg.in
+description:
+[Papercut] Added Sample_NewInstancing_d to samples_d.cfg.in
+
+
+changeset:   2656:e88ed30bb85c
+branch:      v1-7
+parent:      2640:6813426edced
+user:        Steve Streeting <steve@stevestreeting.com>
+date:        Tue Feb 01 18:07:04 2011 +0000
+files:       Docs/src/manual.texi OgreMain/include/OgreGpuProgramParams.h OgreMain/src/OgreGpuProgramParams.cpp
+description:
+Added support for spotlight_viewproj_matrix_array GPU parameter
+
+
+changeset:   2655:d1cb54e117b3
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Sat Jan 29 14:31:36 2011 -0300
+files:       OgreMain/include/OgreInstanceManager.h OgreMain/include/OgreInstancedEntity.h OgreMain/include/OgreSceneManager.h OgreMain/src/OgreInstanceBatch.cpp OgreMain/src/OgreInstanceManager.cpp OgreMain/src/OgreInstancedEntity.cpp OgreMain/src/OgreSceneManager.cpp
+description:
+InstanceManager:Added submesh index to use when creating a manager.
+Fixed Material LOD for InstanceBatch: The LOD techniques use scene node's position for it's calculation, but for the instance batches, it's always zero, thus it's wrong. Fixed, but only distance LOD is supported for the moment
+Added InstancedEntity::shareTransformWith() & InstancedEntity::stopSharingTransform() to be used with multiple InstancedEntities that share the same skeleton and same transforms (i.e. 3 submeshes from the same Mesh)
+
+
+changeset:   2654:1d6182acc509
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Thu Jan 27 19:39:30 2011 -0300
+files:       OgreMain/include/OgreRectangle2D.h OgreMain/src/OgreCompositorManager.cpp OgreMain/src/OgreRectangle2D.cpp
+description:
+Fixed UV problems in Compositors when D3D device is restored.
+
+
+changeset:   2653:97d86bb6a3c8
+user:        David Rogers <davidrogers@me.com>
+date:        Wed Jan 26 02:27:49 2011 -0600
+files:       Components/RTShaderSystem/include/OgreShaderGenerator.h
+description:
+Fix the build with GCC
+
+
+changeset:   2652:7a8b9d7b2282
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Wed Jan 26 00:48:21 2011 -0300
+files:       OgreMain/src/OgreSceneManager.cpp
+description:
+Fixed SceneManager::createInstancedEntity, which was raising an exception when a manager was found, not when it wasn't
+
+
+changeset:   2651:5c194932b6a8
+user:        Mattan Furst <matanf@simigon.com>
+date:        Tue Jan 25 15:11:17 2011 +0200
+files:       RenderSystems/GLES/src/EGL/WIN32/OgreWin32EGLWindow.cpp
+description:
+GLES: Remove obselete data member initialization
+
+
+changeset:   2650:5b6bd8b7a844
+user:        Mattan Furst <matanf@simigon.com>
+date:        Tue Jan 25 15:08:37 2011 +0200
+files:       Components/RTShaderSystem/include/OgreShaderExHardwareSkinning.h Components/RTShaderSystem/src/OgreShaderExHardwareSkinning.cpp
+description:
+RTSS: Added functionality to Hardware skinning to allow the system to automaticly adjust the hardware skinning per entity
+(removes the need to define the bone count and weight count in script for the HS sub-render state)
+
+
+changeset:   2649:9ee988548f23
+user:        Mattan Furst <matanf@simigon.com>
+date:        Tue Jan 25 15:06:08 2011 +0200
+files:       Components/RTShaderSystem/src/OgreShaderExLayeredBlending.cpp
+description:
+RTSS: Fixed layered blends naming conventions (to be more consistent with the rest of ogre)
++ Fixed texture manipulation not working if not stated with a layered blend in script.
+
+
+changeset:   2648:ec71ff7ab73c
+user:        Mattan Furst <matanf@simigon.com>
+date:        Tue Jan 25 15:03:45 2011 +0200
+files:       Components/RTShaderSystem/include/OgreShaderGenerator.h Components/RTShaderSystem/src/OgreShaderGenerator.cpp
+description:
+RTSS: Added clone function which allows cloning RTSS render states between 2 similar materials
+
+
+changeset:   2647:d5fa0a5df14c
+user:        Mattan Furst <matanf@simigon.com>
+date:        Tue Jan 25 15:02:39 2011 +0200
+files:       Components/RTShaderSystem/include/OgreShaderParameter.h Components/RTShaderSystem/src/OgreShaderParameter.cpp
+description:
+RTSS: Added parameter update functions + fixed toString function of const array values
+
+
+changeset:   2646:9c7ed3cd32e8
+user:        Mattan Furst <matanf@simigon.com>
+date:        Tue Jan 25 15:00:56 2011 +0200
+files:       RenderSystems/GLES/include/OgreGLESPrerequisites.h
+description:
+Fixed GLES not compiling of visual studio compiler
+
+
+changeset:   2645:ed59baeac44f
+user:        Mattan Furst <matanf@simigon.com>
+date:        Tue Jan 25 15:00:07 2011 +0200
+files:       RenderSystems/Direct3D9/src/OgreD3D9Device.cpp
+description:
+Fixed NULL pointer crashes occuring sometimes when moving windows between monitors
+
+
+changeset:   2644:c5c390f71a64
+user:        Mattan Furst <matanf@simigon.com>
+date:        Tue Jan 25 14:59:00 2011 +0200
+files:       OgreMain/src/OgreViewport.cpp RenderSystems/Direct3D11/src/OgreD3D11RenderSystem.cpp RenderSystems/Direct3D9/src/OgreD3D9RenderSystem.cpp RenderSystems/GL/src/OgreGLRenderSystem.cpp RenderSystems/GLES/src/OgreGLESRenderSystem.cpp RenderSystems/GLES2/src/OgreGLES2RenderSystem.cpp
+description:
+Fixed crash from render systems holding pointer to deleted viewport
+
+
+changeset:   2643:eba00643e6b8
+user:        Mattan Furst <matanf@simigon.com>
+date:        Tue Jan 25 14:54:51 2011 +0200
+files:       OgreMain/src/OgreRenderQueue.cpp
+description:
+Change order of check "if (mo->isVisible())" for crash prevention and improved performance
+
+
+changeset:   2642:2dc4c446ac57
+user:        Mattan Furst <matanf@simigon.com>
+date:        Tue Jan 25 14:53:22 2011 +0200
+files:       OgreMain/src/OgreSceneManagerEnumerator.cpp
+description:
+Fixed crash when deleting deleted SceneManagers from list as they are being deleted
+
+
+changeset:   2641:6d05ee717875
+parent:      2638:20a5ca00390e
+user:        Mattan Furst <matanf@simigon.com>
+date:        Tue Jan 25 14:51:55 2011 +0200
+files:       OgreMain/include/OgreRenderSystem.h RenderSystems/Direct3D11/src/OgreD3D11RenderWindow.cpp RenderSystems/Direct3D9/src/OgreD3D9RenderWindow.cpp RenderSystems/GL/src/OgreWin32Window.cpp
+description:
+Added double click tracking for Win32 windows
+
+
+changeset:   2640:6813426edced
+branch:      v1-7
+user:        Steve Streeting <steve@stevestreeting.com>
+date:        Tue Jan 25 12:50:27 2011 +0000
+files:       OgreMain/include/OgreTexture.h RenderSystems/GL/include/OgreGLFrameBufferObject.h RenderSystems/GL/include/OgreGLTexture.h RenderSystems/GL/src/OgreGLFBORenderTexture.cpp RenderSystems/GL/src/OgreGLTexture.cpp
+description:
+Support getCustomAttribute() on Texture, only GL extracts anything interesting so far but more can be added
+This is pretty much essential if you want to get to internal API data for resource sharing without down-casting, which itself requires otherwise unnecessary linking to plugins. It's why we've offered this for RenderWindow etc in the past, I'm not sure why it's never been done for Texture.
+Also support retrieving the FBO ids directly from render targets on GL (already allowed retrieval of FBO struct but again that requires linking)
+
+
+changeset:   2639:ceeeee841742
+branch:      v1-7
+parent:      2628:68e0a68fce4f
+user:        Steve Streeting <steve@stevestreeting.com>
+date:        Mon Jan 24 10:28:20 2011 +0000
+files:       RenderSystems/GL/include/OSX/OgreOSXCocoaWindowDelegate.h RenderSystems/GL/src/OSX/OgreOSXCocoaWindow.mm RenderSystems/GL/src/OSX/OgreOSXCocoaWindowDelegate.mm
+description:
+Fix using multiple Cocoa windows with Ogre.
+Previously the window delegate was incorrectly listening in on the events of *every* window, not just the one containing Ogre. This meant if the application had more than one window (Ogre or otherwise), the Ogre windows would get confused with all the events from different windows.
+Fix this by making sure each delegate only attaches to the NSNotifications of the specific window it's concerned with.
+
+
+changeset:   2638:20a5ca00390e
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Mon Jan 24 01:03:31 2011 -0300
+files:       OgreMain/include/OgreInstanceBatch.h OgreMain/src/OgreInstanceBatch.cpp
+description:
+Added material LOD support for instanced batches.
+
+
+changeset:   2637:00959979c6bb
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Mon Jan 24 04:03:17 2011 +0200
+files:       Components/RTShaderSystem/include/OgreShaderGenerator.h Components/RTShaderSystem/src/OgreShaderGenerator.cpp
+description:
+RTSS: Disabled material touch if the RTSS is finalizing. Material touch when finalizing reloads textures.
+
+
+changeset:   2636:7c5001f925af
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Mon Jan 24 04:00:35 2011 +0200
+files:       RenderSystems/Direct3D11/include/OgreD3D11Device.h RenderSystems/Direct3D11/include/OgreD3D11Driver.h RenderSystems/Direct3D11/include/OgreD3D11Texture.h RenderSystems/Direct3D11/src/OgreD3D11Device.cpp RenderSystems/Direct3D11/src/OgreD3D11Driver.cpp RenderSystems/Direct3D11/src/OgreD3D11DriverList.cpp RenderSystems/Direct3D11/src/OgreD3D11HLSLProgram.cpp RenderSystems/Direct3D11/src/OgreD3D11RenderSystem.cpp RenderSystems/Direct3D11/src/OgreD3D11RenderWindow.cpp RenderSystems/Direct3D11/src/OgreD3D11Texture.cpp
+description:
+Fixed some D3D11 object reference leaks.
+
+
+changeset:   2635:0165b17ee8a2
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Sat Jan 22 16:04:28 2011 -0300
+files:       RenderSystems/Direct3D9/src/OgreD3D9RenderSystem.cpp
+description:
+D3D9 Rendersystem: Fixed memory leak introduced in rev 2460: Shaders were being retrieved to check if they were being used when Fixed function is disabled, however their ref. count was never decreased. Fixed using mVertexProgramBound & mFragmentProgramBound variables instead. No need to call the API
+
+
+changeset:   2634:044ecfa942e3
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Sat Jan 22 01:26:39 2011 -0300
+files:       Samples/NewInstancing/include/NewInstancing.h
+description:
+Fixed NewInstancing sample: If "static" button was left on, nothing would show up after switching techniques (wrong usage of setBatchesAsStaticAndUpdate)
+
+
+changeset:   2633:2ff1d2c22f04
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Sat Jan 22 01:23:13 2011 -0300
+files:       OgreMain/include/OgreInstanceBatchHW.h OgreMain/include/OgreInstanceBatchHW_VTF.h OgreMain/src/OgreInstanceBatchHW.cpp OgreMain/src/OgreInstanceBatchHW_VTF.cpp
+description:
+HWInstancingVTF technique didn't check for HW instancing support in calculateMaxNumInstances()
+Raises an exception when trying to use HW instanced techniques with submeshes which have less free TEXCOORDs available than required.
+
+
+changeset:   2632:6ef5edfec3bc
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Sat Jan 22 00:54:06 2011 -0300
+files:       OgreMain/CMakeLists.txt OgreMain/include/OgreInstanceBatch.h OgreMain/include/OgreInstanceBatchHW.h OgreMain/include/OgreInstanceBatchHW_VTF.h OgreMain/include/OgreInstanceBatchVTF.h OgreMain/include/OgreInstanceManager.h OgreMain/include/OgreInstancedEntity.h OgreMain/include/OgrePrerequisites.h OgreMain/src/OgreInstanceBatchHW_VTF.cpp OgreMain/src/OgreInstanceBatchVTF.cpp OgreMain/src/OgreInstanceManager.cpp OgreMain/src/OgreInstancedEntity.cpp Samples/Media/materials/programs/HW_VTFInstancing.cg Samples/Media/materials/programs/HW_VTFInstancing.vert Samples/Media/materials/scripts/HW_VTFInstancing.material Samples/NewInstancing/include/NewInstancing.h
+description:
+Bugfix: InstancedEntities buffer overflow when using non-HW instanced techniques, they're not in scene and don't have a skeleton.
+New instancing technique! HWInstancingVTF!
+Updated NewInstancing demo with new technique
+
+
+changeset:   2631:76cd88e22f1a
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Thu Jan 20 12:20:12 2011 -0300
+files:       OgreMain/CMakeLists.txt OgreMain/include/OgreInstanceBatch.h OgreMain/include/OgreInstanceBatchHW.h OgreMain/include/OgreInstanceManager.h OgreMain/include/OgreInstancedEntity.h OgreMain/include/OgrePrerequisites.h OgreMain/src/OgreInstanceBatch.cpp OgreMain/src/OgreInstanceBatchHW.cpp OgreMain/src/OgreInstanceBatchShader.cpp OgreMain/src/OgreInstanceManager.cpp OgreMain/src/OgreInstancedEntity.cpp RenderSystems/Direct3D9/src/OgreD3D9RenderSystem.cpp Samples/Media/materials/programs/HWBasicInstancing.cg Samples/Media/materials/programs/HWBasicInstancing.vert Samples/Media/materials/scripts/HWInstancing.material Samples/NewInstancing/include/NewInstancing.h
+description:
+Implemented new Instancing technique: HWInstancingBasic:
+ * Fastest technique (downside is that it doesn't support skeletal animation)
+ * Has a "static" flag to tell their instances won't change anymore, which further improves speed
+ShaderBased technique now raises an exception when a malformed material is detected.
+Bugfix: Under rare cirumstances, InstancedEntity::getTransforms3x4() would return 4 bytes written instead of 12
+Bugfix: In D3D9 RenderSystem, Shader Model 2.0 cards don't support hardware instancing, for those cards RSC_VERTEX_BUFFER_INSTANCE_DATA flag shouldn't be present.
+Updated NewInstancing sample to reflect the new technique
+
+
+changeset:   2630:1581003cfa83
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Tue Jan 18 18:07:39 2011 -0300
+files:       OgreMain/src/OgreAnimation.cpp OgreMain/src/OgreAnimationTrack.cpp
+description:
+Change made in Rev 2629 (c9cb2c9d1da1) didn't do exactly the same that the old code did as highlighted by Kojack. Fixed.
+Additionally, OgreAnimation.cpp somehow didn't get commited.
+
+
+changeset:   2629:c9cb2c9d1da1
+parent:      2622:c1f30fc4fe95
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Tue Jan 18 13:11:17 2011 -0300
+files:       OgreMain/src/OgreAnimationTrack.cpp
+description:
+Changed nasty loop for an fmod call, as discussed in http://www.ogre3d.org/forums/viewtopic.php?f=4&t=56101
+
+
+changeset:   2628:68e0a68fce4f
+branch:      v1-7
+user:        Steve Streeting <steve@stevestreeting.com>
+date:        Tue Jan 18 12:10:18 2011 +0000
+files:       RenderSystems/GL/src/OSX/OgreOSXCocoaWindow.mm
+description:
+When creating an external window in Cocoa, don't centre the window (app should be in charge of that)
+Also don't mess with the first responder.
+
+
+changeset:   2627:1acad4395f49
+branch:      v1-7
+user:        Steve Streeting <steve@stevestreeting.com>
+date:        Mon Jan 17 16:40:00 2011 +0000
+files:       RenderSystems/GL/src/OSX/OgreOSXCocoaWindow.mm
+description:
+In OSXCocoaWindow::createWindowFromExternal, don't force the window to be made key and ordered in front. As an external window, the calling application should have full control over window behaviour.
+
+
+changeset:   2626:31c2bccf54f9
+branch:      v1-7
+user:        Steve Streeting <steve@stevestreeting.com>
+date:        Mon Jan 17 16:12:30 2011 +0000
+files:       RenderSystems/GL/src/OSX/OgreOSXCocoaWindow.mm
+description:
+Specify the NSOpenGLFPAScreenMask to resolve ambiguity in the pixel format on multiple display systems
+Note: Assaf's work on multi gpu support in 1.8 may require this to be altered to select user-specified display
+
+
+changeset:   2625:96824c09e646
+branch:      v1-7
+user:        Steve Streeting <steve@stevestreeting.com>
+date:        Mon Jan 17 15:58:08 2011 +0000
+files:       RenderSystems/GL/src/OSX/OgreOSXCocoaWindow.mm
+description:
+Allow the retrieval of NSOpenGLContext and NSOpenGLPixelFormat easily in OSXCocoaWindow
+
+
+changeset:   2624:322015379338
+branch:      v1-7
+user:        Steve Streeting <steve@stevestreeting.com>
+date:        Mon Jan 17 13:57:27 2011 +0000
+files:       RenderSystems/GL/src/OSX/OgreOSXGLSupport.mm
+description:
+Do not offer the Carbon API option in 64-bit Mac builds and default to Cocoa
+
+
+changeset:   2623:16e772b4f1d0
+branch:      v1-7
+parent:      2601:2e6653af79f2
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Fri Jan 07 13:26:22 2011 +0100
+files:       Components/Terrain/src/OgreTerrain.cpp
+description:
+Fixed an incorrect error message in the Terrain component.
+
+
+changeset:   2622:c1f30fc4fe95
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Jan 04 23:19:17 2011 +0200
+files:       RenderSystems/GLES2/src/OgreGLES2HardwarePixelBuffer.cpp
+description:
+Fixed an Ambiguous call to pow() in the GLES2 render system.
+
+
+changeset:   2621:325f2a60ace0
+user:        David Rogers <davidrogers@me.com>
+date:        Mon Jan 03 15:42:04 2011 -0600
+files:       CMakeLists.txt
+description:
+Add back iOS CMake option
+
+
+changeset:   2620:544597fec649
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Mon Jan 03 21:32:31 2011 +0200
+files:       CMakeLists.txt
+description:
+Fixed a typo in the OGRE_CG_SUPPORT_FOR_GLES2 CMake comment.
+
+
+changeset:   2619:1a548822f9b9
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Mon Jan 03 21:28:27 2011 +0200
+files:       Samples/Media/RTShaderLib/FFPLib_Common.cg Samples/Media/RTShaderLib/FFPLib_Transform.cg
+description:
+RTSS: Added "#ifndef OPENGL_ES_2" to some Cg code that doesn't compile for ES 2.x.
+
+
+changeset:   2618:cff288a096b7
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Mon Jan 03 21:27:30 2011 +0200
+files:       CMake/Templates/OgreBuildSettings.h.in CMakeLists.txt
+description:
+Added the OGRE_CG_SUPPORT_FOR_GLES2 flag to the OGRE CMake options.
+The option is available only if OGRE_BUILD_RENDERSYSTEM_GLES2 option is on.
+
+
+changeset:   2617:f38dbc3f6dd6
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Mon Jan 03 21:24:46 2011 +0200
+files:       RenderSystems/GLES2/CMakeLists.txt RenderSystems/GLES2/include/OgreGLES2RenderSystem.h RenderSystems/GLES2/src/GLSLES/include/OgreGLSLESCgProgram.h RenderSystems/GLES2/src/GLSLES/include/OgreGLSLESCgProgramFactory.h RenderSystems/GLES2/src/GLSLES/include/OgreGLSLESProgramFactory.h RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESCgProgram.cpp RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESCgProgramFactory.cpp RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESLinkProgram.cpp RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESProgramFactory.cpp RenderSystems/GLES2/src/OgreGLES2RenderSystem.cpp
+description:
+ES 2.x render system: Added basic Cg support.
+OGRE_CG_SUPPORT_FOR_GLES2 flag was added to control if this option is on.
+http://code.google.com/p/hlsl2glslfork/ is used to convert the Cg code to glsl.
+hlsl2glslfork code is required to compile for the Cg support to compile and link.
+Not all Cg programs compile or link.
+hlsl2glslfork CMake find script is not provided with this commit.
+
+
+changeset:   2616:bd581ba69648
+user:        David Rogers <davidrogers@me.com>
+date:        Sun Jan 02 18:22:02 2011 -0600
+files:       OgreMain/src/OgreFileSystem.cpp
+description:
+Somehow I messed up a diff merge and removed these.  Put them back like they should be.
+
+
+changeset:   2615:beab4c81ab50
+user:        David Rogers <davidrogers@me.com>
+date:        Fri Dec 31 15:39:08 2010 -0600
+files:       OgreMain/src/OgreInstanceBatch.cpp OgreMain/src/OgreScriptCompiler.cpp Samples/Browser/include/SampleBrowser.h Samples/Common/include/SampleContext.h Samples/Common/include/SdkSample.h Samples/Common/include/SdkTrays.h
+description:
+Clean up some uninitialized variables and debug messages that would clutter up the log.
+
+
+changeset:   2614:a2ea69d6e737
+user:        David Rogers <davidrogers@me.com>
+date:        Fri Dec 31 15:37:45 2010 -0600
+files:       RenderSystems/GLES2/src/OgreGLES2FrameBufferObject.cpp
+description:
+GLES2: Some systems may not support up to OGRE_MAX_MULTIPLE_RENDER_TARGETS(8) for FBOs. So use the number reported in capabilities instead.
+
+
+changeset:   2613:c976f0de187b
+user:        David Rogers <davidrogers@me.com>
+date:        Tue Dec 21 17:16:34 2010 -0600
+files:       Components/RTShaderSystem/include/OgreShaderExTextureAtlasSampler.h Components/RTShaderSystem/src/OgreShaderExTextureAtlasSampler.cpp Samples/Dot3Bump/include/Dot3Bump.h Samples/ShaderSystem/src/OgreShaderExInstancedViewports.cpp Samples/ShaderSystem/src/ShaderSystem.cpp
+description:
+Clean up some warnings
+
+
+changeset:   2612:8d75286a1e1f
+user:        David Rogers <davidrogers@me.com>
+date:        Tue Dec 21 03:18:20 2010 -0600
+files:       RenderSystems/GL/src/OgreGLRenderSystem.cpp
+description:
+GL: Correct text in an exception
+
+
+changeset:   2611:56e9730b2fa1
+user:        David Rogers <davidrogers@me.com>
+date:        Tue Dec 14 23:09:32 2010 -0600
+files:       BuildingOgre.txt CMake/ConfigureBuild.cmake CMake/Dependencies.cmake CMake/InstallResources.cmake CMake/Packages/FindOGRE.cmake CMake/Templates/SDK_CMakeLists.txt.in CMake/Templates/SDK_Samples_CMakeLists.txt.in CMake/Utils/OgreConfigTargets.cmake CMakeLists.txt Components/Paging/CMakeLists.txt Components/Paging/src/OgrePage.cpp Components/Property/CMakeLists.txt Components/RTShaderSystem/CMakeLists.txt Components/Terrain/CMakeLists.txt OgreMain/CMakeLists.txt OgreMain/include/OgreConfigDialog.h OgreMain/include/OgreDynLib.h OgreMain/include/OgreErrorDialog.h OgreMain/include/OgrePlatform.h OgreMain/include/OgrePlatformInformation.h OgreMain/include/OgrePrerequisites.h OgreMain/include/OgreStableHeaders.h OgreMain/include/OgreStdHeaders.h OgreMain/include/OgreStringConverter.h OgreMain/include/OgreTimer.h OgreMain/src/OgreCamera.cpp OgreMain/src/OgreDynLib.cpp OgreMain/src/OgreFileSystem.cpp OgreMain/src/OgreFreeImageCodec.cpp OgreMain/src/OgreFrustum.cpp OgreMain/src/OgrePlatformInformation.cpp OgreMain/src/OgreRoot.cpp OgreMain/src/OgreSerializer.cpp OgreMain/src/OgreStringConverter.cpp OgreMain/src/OgreViewport.cpp PlugIns/BSPSceneManager/CMakeLists.txt PlugIns/CgProgramManager/CMakeLists.txt PlugIns/OctreeSceneManager/CMakeLists.txt PlugIns/OctreeZone/CMakeLists.txt PlugIns/PCZSceneManager/CMakeLists.txt PlugIns/ParticleFX/CMakeLists.txt RenderSystems/GL/CMakeLists.txt RenderSystems/GL/src/OSX/OgreOSXGLSupport.mm RenderSystems/GLES/include/OgreGLESPrerequisites.h RenderSystems/GLES/src/OgreGLESFBORenderTexture.cpp RenderSystems/GLES/src/OgreGLESFrameBufferObject.cpp RenderSystems/GLES/src/OgreGLESPixelFormat.cpp RenderSystems/GLES/src/OgreGLESPlugin.cpp RenderSystems/GLES/src/OgreGLESRenderSystem.cpp RenderSystems/GLES2/include/OgreGLES2Prerequisites.h RenderSystems/GLES2/src/OgreGLES2FBORenderTexture.cpp RenderSystems/GLES2/src/OgreGLES2FrameBufferObject.cpp RenderSystems/GLES2/src/OgreGLES2PixelFormat.cpp RenderSystems/GLES2/src/OgreGLES2RenderSystem.cpp SDK/iPhone/make_iphone.sh Samples/BSP/CMakeLists.txt Samples/BSP/include/BSP.h Samples/BezierPatch/CMakeLists.txt Samples/Browser/CMakeLists.txt Samples/Browser/include/SampleBrowser.h Samples/Browser/src/SampleBrowser.cpp Samples/CMakeLists.txt Samples/CameraTrack/CMakeLists.txt Samples/CelShading/CMakeLists.txt Samples/Character/CMakeLists.txt Samples/Character/include/CharacterSample.h Samples/Character/include/SinbadCharacterController.h Samples/Common/include/Sample.h Samples/Common/include/SampleContext.h Samples/Common/include/SdkCameraMan.h Samples/Common/include/SdkSample.h Samples/Common/include/SdkTrays.h Samples/Compositor/CMakeLists.txt Samples/Compositor/include/Compositor.h Samples/CubeMapping/CMakeLists.txt Samples/DeferredShading/CMakeLists.txt Samples/Dot3Bump/CMakeLists.txt Samples/Dot3Bump/include/Dot3Bump.h Samples/DynTex/CMakeLists.txt Samples/DynTex/include/DynTex.h Samples/FacialAnimation/CMakeLists.txt Samples/Fresnel/CMakeLists.txt Samples/Grass/CMakeLists.txt Samples/Instancing/CMakeLists.txt Samples/Isosurf/CMakeLists.txt Samples/Lighting/CMakeLists.txt Samples/NewInstancing/CMakeLists.txt Samples/NewInstancing/include/NewInstancing.h Samples/OceanDemo/CMakeLists.txt Samples/OceanDemo/include/OceanDemo.h Samples/PCZTestApp/CMakeLists.txt Samples/ParticleFX/CMakeLists.txt Samples/ParticleGS/CMakeLists.txt Samples/ShaderSystem/CMakeLists.txt Samples/ShaderSystem/include/ShaderSystem.h Samples/ShaderSystem/src/ShaderSystem.cpp Samples/Shadows/CMakeLists.txt Samples/Shadows/include/Shadows.h Samples/SkeletalAnimation/CMakeLists.txt Samples/SkyBox/CMakeLists.txt Samples/SkyDome/CMakeLists.txt Samples/SkyPlane/CMakeLists.txt Samples/Smoke/CMakeLists.txt Samples/SphereMapping/CMakeLists.txt Samples/Terrain/CMakeLists.txt Samples/Terrain/include/Terrain.h Samples/TextureArray/CMakeLists.txt Samples/TextureFX/CMakeLists.txt Samples/Transparency/CMakeLists.txt Samples/VolumeTex/CMakeLists.txt Samples/Water/CMakeLists.txt Samples/Water/include/Water.h Tests/PlayPen/CMakeLists.txt Tools/CMakeLists.txt
+description:
+iOS: Changing OGRE_PLATFORM_IPHONE to OGRE_PLATFORM_APPLE_IOS
+
+
+changeset:   2610:d987555c8a6c
+user:        David Rogers <davidrogers@me.com>
+date:        Mon Dec 13 19:37:25 2010 -0600
+files:       RenderSystems/GLES2/src/OgreGLES2DepthBuffer.cpp RenderSystems/GLES2/src/OgreGLES2FBOMultiRenderTarget.cpp RenderSystems/GLES2/src/OgreGLES2FBORenderTexture.cpp
+description:
+GLES2: Remove a couple unnecessary #if's
+
+
+changeset:   2609:1b3beae926e0
+user:        David Rogers <davidrogers@me.com>
+date:        Mon Dec 13 16:17:53 2010 -0600
+files:       RenderSystems/GLES2/src/OgreGLES2HardwarePixelBuffer.cpp
+description:
+GLES2: Fix for calculating mip dimensions
+
+
+changeset:   2608:ca8fbfb98c96
+user:        David Rogers <davidrogers@me.com>
+date:        Mon Dec 13 16:17:04 2010 -0600
+files:       RenderSystems/GLES2/src/OgreGLES2Support.cpp
+description:
+Fix spelling error
+
+
+changeset:   2607:2b6f6f6b94e6
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Sun Jan 02 21:16:41 2011 +0200
+files:       OgreMain/include/OgreArchive.h OgreMain/include/OgreFileSystem.h OgreMain/include/OgreZip.h OgreMain/src/OgreFileSystem.cpp OgreMain/src/OgreZip.cpp
+description:
+A patch by Wolfmanfx: Added support for the case where a zip file of resources has resources in sub-folders.
+The patch was submitted on this forum thread:  http://goo.gl/uH2kN
+Assaf Raman who reviewed the patch was the one who decided to change the Archive class interface.
+
+
+changeset:   2606:4000ee16fd86
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Sun Jan 02 20:24:34 2011 +0200
+files:       RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESLinkProgram.cpp
+description:
+GLES2 render system: Added a var init that was missing (binaryLength in GLSLESLinkProgram::getMicrocodeFromCache).
+
+
+changeset:   2605:dff6e885fc33
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Fri Dec 31 19:31:46 2010 +0200
+files:       Tools/OgreZip2Cpp/src/OgreZip2Cpp.cpp
+description:
+A fix to OgreZip2Cpp tool: fixed a deprecated conversion from string constant to 'char*' in the tool output cpp file.
+
+
+changeset:   2604:96dfaee03969
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Fri Dec 31 18:19:05 2010 +0200
+files:       OgreMain/include/OgreRoot.h OgreMain/include/OgreZip.h OgreMain/src/OgreRoot.cpp OgreMain/src/OgreZip.cpp Tools/OgreZip2Cpp/src/OgreZip2Cpp.cpp
+description:
+Added EmbeddedZipArchiveFactory to OgreZip.
+Also added a tool that helps to embed zip files in programs (converts zip files to cpp files).
+Read more about this commit on this thread:  http://www.ogre3d.org/forums/viewtopic.php?f=4&t=62181
+
+
+changeset:   2603:d75a34bb6f38
+user:        Mattan Furst <matanf@simigon.com>
+date:        Thu Dec 30 08:44:05 2010 +0200
+files:       OgreMain/src/OgreMovableObject.cpp
+description:
+Fixed setting render queue priority for movable object
+
+
+changeset:   2602:a2bd59de2d6d
+parent:      2589:cc8f8b7a0c0e
+user:        Steve Streeting <steve@stevestreeting.com>
+date:        Wed Dec 15 10:50:52 2010 +0000
+files:       AUTHORS
+description:
+Added Dario Ahdoot (diarrhio)
+
+
+changeset:   2601:2e6653af79f2
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Mon Dec 13 15:31:54 2010 -0600
+files:       CMakeLists.txt
+description:
+Fix a catch-22 that prevented OGRE_BUILD_PLATFORM_IPHONE from showing up in CMake-Gui.
+
+
+changeset:   2600:ead4ac433b53
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Sat Dec 11 03:25:32 2010 -0600
+files:       OgreMain/include/OgrePlane.h
+description:
+The == operator should not have been altered in my previous commit.
+
+
+changeset:   2599:fcddb5ac4498
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Sat Dec 11 03:19:10 2010 -0600
+files:       OgreMain/include/OgrePlane.h
+description:
+Patch 3116577: Plane equality operators.  Also cleaned up some documentation.
+
+
+changeset:   2598:742137498bc0
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Sat Dec 11 02:36:02 2010 -0600
+files:       SDK/OSX/Xcode Templates/Xcode/Project Templates/Ogre/iPhone OS/Classes/OgreFramework.cpp SDK/OSX/Xcode Templates/Xcode/Project Templates/Ogre/iPhone OS/Classes/OgreFramework.h SDK/OSX/Xcode Templates/Xcode/Project Templates/Ogre/iPhone OS/Classes/main.cpp SDK/OSX/Xcode Templates/Xcode/Project Templates/Ogre/iPhone OS/Resources/ogre.cfg SDK/OSX/Xcode Templates/Xcode/Project Templates/Ogre/iPhone OS/___PROJECTNAME___.xcodeproj/project.pbxproj
+description:
+iOS: Several fixes to the Xcode templates regarding viewport orientation and some cleanup for readability.
+
+
+changeset:   2597:799d1b7b0028
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Fri Dec 10 02:39:58 2010 -0600
+files:       OgreMain/src/OgreViewport.cpp RenderSystems/GLES/CMakeLists.txt RenderSystems/GLES/include/EAGL/OgreEAGLView.h RenderSystems/GLES/include/EAGL/OgreEAGLWindow.h RenderSystems/GLES/src/EAGL/OgreEAGLSupport.mm RenderSystems/GLES/src/EAGL/OgreEAGLView.mm RenderSystems/GLES/src/EAGL/OgreEAGLWindow.mm
+description:
+iOS: Improve orientation support.  Separate EAGLView into its own files.
+
+
+changeset:   2596:08d33c9ffd86
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Fri Dec 10 02:38:36 2010 -0600
+files:       Samples/Browser/CMakeLists.txt Samples/Browser/include/SampleBrowser_OSX.h Samples/Browser/include/SampleBrowser_iOS.h Samples/Browser/src/SampleBrowser.cpp
+description:
+Separate out all the OS X and iOS specific code from SampleBrowser.cpp.  It was getting a bit unruly and difficult to maintain
+
+
+changeset:   2595:10430fd5aaa7
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Fri Dec 10 00:42:37 2010 -0600
+files:       Samples/CMakeLists.txt
+description:
+iOS: IOKit isn't needed at all and causes link errors with iOS 4.2.
+
+
+changeset:   2594:98f650feb9b9
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Sat Dec 04 21:29:06 2010 -0600
+files:       RenderSystems/GLES/src/OgreGLESHardwarePixelBuffer.cpp
+description:
+GLES: Fix for images with custom mipmaps.  The dimensions were never being reduced for each mipmap level.  As a side effect, memory usage is also reduced.
+
+
+changeset:   2593:d640ea68915f
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Sat Dec 04 01:38:14 2010 -0600
+files:       RenderSystems/GLES/include/OgreGLESPrerequisites.h
+description:
+GLES: Disable ENABLE_GL_CHECK, again.
+
+
+changeset:   2592:00f40301d21a
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Sat Dec 04 01:37:39 2010 -0600
+files:       OgreMain/include/OgreExternalTextureSourceManager.h RenderSystems/GLES/src/OgreGLESTexture.cpp
+description:
+Fix a couple comment typos
+
+
+changeset:   2591:83b876e1eba9
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Mon Nov 29 02:22:59 2010 -0600
+files:       RenderSystems/GLES/include/EAGL/OgreEAGLWindow.h RenderSystems/GLES/src/EAGL/OgreEAGLWindow.mm Samples/Common/misc/Info.plist
+description:
+iOS: Fix orientation change support.  Use UISupportedInterfaceOrientations in your apps info property list to restrict which orientations are supported by your application.
+
+
+changeset:   2590:65e158ff066b
+branch:      v1-7
+parent:      2577:66a353c2552f
+user:        David Rogers <davidrogers@me.com>
+date:        Mon Nov 29 02:21:25 2010 -0600
+files:       OgreMain/include/OSX/OgreConfigDialogImp.h OgreMain/src/OgrePlatformInformation.cpp RenderSystems/GL/src/OSX/OgreOSXCocoaWindowDelegate.mm Samples/DeferredShading/src/DLight.cpp Samples/ParticleGS/src/ParticleGS.cpp Samples/ShaderSystem/src/ShaderSystem.cpp Samples/VolumeTex/include/Julia.h Samples/Water/src/Water.cpp Samples/Water/src/WaterMesh.cpp
+description:
+Clean up several warnings(hidden local variables, unused functions)
+
+
+changeset:   2589:cc8f8b7a0c0e
+user:        Mattan Furst <matanf@simigon.com>
+date:        Wed Dec 01 11:24:36 2010 +0200
+files:       OgreMain/include/OgreHardwareBuffer.h OgreMain/src/OgreShadowCaster.cpp
+description:
+Fixed buffer overrun problem with stencil shadows
+
+
+changeset:   2588:78cf231243e2
+user:        David Rogers <davidrogers@me.com>
+date:        Mon Nov 22 16:43:29 2010 -0600
+files:       RenderSystems/GLES2/src/GLSLES/include/OgreGLSLESLinkProgram.h RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESLinkProgram.cpp
+description:
+GLES2: Fix some signed/unsigned comparisons that were making the attribute location cache ineffective.  The unneeded GL state queries were hurting performance an average 30% on iPhone 3GS.
+
+
+changeset:   2587:86bb37134798
+user:        David Rogers <davidrogers@me.com>
+date:        Sun Nov 21 01:08:59 2010 -0600
+files:       RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESLinkProgramManager.cpp
+description:
+GLES2: Remove some unnecessary glUseProgram calls.
+
+
+changeset:   2586:c5896731a898
+user:        David Rogers <davidrogers@me.com>
+date:        Sun Nov 21 01:06:49 2010 -0600
+files:       Samples/Browser/src/SampleBrowser.cpp
+description:
+iOS: Remove an extra timer init in the sample browser
+
+
+changeset:   2585:bbab84c04a77
+user:        David Rogers <davidrogers@me.com>
+date:        Sun Nov 21 01:06:15 2010 -0600
+files:       OgreMain/src/OgreInstanceManager.cpp OgreMain/src/OgreInstancedEntity.cpp OgreMain/src/OgreRenderSystem.cpp RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESProgram.cpp
+description:
+Resolve some variable initialization order warnings
+
+
+changeset:   2584:ea2c2b02790b
+user:        David Rogers <davidrogers@me.com>
+date:        Sun Nov 21 01:04:58 2010 -0600
+files:       RenderSystems/GLES/src/OgreGLESRenderSystem.cpp RenderSystems/GLES2/src/OgreGLES2RenderSystem.cpp
+description:
+Add RenderSystemCapabilitiesCreated event support to the GL ES rendersystems
+
+
+changeset:   2583:a29e6282559e
+parent:      2579:0e9a06d3fca9
+parent:      2582:e0e87ca18e20
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Mon Nov 22 13:17:38 2010 +0200
+description:
+Merged RTSS texture atlas extension to the trunk.
+
+
+changeset:   2582:e0e87ca18e20
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Mon Nov 22 12:33:52 2010 +0200
+files:       Samples/Media/materials/scripts/TextureAtlasSampleOrg.tai Samples/Media/materials/scripts/TextureAtlasSampleWrap.tai Samples/Media/materials/textures/1d_SPIRAL.png Samples/Media/materials/textures/1d_debug.png Samples/Media/materials/textures/LowRes.png Samples/Media/materials/textures/SmallLeaf_BP.png Samples/Media/materials/textures/TextureAtlasSampleOrg0.png Samples/Media/materials/textures/TextureAtlasSampleWrap0.png Samples/Media/materials/textures/checker.png Samples/Media/materials/textures/img1.png Samples/Media/materials/textures/img2.png Samples/Media/materials/textures/radial.png Samples/Media/materials/textures/spotlight_image.png Samples/ShaderSystem/include/ShaderSystem.h Samples/ShaderSystem/src/ShaderSystem.cpp
+description:
+RTSS sample: Added resources and code that creates geometry in the sample to demonstrate the texture atlas feature.
+
+
+changeset:   2581:2f23d0fbad56
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Mon Nov 22 12:30:10 2010 +0200
+files:       Components/RTShaderSystem/src/OgreShaderGLSLESProgramWriter.cpp Components/RTShaderSystem/src/OgreShaderGLSLProgramWriter.cpp
+description:
+A patch by Mattan F. - RTSS fixes: GL+GLES2 program writer - added support for parameters with indirection. GLES2 program writer - Added array parameters support.
+
+
+changeset:   2580:63a0198c26f8
+parent:      2573:694c1de55530
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Mon Nov 22 12:27:22 2010 +0200
+files:       Components/RTShaderSystem/CMakeLists.txt Components/RTShaderSystem/include/OgreShaderExTextureAtlasSampler.h Components/RTShaderSystem/include/OgreShaderFFPRenderState.h Components/RTShaderSystem/include/OgreShaderFFPTexturing.h Components/RTShaderSystem/src/OgreShaderExTextureAtlasSampler.cpp Components/RTShaderSystem/src/OgreShaderFFPTexturing.cpp Components/RTShaderSystem/src/OgreShaderGenerator.cpp Samples/Media/RTShaderLib/SGXLib_TextureAtlas.cg Samples/Media/RTShaderLib/SGXLib_TextureAtlas.glsl Samples/Media/RTShaderLib/SGXLib_TextureAtlas.glsles Samples/Media/RTShaderLib/SGXLib_TextureAtlas.hlsl
+description:
+A patch by Mattan F.: Added a texture atlas extension to the RTSS.
+
+
+changeset:   2579:0e9a06d3fca9
+user:        Mattan Furst <matanf@simigon.com>
+date:        Mon Nov 22 09:26:24 2010 +0200
+files:       RenderSystems/Direct3D9/include/OgreD3D9RenderSystem.h RenderSystems/Direct3D9/src/OgreD3D9RenderSystem.cpp
+description:
+Fixed texture state (filterring, adrdess mode, etc...) not set for vertex bounded textures in D3D9
+
+
+changeset:   2578:d91edd3c0a79
+parent:      2575:05e166337ebc
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Sun Nov 21 19:57:00 2010 +0000
+files:       OgreMain/include/OgreHardwareVertexBuffer.h OgreMain/src/OgreBillboardSet.cpp OgreMain/src/OgreFrustum.cpp OgreMain/src/OgreHardwareVertexBuffer.cpp OgreMain/src/OgreManualObject.cpp OgreMain/src/OgreRectangle2D.cpp OgreMain/src/OgreWireBoundingBox.cpp RenderSystems/Direct3D11/src/OgreD3D11RenderSystem.cpp RenderSystems/Direct3D11/src/OgreD3D11RenderToVertexBuffer.cpp RenderSystems/Direct3D9/include/OgreD3D9RenderSystem.h RenderSystems/Direct3D9/src/OgreD3D9RenderSystem.cpp RenderSystems/GL/src/OgreGLRenderSystem.cpp
+description:
+HW instancing: fixed a d3d9 issue with ATI cards and made sure that instancing is not used if there is no instanced vertex buffer.
+
+
+changeset:   2577:66a353c2552f
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Sat Nov 20 16:29:11 2010 -0600
+files:       RenderSystems/GL/include/OSX/OgreOSXCocoaWindowDelegate.h RenderSystems/GL/src/OSX/OgreOSXCocoaWindow.mm RenderSystems/GL/src/OSX/OgreOSXCocoaWindowDelegate.mm
+description:
+OS X: A few fixes for Cocoa windowing.  Now plays nicer with externally created windows.
+
+
+changeset:   2576:db1a6bedcf40
+branch:      v1-7
+parent:      2572:c8c6b61858d8
+user:        David Rogers <davidrogers@me.com>
+date:        Sat Nov 20 16:28:20 2010 -0600
+files:       Samples/Browser/src/SampleBrowser.cpp
+description:
+OS X: Build fix when targeting 10.5 or earlier.
+
+
+changeset:   2575:05e166337ebc
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Sat Nov 20 16:13:12 2010 +0000
+files:       Samples/TextureArray/include/TextureArray.h
+description:
+Texture array sample: Added some more textures and documentation.
+
+
+changeset:   2574:a6643f12e936
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Sat Nov 20 01:45:33 2010 +0000
+files:       CMake/Templates/SDK_Samples_CMakeLists.txt.in CMake/Templates/samples.cfg.in CMake/Templates/samples_d.cfg.in OgreMain/include/OgreTexture.h RenderSystems/Direct3D11/include/OgreD3D11Mappings.h RenderSystems/Direct3D11/src/OgreD3D11HardwarePixelBuffer.cpp RenderSystems/Direct3D11/src/OgreD3D11Mappings.cpp RenderSystems/Direct3D11/src/OgreD3D11Texture.cpp RenderSystems/GL/src/OgreGLHardwarePixelBuffer.cpp RenderSystems/GL/src/OgreGLTexture.cpp Samples/Browser/include/SampleBrowser.h Samples/CMakeLists.txt Samples/Media/thumbnails/thumb_texarray.png Samples/TextureArray/CMakeLists.txt Samples/TextureArray/include/TextureArray.h Samples/TextureArray/src/TextureArray.cpp
+description:
+Added texture array support. The sample only supports GL for now.
+
+
+changeset:   2573:694c1de55530
+parent:      2561:128845976c87
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Thu Nov 18 08:49:34 2010 +0200
+files:       Samples/ShaderSystem/include/ShaderSystem.h Samples/ShaderSystem/src/ShaderSystem.cpp
+description:
+RTSS sample - fixed a crash on exist - moved destroyInstancedViewports() from ~Sample_ShaderSystem() to _shutdown()
+
+
+changeset:   2572:c8c6b61858d8
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Tue Nov 16 01:37:23 2010 -0600
+files:       RenderSystems/GL/CMakeLists.txt RenderSystems/GL/include/OSX/OgreOSXCocoaWindow.h RenderSystems/GL/include/OSX/OgreOSXCocoaWindowDelegate.h RenderSystems/GL/src/OSX/OgreOSXCocoaWindow.mm RenderSystems/GL/src/OSX/OgreOSXCocoaWindowDelegate.mm RenderSystems/GL/src/OSX/OgreOSXGLSupport.mm
+description:
+Adding Cocoa window event handling.  Plus several other fixes for parameter parsing and other things.  Thanks to jdiogo for finding the bugs.
+
+
+changeset:   2571:3dc6057b2b79
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Tue Nov 16 00:32:43 2010 -0600
+files:       Samples/Common/misc/Info.plist
+description:
+Change the keys in the SampleBrowser's Info.plist to use CMake variables that can be replaced at build time.
+
+
+changeset:   2570:de4f7dfa6e7b
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Sun Nov 14 12:41:55 2010 -0600
+files:       Samples/Browser/src/SampleBrowser.cpp
+description:
+Compile fix for platforms other than OS X.
+
+
+changeset:   2569:61405480f3a5
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Thu Nov 11 20:08:09 2010 -0600
+files:       SDK/OSX/Xcode Templates/Xcode Templates.pmdoc/01xcode-contents.xml SDK/OSX/Xcode Templates/Xcode Templates.pmdoc/index.xml SDK/OSX/Xcode Templates/Xcode/Project Templates/Ogre/iPhone OS/Classes/OgreFramework.cpp SDK/OSX/Xcode Templates/Xcode/Project Templates/Ogre/iPhone OS/Resources/ogre.cfg SDK/OSX/Xcode Templates/Xcode/Project Templates/Ogre/iPhone OS/___PROJECTNAME___.xcodeproj/project.pbxproj
+description:
+Several fixes for the Xcode templates such as: file permissions for the installer, iOS device orientation.
+
+
+changeset:   2568:72808084e5d0
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Thu Nov 11 20:07:13 2010 -0600
+files:       BuildingOgre.txt SDK/iPhone/edit_linker_paths.sed SDK/iPhone/fix_linker_paths.sh SDK/iPhone/make_iphone.sh
+description:
+Remove linker path fixup scripts since they are no longer needed.  Update the building directions to reflect this.
+
+
+changeset:   2567:e1ac5d5b56fc
+branch:      v1-7
+user:        David Rogers <masterfalcon@ogre3d.org>
+date:        Thu Nov 11 19:29:27 2010 -0600
+files:       CMakeLists.txt OgreMain/CMakeLists.txt OgreMain/include/OgreMovableObject.h OgreMain/include/OgreWindowEventUtilities.h OgreMain/src/OgreWindowEventUtilities.cpp RenderSystems/GL/CMakeLists.txt RenderSystems/GL/include/GL/glew.h RenderSystems/GL/include/GL/glxew.h RenderSystems/GL/include/GL/wglew.h RenderSystems/GL/include/OSX/OgreOSXCarbonWindow.h RenderSystems/GL/include/OSX/OgreOSXCocoaView.h RenderSystems/GL/include/OSX/OgreOSXCocoaWindow.h RenderSystems/GL/src/GLSL/src/OgreGLSLLinkProgramManager.cpp RenderSystems/GL/src/OSX/OgreOSXCarbonWindow.cpp RenderSystems/GL/src/OSX/OgreOSXCocoaView.mm RenderSystems/GL/src/OSX/OgreOSXCocoaWindow.mm RenderSystems/GL/src/OSX/OgreOSXGLSupport.mm RenderSystems/GL/src/OgreGLFBORenderTexture.cpp RenderSystems/GL/src/OgreGLHardwareBufferManager.cpp RenderSystems/GL/src/OgreGLHardwarePixelBuffer.cpp RenderSystems/GL/src/OgreGLRenderSystem.cpp RenderSystems/GL/src/glew.cpp Samples/Browser/CMakeLists.txt Samples/Browser/include/SampleBrowser.h Samples/Browser/src/SampleBrowser.cpp Samples/Common/include/SampleContext.h Samples/Common/misc/Info.plist
+description:
+OS X: 64 bit Cocoa support.  New dependencies are also available to download.  Fixed a few uninitialized variables along the way.  Also updated GLEW to the same version as in default, the older version had some Apple specific bugs that needed to be resolved.
+
+
+changeset:   2566:acbec22417b4
+branch:      v1-7
+user:        David Rogers <masterfalcon@ogre3d.org>
+date:        Wed Oct 20 00:01:19 2010 -0500
+files:       RenderSystems/GL/include/OSX/OgreOSXCocoaView.h RenderSystems/GL/include/OSX/OgreOSXWindow.h RenderSystems/GL/src/OSX/OgreOSXCocoaView.mm
+description:
+OS X: Disabling CoreGraphics error checking by default
+
+
+changeset:   2565:73f4ff8d4493
+branch:      v1-7
+user:        David Rogers <masterfalcon@ogre3d.org>
+date:        Tue Oct 19 02:43:42 2010 -0500
+files:       OgreMain/include/OSX/OgreOSXCocoaView.h OgreMain/src/OSX/OgreOSXCocoaView.mm RenderSystems/GL/include/OSX/OgreOSXCocoaView.h RenderSystems/GL/src/OSX/OgreOSXCocoaView.mm
+description:
+OS X: The Cocoa view has no use inside the main library.  Moving into the GL Rendersystem where it is actually used.
+
+
+changeset:   2564:0b85d6904542
+branch:      v1-7
+user:        David Rogers <masterfalcon@ogre3d.org>
+date:        Tue Oct 19 02:40:50 2010 -0500
+files:       OgreMain/src/OSX/OgreOSXCocoaView.mm
+description:
+OS X: Some prep work for Cocoa input handling
+
+
+changeset:   2563:f4d4e9abab95
+branch:      v1-7
+user:        David Rogers <masterfalcon@ogre3d.org>
+date:        Tue Oct 19 02:32:31 2010 -0500
+files:       OgreMain/include/OgreRenderSystem.h
+description:
+Minor documentation fix
+
+
+changeset:   2562:02c49d2cf4e7
+branch:      v1-7
+parent:      2558:270cba7900ec
+user:        David Rogers <davidrogers@me.com>
+date:        Tue Oct 12 17:37:51 2010 -0500
+files:       CMake/InstallResources.cmake
+description:
+iOS: Fix to prevent absolute paths from being inserted into resources.cfg for iOS to fix running the sample browser on devices.
+
+
+changeset:   2561:128845976c87
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Thu Nov 11 20:11:35 2010 +0100
+files:       RenderSystems/Direct3D9/include/OgreD3D9RenderWindow.h
+description:
+Merge accidentally broke the D3D9 rendersystem. Fixed.
+
+
+changeset:   2560:d8e482795040
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Thu Nov 11 19:49:56 2010 +0100
+files:       OgreMain/include/OgreRenderSystem.h OgreMain/src/OgreRenderSystem.cpp RenderSystems/Direct3D9/src/OgreD3D9RenderSystem.cpp RenderSystems/GL/src/OgreGLRenderSystem.cpp
+description:
+[3105862] Add event to notify of creation of RenderSystemCapabilities
+
+
+changeset:   2559:e1bfc7da9203
+parent:      2557:e6c36c129c53
+parent:      2558:270cba7900ec
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Thu Nov 11 19:30:45 2010 +0100
+files:       CMake/CMakeLists.txt CMake/InstallDependencies.cmake CMake/InstallResources.cmake CMake/Packages/FindOGRE.cmake CMake/Templates/SDK_CMakeLists.txt.in CMake/Utils/OgreConfigTargets.cmake CMakeLists.txt OgreMain/include/OgreDefaultHardwareBufferManager.h OgreMain/include/OgrePrerequisites.h OgreMain/include/OgreString.h OgreMain/src/OgreAnimationTrack.cpp OgreMain/src/OgreDefaultHardwareBufferManager.cpp OgreMain/src/OgreHardwareIndexBuffer.cpp OgreMain/src/OgreHardwareVertexBuffer.cpp OgreMain/src/OgreRenderSystem.cpp OgreMain/src/OgreString.cpp OgreMain/src/OgreStringConverter.cpp OgreMain/src/OgreUTFString.cpp RenderSystems/Direct3D9/include/OgreD3D9RenderWindow.h RenderSystems/Direct3D9/src/OgreD3D9RenderSystem.cpp RenderSystems/Direct3D9/src/OgreD3D9RenderWindow.cpp RenderSystems/GL/src/OSX/OgreOSXGLSupport.mm RenderSystems/GL/src/OgreGLRenderSystem.cpp Samples/Browser/CMakeLists.txt Samples/CMakeLists.txt Samples/Common/include/Sample.h Samples/Common/include/SdkSample.h Samples/Terrain/include/Terrain.h
+description:
+Merged v1-7 into default
+
+
+changeset:   2558:270cba7900ec
+branch:      v1-7
+parent:      2556:46a2dbc347ad
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Thu Nov 11 18:26:21 2010 +0100
+files:       OgreMain/src/OgreRenderSystem.cpp RenderSystems/Direct3D9/src/OgreD3D9RenderSystem.cpp
+description:
+Only allow to set custom render capabilities before RenderSystem is fully created
+
+
+changeset:   2557:e6c36c129c53
+parent:      2555:14704802e6ac
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Thu Nov 11 18:03:27 2010 +0100
+files:       OgreMain/src/OgreRenderQueue.cpp
+description:
+[3078765] RenderQueue::clear now clears all dirty passes for all RenderQueues in order to avoid possible inconsistencies in the following recalculations
+
+
+changeset:   2556:46a2dbc347ad
+branch:      v1-7
+parent:      2547:3e364016dcdb
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Thu Nov 11 16:54:15 2010 +0100
+files:       OgreMain/src/OgreAnimationTrack.cpp
+description:
+[3018124] Consider weight when scaling in AnimationTracks
+
+
+changeset:   2555:14704802e6ac
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Mon Nov 08 19:43:29 2010 +0000
+files:       Samples/ShaderSystem/include/ShaderSystem.h
+description:
+RTSS sample: Fixed the near clip distance of InfiniteFrustum to a valid value.
+
+
+changeset:   2554:6dfc0c54fcfb
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Mon Nov 08 18:15:30 2010 +0200
+files:       Samples/ShaderSystem/include/ShaderSystem.h
+description:
+RTSS sample: Added a small performance improvement to InfiniteFrustum.
+
+
+changeset:   2553:c154238cbf7b
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Mon Nov 08 17:35:33 2010 +0200
+files:       Samples/ShaderSystem/src/ShaderSystem.cpp
+description:
+Instanced viewports: Added back the sky box to the RTSS sample - now it works with instanced view ports.
+
+
+changeset:   2552:797c22a30ee3
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Mon Nov 08 17:34:45 2010 +0200
+files:       Samples/Browser/include/SampleBrowser.h
+description:
+Sample browser: Added SdkTrays prefix to the thumbnail materials.
+
+
+changeset:   2551:b8d480d41805
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Mon Nov 08 17:33:27 2010 +0200
+files:       Samples/ShaderSystem/src/OgreShaderExInstancedViewports.cpp
+description:
+Instanced viewports: fixed a copy\paste bug.
+
+
+changeset:   2550:bddc7fc3becd
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Mon Nov 08 17:01:17 2010 +0200
+files:       Samples/ShaderSystem/include/ShaderSystem.h Samples/ShaderSystem/src/ShaderSystem.cpp
+description:
+Instanced viewports - added back the knot models to the RTSS sample when instanced viewports are on. The knots a drawn correctly in the instanced viewports so no need to hide them.
+
+
+changeset:   2549:fef9d702c793
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Mon Nov 08 16:26:33 2010 +0200
+files:       Components/RTShaderSystem/src/OgreShaderRenderState.cpp
+description:
+Fixed RTSS PSSM by removing some code that was added for the instanced viewports and is not really needed.
+
+
+changeset:   2548:d4d65466e18c
+parent:      2543:e2eec8e6c8bf
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Mon Nov 08 16:08:14 2010 +0200
+files:       Components/RTShaderSystem/CMakeLists.txt Components/RTShaderSystem/include/OgreShaderExInstancedViewports.h Components/RTShaderSystem/src/OgreShaderExInstancedViewports.cpp Components/RTShaderSystem/src/OgreShaderGenerator.cpp Samples/ShaderSystem/CMakeLists.txt Samples/ShaderSystem/include/OgreShaderExInstancedViewports.h Samples/ShaderSystem/include/ShaderSystem.h Samples/ShaderSystem/src/OgreShaderExInstancedViewports.cpp Samples/ShaderSystem/src/ShaderSystem.cpp
+description:
+RTSS instanced viewports: Moved the instanced viewports to be a part of the RTSS sample and not the RTSS core lib.
+
+
+changeset:   2547:3e364016dcdb
+branch:      v1-7
+user:        David Rogers <masterfalcon@ogre3d.org>
+date:        Sat Nov 06 13:22:39 2010 -0500
+files:       SDK/iPhone/make_iphone.sh
+description:
+iOS: Fix up the SDK build script
+
+
+changeset:   2546:5c98a5e7cdbb
+branch:      v1-7
+user:        David Rogers <masterfalcon@ogre3d.org>
+date:        Sat Nov 06 13:19:35 2010 -0500
+files:       CMake/Templates/SDK_CMakeLists.txt.in CMake/Templates/SDK_Samples_CMakeLists.txt.in Samples/CMakeLists.txt
+description:
+Some small changes to ensure that the terrain and paging libs are added to linker flags for SDK sample builds.
+
+
+changeset:   2545:8cadf97f33d9
+branch:      v1-7
+user:        David Rogers <masterfalcon@ogre3d.org>
+date:        Sat Nov 06 13:17:26 2010 -0500
+files:       RenderSystems/GLES/include/EAGL/OgreEAGLWindow.h RenderSystems/GLES/src/EAGL/OgreEAGLWindow.mm
+description:
+iOS: Remove the animation timer.  Since DisplayLink is used by default now, this only hurts performance of things like input.
+
+
+changeset:   2544:c13b007f4918
+branch:      v1-7
+parent:      2538:3ca441c19bd8
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Fri Nov 05 14:09:51 2010 +0100
+files:       CMake/CMakeLists.txt
+description:
+Forgot to install VisualStudioUserFile.vcxproj.user.in for SDK builds
+
+
+changeset:   2543:e2eec8e6c8bf
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Nov 03 19:47:42 2010 +0000
+files:       PlugIns/CgProgramManager/src/OgreCgProgram.cpp
+description:
+CG plugin: Removed some debug code that shouldn't have been commited.
+
+
+changeset:   2542:aec00bb6302d
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Nov 03 19:26:33 2010 +0000
+files:       Components/RTShaderSystem/src/OgreShaderExInstancedViewports.cpp Samples/Media/RTShaderLib/SampleLib_InstancedViewports.cg Samples/Media/RTShaderLib/SampleLib_InstancedViewports.glsl Samples/Media/RTShaderLib/SampleLib_InstancedViewports.hlsl Samples/ShaderSystem/include/ShaderSystem.h Samples/ShaderSystem/src/ShaderSystem.cpp
+description:
+Instanced viewports: Added basic support to GL (for now only CG).
+Also added an option to the RTSS sample to add lots of objects to the scene.
+
+
+changeset:   2541:57cc9d2f49e8
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Nov 03 19:22:23 2010 +0000
+files:       OgreMain/src/OgreBorderPanelOverlayElement.cpp OgreMain/src/OgrePanelOverlayElement.cpp OgreMain/src/OgreTextAreaOverlayElement.cpp
+description:
+Disabled the use of the global instancing vertex buffer for overlay objects.
+
+
+changeset:   2540:9aed706a75c9
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Nov 03 19:21:34 2010 +0000
+files:       OgreMain/include/OgreRenderOperation.h PlugIns/CgProgramManager/src/OgreCgProgram.cpp RenderSystems/Direct3D9/include/OgreD3D9RenderSystem.h RenderSystems/Direct3D9/include/OgreD3D9VertexDeclaration.h RenderSystems/Direct3D9/src/OgreD3D9RenderSystem.cpp RenderSystems/Direct3D9/src/OgreD3D9VertexDeclaration.cpp RenderSystems/GL/include/OgreGLRenderSystem.h RenderSystems/GL/src/OgreGLRenderSystem.cpp
+description:
+HW Instancing: Added an option to define that in the vertexData level - not use the global instancing vertex buffer.
+Also added global instancing vertex buffer support to the gl render system.
+
+
+changeset:   2539:ab6422e2ce9c
+parent:      2535:eea50be8e27a
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Nov 03 19:17:03 2010 +0000
+files:       RenderSystems/GL/src/GLSL/src/OgreGLSLLinkProgram.cpp
+description:
+GL render system: Fixed a bug from the shader microcode cache commit. Now the glsl shader work.
+
+
+changeset:   2538:3ca441c19bd8
+branch:      v1-7
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Wed Nov 03 19:20:53 2010 +0100
+files:       .hgtags
+description:
+Added tag v1-7-2 for changeset 3e9ed7c712e1
+
+
+changeset:   2537:3e9ed7c712e1
+branch:      v1-7
+tag:         v1-7-2
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Wed Nov 03 19:20:24 2010 +0100
+files:       Docs/ChangeLog.html OgreMain/include/OgrePrerequisites.h
+description:
+Release v1.7.2
+
+
+changeset:   2536:bda901c2cf35
+branch:      v1-7
+parent:      2531:748590ff30ee
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Wed Nov 03 09:31:23 2010 +0100
+files:       OgreMain/src/OgreHardwareVertexBuffer.cpp
+description:
+Remove the incorrect assert from HardwareVertexBuffer introduced by rev. 2519
+
+
+changeset:   2535:eea50be8e27a
+user:        David Rogers <davidrogers@me.com>
+date:        Tue Nov 02 02:44:48 2010 -0500
+files:       Samples/ShaderSystem/include/ShaderSystem.h Samples/ShaderSystem/src/ShaderSystem.cpp
+description:
+Fix iOS build and a method spelling error.
+
+
+changeset:   2534:38aabf2ccd3a
+user:        David Rogers <davidrogers@me.com>
+date:        Sun Oct 31 23:19:46 2010 -0500
+files:       RenderSystems/GLES2/include/OgreGLES2DefaultHardwareBufferManager.h RenderSystems/GLES2/src/OgreGLES2DefaultHardwareBufferManager.cpp
+description:
+GLES2: Apply patch 3097617
+
+
+changeset:   2533:570ef37d0772
+user:        David Rogers <davidrogers@me.com>
+date:        Sun Oct 31 01:19:27 2010 -0500
+files:       OgreMain/src/OgreParticleSystem.cpp PlugIns/ParticleFX/src/OgreDirectionRandomiserAffector.cpp PlugIns/ParticleFX/src/OgreLinearForceAffector.cpp
+description:
+Fix spelling in a few script parameter descriptions.
+
+
+changeset:   2532:2e734ce98388
+parent:      2528:882f4b6fef2c
+user:        nirhasson <nhasson76@hotmail.com>
+date:        Tue Nov 02 16:16:51 2010 +0200
+files:       OgreMain/include/OgreMemoryTracker.h OgreMain/src/OgreMemoryTracker.cpp
+description:
+Memory tracker can change the recording behaviour at runtime. Useful when compiling Ogre with OGRE_MEMORY_TRACKER defined and have to switch to OGRE_MEMORY_TRACKER disabled without recompiling.
+
+
+changeset:   2531:748590ff30ee
+branch:      v1-7
+user:        David Rogers <masterfalcon@ogre3d.org>
+date:        Tue Nov 02 00:43:52 2010 -0500
+files:       CMake/CMakeLists.txt CMake/Utils/FindPkgMacros.cmake
+description:
+Add missing CMake file to list of scripts to install
+
+
+changeset:   2530:d91c7464c528
+branch:      v1-7
+user:        David Rogers <masterfalcon@ogre3d.org>
+date:        Mon Nov 01 16:09:59 2010 -0500
+files:       CMake/InstallDependencies.cmake
+description:
+Remove a couple patterns from the Boost header exclude list.  Some headers in these directories are needed indirectly.
+
+
+changeset:   2529:9bda30cb7421
+branch:      v1-7
+parent:      2527:512980b3186a
+user:        David Rogers <masterfalcon@ogre3d.org>
+date:        Mon Nov 01 15:11:51 2010 -0500
+files:       CMake/InstallResources.cmake
+description:
+iOS: Guard a media dir variable update since we want to preserve the relative paths on iOS
+
+
+changeset:   2528:882f4b6fef2c
+parent:      2526:cdab608cc5e1
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Mon Nov 01 20:54:14 2010 +0200
+files:       Components/RTShaderSystem/include/OgreShaderExHardwareSkinning.h Components/RTShaderSystem/include/OgreShaderExInstancedViewports.h Components/RTShaderSystem/include/OgreShaderExIntegratedPSSM3.h Components/RTShaderSystem/include/OgreShaderExNormalMapLighting.h Components/RTShaderSystem/include/OgreShaderExPerPixelLighting.h Components/RTShaderSystem/include/OgreShaderFFPColour.h Components/RTShaderSystem/include/OgreShaderFFPFog.h Components/RTShaderSystem/include/OgreShaderFFPLighting.h Components/RTShaderSystem/include/OgreShaderFFPTexturing.h Components/RTShaderSystem/include/OgreShaderSubRenderState.h Components/RTShaderSystem/src/OgreShaderExHardwareSkinning.cpp Components/RTShaderSystem/src/OgreShaderExInstancedViewports.cpp Components/RTShaderSystem/src/OgreShaderExIntegratedPSSM3.cpp Components/RTShaderSystem/src/OgreShaderExNormalMapLighting.cpp Components/RTShaderSystem/src/OgreShaderExPerPixelLighting.cpp Components/RTShaderSystem/src/OgreShaderFFPColour.cpp Components/RTShaderSystem/src/OgreShaderFFPFog.cpp Components/RTShaderSystem/src/OgreShaderFFPLighting.cpp Components/RTShaderSystem/src/OgreShaderFFPRenderStateBuilder.cpp Components/RTShaderSystem/src/OgreShaderFFPTexturing.cpp Components/RTShaderSystem/src/OgreShaderGenerator.cpp Components/RTShaderSystem/src/OgreShaderRenderState.cpp RenderSystems/Direct3D9/include/OgreD3D9VertexDeclaration.h RenderSystems/Direct3D9/src/OgreD3D9VertexDeclaration.cpp Samples/ShaderSystem/include/ShaderExReflectionMap.h Samples/ShaderSystem/include/ShaderSystem.h Samples/ShaderSystem/src/ShaderExReflectionMap.cpp Samples/ShaderSystem/src/ShaderSystem.cpp
+description:
+Instanced viewports: Got the instanced viewport sample working as part of the RTSS demo. There is a new check box in the sample to see it in action.
+
+
+changeset:   2527:512980b3186a
+branch:      v1-7
+parent:      2520:6bc6c604c51b
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Tue Oct 19 19:13:29 2010 +0200
+files:       OgreMain/src/OgreRibbonTrail.cpp
+description:
+[3057434] Fix RibbonTrail reset when attached to a SceneNode not positioned at the origin
+
+
+changeset:   2526:cdab608cc5e1
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Mon Nov 01 14:18:55 2010 +0200
+files:       Samples/ShaderSystem/src/ShaderSystem.cpp
+description:
+RTSS sample: Added missing free for mInstancedViewportsFactory.
+
+
+changeset:   2525:7080ec5aa9cc
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Mon Nov 01 13:55:37 2010 +0200
+files:       Samples/ShaderSystem/src/ShaderSystem.cpp
+description:
+RTSS sample - removed some unneed debug code that I missed removing.
+
+
+changeset:   2524:87de808bada4
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Mon Nov 01 11:23:56 2010 +0000
+files:       PlugIns/CgProgramManager/src/OgreCgProgram.cpp
+description:
+CG: Fixed a typo in an error msg.
+
+
+changeset:   2523:46a585f4f75f
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Mon Nov 01 11:23:26 2010 +0000
+files:       Components/RTShaderSystem/CMakeLists.txt Components/RTShaderSystem/include/OgreShaderExInstancedViewports.h Components/RTShaderSystem/src/OgreShaderExInstancedViewports.cpp Samples/Media/RTShaderLib/SampleLib_InstancedViewports.cg Samples/Media/RTShaderLib/SampleLib_InstancedViewports.hlsl Samples/ShaderSystem/include/ShaderSystem.h Samples/ShaderSystem/src/ShaderSystem.cpp
+description:
+RTSS: Added base instanced viewports.
+
+
+changeset:   2522:c4f194cb62c4
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Mon Nov 01 11:19:58 2010 +0000
+files:       OgreMain/include/OgreRenderSystem.h OgreMain/src/OgreRenderSystem.cpp RenderSystems/Direct3D9/include/OgreD3D9VertexDeclaration.h RenderSystems/Direct3D9/src/OgreD3D9RenderSystem.cpp RenderSystems/Direct3D9/src/OgreD3D9VertexDeclaration.cpp
+description:
+HW instancing: Added an option to add a global instance vertex buffer and set a global intance count.
+
+
+changeset:   2521:f024a4d0e1ae
+parent:      2517:fefbb736602a
+user:        Steve Streeting <steve@stevestreeting.com>
+date:        Mon Nov 01 10:04:26 2010 +0000
+files:       AUTHORS
+description:
+Added glennr
+
+
+changeset:   2520:6bc6c604c51b
+branch:      v1-7
+user:        David Rogers <masterfalcon@ogre3d.org>
+date:        Sun Oct 31 19:24:25 2010 -0500
+files:       RenderSystems/GLES/include/OgreGLESDefaultHardwareBufferManager.h RenderSystems/GLES/src/OgreGLESDefaultHardwareBufferManager.cpp
+description:
+Apply patch 3097617 to the GL ES rendersystem too.
+
+
+changeset:   2519:4cc2f804796a
+branch:      v1-7
+user:        Steve Streeting <steve@stevestreeting.com>
+date:        Sun Oct 31 12:39:43 2010 +0000
+files:       OgreMain/include/OgreDefaultHardwareBufferManager.h OgreMain/src/OgreDefaultHardwareBufferManager.cpp OgreMain/src/OgreHardwareVertexBuffer.cpp RenderSystems/GL/include/OgreGLDefaultHardwareBufferManager.h RenderSystems/GL/src/OgreGLDefaultHardwareBufferManager.cpp
+description:
+Patch 3097617: initialise mManager correctly in default hardware buffers
+Modified slightly to maintain previous interfaces & not break build
+
+
+changeset:   2518:40150d870d49
+branch:      v1-7
+parent:      2515:a54516440ddb
+user:        Steve Streeting <steve@stevestreeting.com>
+date:        Sun Oct 31 11:21:11 2010 +0000
+files:       OgreMain/include/OgreBone.h
+description:
+Update documentation on Bone::setManuallyControlled to mention the option of using AnimationState::setBlendMask to prevent scripted animations applying to the bone.
+
+
+changeset:   2517:fefbb736602a
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Fri Oct 29 17:31:26 2010 +0000
+files:       OgreMain/include/OgreGpuProgramManager.h OgreMain/src/OgreGpuProgramManager.cpp PlugIns/CgProgramManager/src/OgreCgProgram.cpp RenderSystems/Direct3D11/src/OgreD3D11HLSLProgram.cpp RenderSystems/Direct3D9/src/OgreD3D9GpuProgram.cpp RenderSystems/Direct3D9/src/OgreD3D9HLSLProgram.cpp RenderSystems/GL/src/GLSL/src/OgreGLSLLinkProgram.cpp RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESLinkProgram.cpp
+description:
+Shader microcode cache: Changed the code so the microcode cache memory is allocated by the GpuProgramManager - else there are crashes on release if you dynamically link OGRE.
+
+
+changeset:   2516:71f4409a8853
+parent:      2513:17f5b2b70aee
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Fri Oct 29 16:40:25 2010 +0000
+files:       Samples/Browser/include/SampleBrowser.h Samples/Common/include/SampleContext.h
+description:
+Sample browser: Fixed it so if you press "cancel" on the render system select screen - it won't crash.
+
+
+changeset:   2515:a54516440ddb
+branch:      v1-7
+user:        David Rogers <masterfalcon@ogre3d.org>
+date:        Fri Oct 29 08:56:09 2010 -0500
+files:       SDK/OSX/Xcode Templates/Installer/Select Ogre Install Location/Select Ogre Install Location.xcodeproj/project.pbxproj SDK/OSX/Xcode Templates/Installer/Select Ogre Install Location/Select_Ogre_Install_LocationPane.m
+description:
+Add some error checking to the Xcode template installer to help alleviate installation problems
+
+
+changeset:   2514:e13d699bddbc
+branch:      v1-7
+parent:      2495:e1d6639a3765
+user:        David Rogers <masterfalcon@ogre3d.org>
+date:        Wed Oct 27 18:38:15 2010 -0500
+files:       CMake/Templates/SDK_CMakeLists.txt.in CMakeLists.txt SDK/iPhone/make_iphone.sh SDK/iPhone/readme.txt Samples/Browser/CMakeLists.txt
+description:
+iOS: Build script and CMake updates for iOS 4.  Fixes several project creation bugs and includes a warning about CMake 2.8.2 which cannot create usable universal Xcode iOS projects.
+
+
+changeset:   2513:17f5b2b70aee
+user:        David Rogers <davidrogers@me.com>
+date:        Thu Oct 28 14:20:20 2010 -0500
+files:       Samples/Media/materials/programs/ShowNormals.glsles Samples/Media/materials/scripts/Examples.material
+description:
+GLES2: Fix the ShowNormals shader.
+
+
+changeset:   2512:170642e02cd7
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Thu Oct 28 20:39:10 2010 +0200
+files:       Samples/Browser/include/SampleBrowser.h
+description:
+SampleBrowser: Added sample code to use\test the shader cache. #define ENABLE_SHADERS_CACHE at the start of the file for this to work.
+
+
+changeset:   2511:66f644b29d50
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Thu Oct 28 20:34:09 2010 +0200
+files:       RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESLinkProgram.cpp
+description:
+GLES2 render system: Fixed a bug with program binary cache - glCreateProgram should be also called before a program is loaded from the cache.
+
+
+changeset:   2510:eda3386e3507
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Thu Oct 28 20:33:20 2010 +0200
+files:       RenderSystems/GL/src/GLSL/include/OgreGLSLLinkProgram.h RenderSystems/GL/src/GLSL/include/OgreGLSLProgram.h RenderSystems/GL/src/GLSL/src/OgreGLSLLinkProgram.cpp RenderSystems/GL/src/GLSL/src/OgreGLSLProgram.cpp
+description:
+GL render system: Fixed program binary cache.
+
+
+changeset:   2509:1779a0921e97
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Thu Oct 28 19:20:02 2010 +0200
+files:       RenderSystems/GLES2/src/GLSLES/include/OgreGLSLESLinkProgram.h
+description:
+GLES2: Added get functions for vertex and fragment programs to GLSLESLinkProgram.
+
+
+changeset:   2508:abff888d255a
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Thu Oct 28 18:52:41 2010 +0200
+files:       RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESProgram.cpp
+description:
+GLES2: Fixed uninitialized data members in the class GLSLESProgram.
+
+
+changeset:   2507:4483646fd3e5
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Thu Oct 28 16:25:55 2010 +0200
+files:       OgreMain/include/OgreHardwareVertexBuffer.h RenderSystems/GLES2/src/GLSLES/include/OgreGLSLESLinkProgram.h RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESLinkProgram.cpp
+description:
+GLES2: Cleared up some more overhead code.
+
+
+changeset:   2506:0db00cbca4e7
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Thu Oct 28 07:05:59 2010 +0000
+files:       RenderSystems/GLES2/include/OgreGLES2GpuProgram.h RenderSystems/GLES2/src/GLSLES/include/OgreGLSLESGpuProgram.h RenderSystems/GLES2/src/GLSLES/include/OgreGLSLESLinkProgram.h RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESGpuProgram.cpp RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESLinkProgram.cpp RenderSystems/GLES2/src/OgreGLES2GpuProgram.cpp RenderSystems/GLES2/src/OgreGLES2HardwarePixelBuffer.cpp RenderSystems/GLES2/src/OgreGLES2RenderSystem.cpp
+description:
+GLES2: Cleared up some overhead code.
+
+
+changeset:   2505:eaceff12c258
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Oct 27 23:01:27 2010 +0000
+files:       RenderSystems/GLES2/src/GLSLES/include/OgreGLSLESLinkProgram.h RenderSystems/GLES2/src/GLSLES/include/OgreGLSLESProgram.h RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESLinkProgram.cpp RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESProgram.cpp
+description:
+GLES2: Changed it so shader will compile on demand from the linker – this way if a program is in the cache – the shaders will not compile.
+Along the way removed some unneeded vertex shader attribute parsing code.
+
+
+changeset:   2504:923437acccee
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Oct 27 22:20:31 2010 +0000
+files:       RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESLinkProgram.cpp
+description:
+GLES2: Fixed GLSLESLinkProgram::extractAttributes- also added support "position" as the name for the vertex attribute here and fixed a minor bug with the att indexs.
+
+
+changeset:   2503:46cd621c4128
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Oct 27 21:06:40 2010 +0000
+files:       RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESLinkProgram.cpp
+description:
+GLES2: Fixed GLSLESLinkProgram::bindAttribLocation - now it supports "position" as the name for the vertex attribute and also now the attribute name is case insensitive.
+
+
+changeset:   2502:ffc74fff471d
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Oct 27 19:38:13 2010 +0000
+files:       Samples/OceanDemo/src/MaterialControls.cpp
+description:
+Ocean demo: added code to show only supported materials.
+
+
+changeset:   2501:5cc09e5a3498
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Oct 27 19:21:37 2010 +0000
+files:       RenderSystems/GLES2/src/OgreGLES2RenderSystem.cpp
+description:
+GLES2: Reorganized GLES2RenderSystem::_render removed double code.
+
+
+changeset:   2500:f8dde5919cf7
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Oct 27 19:14:36 2010 +0000
+files:       RenderSystems/GLES2/src/OgreGLES2RenderSystem.cpp
+description:
+GLES2: Removed some unwanted debug code.
+
+
+changeset:   2499:909fd731d9fe
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Oct 27 16:16:20 2010 +0000
+files:       RenderSystems/GLES2/src/OgreGLES2HardwarePixelBuffer.cpp
+description:
+GLES2 render system: Added a "todo" remark to GLES2TextureBuffer::blitFromTexture - shader binding is missing there...
+
+
+changeset:   2498:97dccd0008a1
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Oct 27 16:14:34 2010 +0000
+files:       RenderSystems/GLES2/src/GLSLES/include/OgreGLSLESLinkProgram.h RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESLinkProgram.cpp
+description:
+GLES2 render system: Rewrote the code that binds attrib location and moved it to a member function, the old code missed some of the parameters.
+
+
+changeset:   2497:cb2c526f07d2
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Oct 27 16:04:45 2010 +0000
+files:       RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESProgram.cpp
+description:
+GLES2 render system: Cleaned up GLSLESProgram::checkAndFixInvalidDefaultPrecisionError
+
+
+changeset:   2496:dcb1e2f28d1d
+parent:      2494:bf5fd6600771
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Oct 27 16:02:54 2010 +0000
+files:       RenderSystems/GLES2/src/EGL/OgreEGLSupport.cpp RenderSystems/GLES2/src/OgreGLES2DepthBuffer.cpp RenderSystems/GLES2/src/OgreGLES2FBOMultiRenderTarget.cpp RenderSystems/GLES2/src/OgreGLES2FBORenderTexture.cpp RenderSystems/GLES2/src/OgreGLES2RenderSystem.cpp
+description:
+GLES2 render system: Removed the "RTT Preferred Mode" option if FBO are not available.
+
+
+changeset:   2495:e1d6639a3765
+branch:      v1-7
+parent:      2445:69c3a6aff2a8
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Thu Oct 21 00:41:02 2010 +0000
+files:       RenderSystems/GL/src/GLX/OgreGLXGLSupport.cpp
+description:
+A fix so ogre can run on Ubuntu that runs in "VirtualBox".
+At the date of this commit - chooseFBConfig was not supported on VirtualBox - http://www.virtualbox.org/ticket/7195
+Now glXGetFBConfigs is uses as an alternative if chooseFBConfig fails.
+(transplanted from 6106a0909c84a549ca69ffde3017b72adc567207)
+
+
+changeset:   2494:bf5fd6600771
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Oct 27 00:19:03 2010 +0000
+files:       RenderSystems/GL/src/GLSL/src/OgreGLSLLinkProgram.cpp
+description:
+GL render system: Added the names of the shaders to the GLSL link result error message.
+
+
+changeset:   2493:fa6fc5badb2d
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Oct 27 00:17:29 2010 +0000
+files:       RenderSystems/GL/src/GLSL/include/OgreGLSLLinkProgram.h RenderSystems/GL/src/GLSL/src/OgreGLSLLinkProgram.cpp
+description:
+GL render system: Fixed a bug - if a program failed to link - it still tried to link next time it was used - meaning endless linking.
+
+
+changeset:   2492:9326c5594ef1
+user:        David Rogers <davidrogers@me.com>
+date:        Tue Oct 26 11:20:23 2010 -0500
+files:       RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESLinkProgram.cpp
+description:
+GLES2: Actually commit the changes for guarding binary program functions.
+
+
+changeset:   2491:9f0ae1d32ebb
+user:        David Rogers <davidrogers@me.com>
+date:        Sun Oct 24 22:41:37 2010 -0500
+files:       CMakeLists.txt
+description:
+iOS: Enable building the GLES 2 rendersystem and change some comments to reference iOS
+
+
+changeset:   2490:b21f0fe6e060
+user:        David Rogers <davidrogers@me.com>
+date:        Sun Oct 24 22:40:43 2010 -0500
+files:       RenderSystems/GLES2/include/EAGL/OgreEAGL2Window.h RenderSystems/GLES2/src/EAGL/OgreEAGL2Window.mm Samples/Browser/src/SampleBrowser.cpp
+description:
+iOS: Remove animation timer and enable Display link by default.
+
+
+changeset:   2489:bbcc6014508c
+user:        David Rogers <davidrogers@me.com>
+date:        Wed Oct 06 11:47:40 2010 -0500
+files:       OgreMain/src/OgreInstanceBatch.cpp Samples/NewInstancing/include/NewInstancing.h
+description:
+Fix the new instancing sample so it builds on OS X.  Also take care of a couple warnings.
+
+
+changeset:   2488:a6fbd478fc89
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Oct 26 23:32:37 2010 +0000
+files:       RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESExtSupport.cpp
+description:
+GLES2 render system: removed end of line chars from the compile result to log function -  - so there will be less empty lines in the log.
+
+
+changeset:   2487:ffd1e2352988
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Oct 26 23:31:26 2010 +0000
+files:       RenderSystems/GLES2/src/GLSLES/include/OgreGLSLESProgram.h RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESProgram.cpp
+description:
+GLES2: Check the compile result for an error with default precision - and recompile if needed.
+some glsl compilers return an error default precision is set to types other then int or float, this function test a failed compile result for the error, delete the needed lines from the source if needed then try to re-compile.
+
+
+changeset:   2486:af820166f5f5
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Oct 26 22:20:41 2010 +0000
+files:       RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESLinkProgram.cpp
+description:
+GLES2 render system: Fixed microcode cache support - will buildGLUniformReferences extractAttributes also for cached programs.
+
+
+changeset:   2485:e370056b2e94
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Oct 26 16:16:38 2010 +0000
+files:       RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESExtSupport.cpp
+description:
+GLES2 render system: Fixed a possible buffer overflow in logObjectInfo.
+
+
+changeset:   2484:a1b071acb9b3
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Oct 26 16:02:34 2010 +0000
+files:       RenderSystems/GLES2/src/GLSLES/include/OgreGLSLESLinkProgram.h RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESLinkProgram.cpp
+description:
+GLES2 render system: Fixed a bug - if a program failed to link - it still tried to link next time it was used - meaning endless linking.
+
+
+changeset:   2483:25d817331a3c
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Oct 26 15:51:59 2010 +0000
+files:       RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESLinkProgram.cpp
+description:
+GLES2 render system: Added the names of the shaders to the GLSL link result error message.
+
+
+changeset:   2482:d835e52995e1
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Oct 26 14:18:49 2010 +0000
+files:       RenderSystems/GLES2/src/GLSLES/include/OgreGLSLESLinkProgram.h RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESLinkProgram.cpp RenderSystems/GLES2/src/OgreGLES2RenderSystem.cpp
+description:
+GLES2 render system: Added microcode cache support.
+
+
+changeset:   2481:c13f41c0210d
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Oct 26 14:17:44 2010 +0000
+files:       Components/RTShaderSystem/src/OgreShaderGLSLESProgramWriter.cpp RenderSystems/GLES2/include/EGL/OgreEGLSupport.h RenderSystems/GLES2/src/EGL/OgreEGLSupport.cpp RenderSystems/GLES2/src/EGL/WIN32/OgreWin32EGLWindow.cpp RenderSystems/GLES2/src/OgreGLES2RenderSystem.cpp RenderSystems/GLES2/src/OgreGLES2TextureManager.cpp
+description:
+GLES2 render system: Added win32 support to the AMD and "Mali Developer" emulations.
+Tested on this AMD emulation version: http://download2-developer.amd.com/amd/GPU/executables/esemulator.2008-04-07-v1.1.323-public.msi
+and this "Mali Developer" emulation version: http://www.malideveloper.com/files/OpenGL_ES_2_0_Emulator_1.2.0.5635_Win32.msi
+For the two emulations: the developer will need to edit the gl2ext.h and remove the GL_OES_mapbuffer section - else the render system will not compile with the emulations libs - the two emulations didn't implement glMapBufferOES and glUnmapBufferOES.
+
+
+changeset:   2480:f98637587707
+user:        nirhasson <nhasson76@hotmail.com>
+date:        Tue Oct 26 12:43:29 2010 +0200
+files:       OgreMain/src/OgreDDSCodec.cpp
+description:
+DDSCodec - Fixed crash when no render system exists. (Used AtlasImageTool of PU on DDS source files)
+
+
+changeset:   2479:886217c4a484
+parent:      2477:0858bb739ab3
+parent:      2478:a4ecf01a57a5
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Oct 26 10:16:50 2010 +0000
+description:
+Merged GLES+GLES2 render systems: Added win32 video mode enumeration.
+
+
+changeset:   2478:a4ecf01a57a5
+parent:      2475:77275de7d0e2
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Oct 26 10:13:18 2010 +0000
+files:       RenderSystems/GLES/src/EGL/WIN32/OgreWin32EGLSupport.cpp RenderSystems/GLES2/src/EGL/WIN32/OgreWin32EGLSupport.cpp
+description:
+GLES+GLES2 render systems: Added win32 video mode enumeration.
+
+
+changeset:   2477:0858bb739ab3
+user:        nirhasson <nhasson76@hotmail.com>
+date:        Tue Oct 26 11:38:47 2010 +0200
+files:       Components/RTShaderSystem/src/OgreShaderGenerator.cpp
+description:
+RTSS: setShaderCachePath validate that the given path is writable.
+
+
+changeset:   2476:5264809e4fdc
+user:        nirhasson <nhasson76@hotmail.com>
+date:        Tue Oct 26 11:30:46 2010 +0200
+files:       Components/RTShaderSystem/src/OgreShaderGenerator.cpp
+description:
+RTSS: setShaderCachePath validate that the given path is writable.
+
+
+changeset:   2475:77275de7d0e2
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Oct 26 09:03:44 2010 +0000
+files:       RenderSystems/GLES2/src/OgreGLES2TextureManager.cpp
+description:
+GLES2 render system: On windows the emulation has a bug that makes it crash on exit when releasing the warning texture. Solved by adding a #if to check for win32 then don’t execute that problematic line.
+
+
+changeset:   2474:82c5bb4f22c0
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Oct 26 09:00:08 2010 +0000
+files:       RenderSystems/GLES2/include/OgreGLES2RenderSystem.h RenderSystems/GLES2/src/OgreGLES2RenderSystem.cpp
+description:
+GLES2 render system: Removed RTSS dependency from the render system.
+
+
+changeset:   2473:cacd192f7bbd
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Mon Oct 25 21:48:19 2010 +0200
+files:       RenderSystems/GLES2/include/EGL/WIN32/OgreWin32EGLContext.h RenderSystems/GLES2/include/EGL/WIN32/OgreWin32EGLWindow.h RenderSystems/GLES2/include/OgreGLES2GpuProgram.h RenderSystems/GLES2/src/EGL/WIN32/OgreWin32EGLWindow.cpp RenderSystems/GLES2/src/GLSLES/include/OgreGLSLESLinkProgram.h RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESLinkProgram.cpp RenderSystems/GLES2/src/OgreGLES2GpuProgram.cpp RenderSystems/GLES2/src/OgreGLES2PixelFormat.cpp RenderSystems/GLES2/src/OgreGLES2RenderSystem.cpp
+description:
+GLES2 render system: Fixed win32 -> compile, vertex elements binding and texture color format.
+
+
+changeset:   2472:2d7fee2c312b
+user:        nirhasson <nhasson76@hotmail.com>
+date:        Mon Oct 25 17:52:04 2010 +0200
+files:       Components/RTShaderSystem/src/OgreShaderGenerator.cpp
+description:
+RTSS: setShaderCachePath handle non-standard cache path assignment. Thanks syedhs.
+
+
+changeset:   2471:0b1070c11a98
+user:        nirhasson <nhasson76@hotmail.com>
+date:        Mon Oct 25 17:40:50 2010 +0200
+files:       Components/RTShaderSystem/src/OgreShaderExIntegratedPSSM3.cpp
+description:
+RTSS: PSS3 Subrender state inverse shadow map texture size gpu parameter update fixed.
+
+
+changeset:   2470:e59cb9317acc
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Mon Oct 25 13:26:51 2010 +0200
+files:       RenderSystems/Direct3D11/src/OgreD3D11HLSLProgram.cpp
+description:
+d3d11 render system: Also switched here to MemoryDataStream from vector<uint8> for storing the microcode in the microcode cache.
+
+
+changeset:   2469:30a94ed239b7
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Mon Oct 25 10:20:23 2010 +0200
+files:       OgreMain/include/OgreGpuProgramManager.h OgreMain/src/OgreGpuProgramManager.cpp PlugIns/CgProgramManager/src/OgreCgProgram.cpp RenderSystems/Direct3D9/src/OgreD3D9GpuProgram.cpp RenderSystems/Direct3D9/src/OgreD3D9HLSLProgram.cpp RenderSystems/GL/src/GLSL/src/OgreGLSLLinkProgram.cpp
+description:
+Switched to MemoryDataStream from vector<uint8> for storing the microcode  in the microcode cache.
+
+
+changeset:   2468:d29d7a7e0435
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Mon Oct 25 01:36:19 2010 +0000
+files:       PlugIns/CgProgramManager/include/OgreCgProgram.h PlugIns/CgProgramManager/src/OgreCgProgram.cpp RenderSystems/Direct3D9/include/OgreD3D9HLSLProgram.h RenderSystems/Direct3D9/src/OgreD3D9HLSLProgram.cpp
+description:
+Move the serialization of the microcode data to a function named addMicrocodeToCache in d3d9 and cg.
+
+
+changeset:   2467:e082dada7fcd
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Mon Oct 25 01:15:48 2010 +0000
+files:       OgreMain/include/OgreGpuProgramManager.h OgreMain/src/OgreGpuProgramManager.cpp
+description:
+The shader cache in now render system specific.
+
+
+changeset:   2466:5d23933deaa7
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Mon Oct 25 01:07:04 2010 +0000
+files:       PlugIns/CgProgramManager/src/OgreCgProgram.cpp RenderSystems/Direct3D9/include/OgreD3D9HLSLProgram.h RenderSystems/Direct3D9/src/OgreD3D9HLSLProgram.cpp
+description:
+Fixed the option to save a cache of d3d9 shaders.
+
+
+changeset:   2465:78e5e42e68ab
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Mon Oct 25 00:19:38 2010 +0000
+files:       OgreMain/src/OgreGpuProgramManager.cpp PlugIns/CgProgramManager/include/OgreCgProgram.h PlugIns/CgProgramManager/src/OgreCgProgram.cpp RenderSystems/GL/src/GLSL/src/OgreGLSLLinkProgram.cpp
+description:
+Added an option to save a cache of cg shaders.
+
+
+changeset:   2464:01befa5f0bc2
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Sun Oct 24 20:37:33 2010 +0000
+files:       OgreMain/src/OgreGpuProgramManager.cpp RenderSystems/GL/src/GLSL/include/OgreGLSLLinkProgram.h RenderSystems/GL/src/GLSL/include/OgreGLSLProgram.h RenderSystems/GL/src/GLSL/src/OgreGLSLLinkProgram.cpp RenderSystems/GL/src/GLSL/src/OgreGLSLProgram.cpp RenderSystems/GL/src/OgreGLRenderSystem.cpp
+description:
+Shader cache: Fixed opengl caching, and it turns out that this feature is only available in gl 4.1.
+Reverted OgreGLSLProgram.h\cpp to the version before the last commit on this topic.
+
+
+changeset:   2463:a6ef125d10ee
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Sun Oct 24 18:54:22 2010 +0000
+files:       CMake/Packages/FindDirectX.cmake OgreMain/include/OgreGpuProgramManager.h OgreMain/include/OgreRenderSystemCapabilities.h OgreMain/src/OgreGpuProgramManager.cpp RenderSystems/Direct3D11/include/OgreD3D11HLSLProgram.h RenderSystems/Direct3D11/src/OgreD3D11HLSLProgram.cpp RenderSystems/Direct3D11/src/OgreD3D11RenderSystem.cpp RenderSystems/Direct3D9/include/OgreD3D9GpuProgram.h RenderSystems/Direct3D9/include/OgreD3D9HLSLProgram.h RenderSystems/Direct3D9/src/OgreD3D9GpuProgram.cpp RenderSystems/Direct3D9/src/OgreD3D9HLSLProgram.cpp RenderSystems/Direct3D9/src/OgreD3D9RenderSystem.cpp RenderSystems/GL/src/GLSL/include/OgreGLSLProgram.h RenderSystems/GL/src/GLSL/src/OgreGLSLProgram.cpp RenderSystems/GL/src/OgreGLRenderSystem.cpp
+description:
+Added an option to save a cache of compiled shaders, this should improve the loading time of shaders – the shaders will not be compiled but loaded from the cache.
+Only the d3d9, d3d11 and opengl render systems supports loading compiled shaders from a binary buffer – so the loading was added to them.
+Note 1: If a shader source changes – the cache should be rebuilt.
+Note 2: A dependency to d3d10.lib was added to the d3d11 render system, this is required for: D3D10CreateBlob. There is no D3D11CreateBlob at the time of this commit.
+Note 3: d3d9 assembly program bug was resolved – now the program doesn’t compile more the one where there is more then one device.
+Note 4: In the opengl render system only glsl programs are added to the cache for now. (Assembly programs aren’t added for now).
+
+
+changeset:   2462:9078424c48f1
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Sun Oct 24 17:22:09 2010 +0000
+files:       RenderSystems/Direct3D11/src/OgreD3D11RenderSystem.cpp
+description:
+d3d11 render system: Added RSC_VERTEX_BUFFER_INSTANCE_DATA to the capabilities, it was missing from the instancing commit.
+
+
+changeset:   2461:7af8ff8cb9ce
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Fri Oct 22 17:23:30 2010 +0000
+files:       Samples/Browser/include/SampleBrowser.h Samples/Common/include/SampleContext.h
+description:
+Sample browser: changed the create window function to return the mWindow instead of initializing it inside the function.
+This solves a strange crash; it seems that in some cases mWindow doesn’t get initialized correctly inside the function.
+
+
+changeset:   2460:eb2de8c9e083
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Fri Oct 22 14:11:18 2010 +0000
+files:       OgreMain/include/OgreRenderSystem.h OgreMain/src/OgreRenderSystem.cpp RenderSystems/Direct3D11/src/OgreD3D11RenderSystem.cpp RenderSystems/Direct3D9/src/OgreD3D9RenderSystem.cpp RenderSystems/GL/src/GLX/OgreGLXGLSupport.cpp RenderSystems/GL/src/OSX/OgreOSXGLSupport.mm RenderSystems/GL/src/OgreGLRenderSystem.cpp RenderSystems/GL/src/OgreWin32GLSupport.cpp RenderSystems/GL/src/SDL/OgreSDLGLSupport.cpp RenderSystems/GLES2/src/OgreGLES2RenderSystem.cpp
+description:
+Added an option to the render system config - to disable the fixed pipeline for a given render system (if relevent).
+
+
+changeset:   2459:6106a0909c84
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Thu Oct 21 00:41:02 2010 +0000
+files:       RenderSystems/GL/src/GLX/OgreGLXGLSupport.cpp
+description:
+A fix so ogre can run on Ubuntu that runs in "VirtualBox".
+At the date of this commit - chooseFBConfig was not supported on VirtualBox - http://www.virtualbox.org/ticket/7195
+Now glXGetFBConfigs is uses as an alternative if chooseFBConfig fails.
+
+
+changeset:   2458:3f636a7a277e
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Oct 19 17:00:26 2010 +0000
+files:       Components/RTShaderSystem/include/OgreShaderFFPFog.h Components/RTShaderSystem/include/OgreShaderFFPLighting.h Components/RTShaderSystem/include/OgreShaderFFPTexturing.h Components/RTShaderSystem/include/OgreShaderFFPTransform.h Samples/Media/RTShaderLib/FFPLib_Fog.cg Samples/Media/RTShaderLib/FFPLib_Fog.glsl Samples/Media/RTShaderLib/FFPLib_Fog.glsles Samples/Media/RTShaderLib/FFPLib_Fog.hlsl Samples/Media/RTShaderLib/FFPLib_Lighting.cg Samples/Media/RTShaderLib/FFPLib_Lighting.glsl Samples/Media/RTShaderLib/FFPLib_Lighting.glsles Samples/Media/RTShaderLib/FFPLib_Lighting.hlsl Samples/Media/RTShaderLib/FFPLib_Texturing.cg Samples/Media/RTShaderLib/FFPLib_Texturing.glsl Samples/Media/RTShaderLib/FFPLib_Texturing.glsles Samples/Media/RTShaderLib/FFPLib_Texturing.hlsl Samples/Media/RTShaderLib/FFPLib_Transform.cg Samples/Media/RTShaderLib/FFPLib_Transform.glsl Samples/Media/RTShaderLib/FFPLib_Transform.glsles Samples/Media/RTShaderLib/FFPLib_Transform.hlsl Samples/ParticleGS/src/ParticleGS.cpp
+description:
+Fixed links to moved pages on Microsoft site in some of the comments.
+
+
+changeset:   2457:55ee1c04468d
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Oct 19 16:29:46 2010 +0000
+files:       OgreMain/include/OgreRenderSystem.h OgreMain/src/OgreRenderSystem.cpp RenderSystems/Direct3D11/include/OgreD3D11RenderSystem.h RenderSystems/Direct3D11/src/OgreD3D11RenderSystem.cpp RenderSystems/GLES2/include/OgreGLES2RenderSystem.h
+description:
+Changed RenderSystem::_getDefaultViewportMaterialScheme to use the RTSS if the fixed pipeline doesn't exist.
+Both GLES2 and D3D11 render system had code that does exactly that, this fix removed duplicate code.
+The RTSS may look like a specific solution in this case - but it is very unlikely that anyone is going to develop a different fixed pipeline emulation in the near future.
+
+
+changeset:   2456:721dd5c37bd5
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Oct 19 10:06:07 2010 +0000
+files:       RenderSystems/Direct3D11/src/OgreD3D11RenderSystem.cpp
+description:
+D3D11 instancing - added instancing support for rendering without an index buffer.
+
+
+changeset:   2455:22b56e2e25a7
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Oct 19 09:30:49 2010 +0000
+files:       OgreMain/include/OgreHardwareVertexBuffer.h OgreMain/src/OgreHardwareVertexBuffer.cpp RenderSystems/Direct3D11/include/OgreD3D11RenderSystem.h RenderSystems/Direct3D11/include/OgreD3D11VertexDeclaration.h RenderSystems/Direct3D11/src/OgreD3D11RenderSystem.cpp RenderSystems/Direct3D11/src/OgreD3D11VertexDeclaration.cpp RenderSystems/Direct3D9/src/OgreD3D9RenderSystem.cpp RenderSystems/GL/src/OgreGLRenderSystem.cpp
+description:
+Added Instancing support for the d3d11 render system.
+Also added an option to control the instance data step rate for all render systems. This is useful for the cases where instances of instances are needed.
+
+
+changeset:   2454:2f23c2e0096d
+user:        Steve Streeting <steve@stevestreeting.com>
+date:        Tue Oct 19 09:54:41 2010 +0100
+files:       OgreMain/src/OgreInstanceBatch.cpp OgreMain/src/OgreInstanceManager.cpp OgreMain/src/OgreInstancedEntity.cpp
+description:
+Fix initialisation order warnings on gcc (and one unused variable)
+
+
+changeset:   2453:6b6e35791ade
+user:        Steve Streeting <steve@stevestreeting.com>
+date:        Tue Oct 19 09:51:45 2010 +0100
+files:       Samples/NewInstancing/include/NewInstancing.h
+description:
+Fix broken build on Mac OS X (the recurring Button class ambiguity)
+
+
+changeset:   2452:0d4367d64494
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Oct 19 06:35:06 2010 +0000
+files:       Samples/NewInstancing/include/NewInstancing.h
+description:
+New Instancing removed a reference to an unfinished material so the demo will not creash for now.
+
+
+changeset:   2451:7d52f1b7bdc2
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Tue Oct 19 01:08:20 2010 -0300
+files:       Samples/NewInstancing/include/NewInstancing.h
+description:
+NewInstancing demo: Fixed missing non-instancing "technique" option. Fixed a buffer overflow caused by assaf's checkin.
+Sample no longer crashes when selecting an unsupported technique and trying to move it.
+
+
+changeset:   2450:ecd41f2f64ea
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Tue Oct 19 00:55:17 2010 -0300
+files:       OgreMain/src/OgreInstanceManager.cpp
+description:
+Bugfix: InstanceManager::getMaxOrBestNumInstancesPerBatch shouldn't crash when a material wasn't found
+
+
+changeset:   2449:7e4bb2219f3a
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Mon Oct 18 23:40:31 2010 +0200
+files:       OgreMain/include/OgreInstanceBatchVTF.h OgreMain/include/OgreInstanceManager.h OgreMain/include/OgreInstancedEntity.h OgreMain/src/OgreInstanceBatchVTF.cpp OgreMain/src/OgreInstanceManager.cpp Samples/NewInstancing/include/NewInstancing.h
+description:
+New instance manager - added support for hardware instancing. This is a backup commit the work is not done yet.
+
+
+changeset:   2448:b19c65e7cf35
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Mon Oct 18 23:37:11 2010 +0200
+files:       OgreMain/include/OgreRenderSystemCapabilities.h OgreMain/src/OgreHardwareVertexBuffer.cpp OgreMain/src/OgreRenderSystem.cpp RenderSystems/Direct3D9/src/OgreD3D9RenderSystem.cpp RenderSystems/GL/src/OgreGLRenderSystem.cpp
+description:
+Hardware instancing - a few fixes for the render system level of hardware instancing I commited.
+
+
+changeset:   2447:0ff4b71c889b
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Mon Oct 18 15:10:58 2010 +0200
+files:       OgreMain/include/OgreHardwareVertexBuffer.h OgreMain/include/OgreRenderOperation.h OgreMain/include/OgreRenderSystemCapabilities.h OgreMain/src/OgreHardwareVertexBuffer.cpp RenderSystems/Direct3D9/include/OgreD3D9RenderSystem.h RenderSystems/Direct3D9/src/OgreD3D9RenderSystem.cpp RenderSystems/GL/src/OgreGLRenderSystem.cpp
+description:
+Added hardware instance support to the D3D9 and GL render systems.
+
+
+changeset:   2446:ec1725ddb5c8
+parent:      2433:abeea8874b26
+user:        Assaf Raman<assaf@assaf.co.il>
+date:        Mon Oct 18 15:00:27 2010 +0200
+files:       RenderSystems/GL/include/GL/glew.h RenderSystems/GL/include/GL/glxew.h RenderSystems/GL/include/GL/wglew.h RenderSystems/GL/src/glew.cpp
+description:
+GL render system: Updated to the latest version of glew.
+
+
+changeset:   2445:69c3a6aff2a8
+branch:      v1-7
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Mon Oct 18 22:18:11 2010 +0200
+files:       OgreMain/include/OgreString.h OgreMain/include/OgreStringConverter.h OgreMain/src/OgreString.cpp
+description:
+Fix Ogre::StringVector errors introduced by rev 2441
+
+
+changeset:   2444:b87a30bd4619
+branch:      v1-7
+user:        David Rogers <masterfalcon@ogre3d.org>
+date:        Mon Oct 18 09:48:18 2010 -0500
+files:       RenderSystems/GL/src/OSX/OgreOSXGLSupport.mm
+description:
+OS X: Fix use of macAPI in config files to specify Carbon or Cocoa windowing APIs
+
+
+changeset:   2443:21a96e8ce530
+branch:      v1-7
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Sun Oct 17 19:58:02 2010 +0200
+files:       RenderSystems/Direct3D9/src/OgreD3D9RenderWindow.cpp
+description:
+D3D9: Fixed a bug where RenderWindow and Viewport sizes would not be in sync during a windowResized event.
+
+
+changeset:   2442:7b464dd75e64
+branch:      v1-7
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Sun Oct 17 17:28:13 2010 +0200
+files:       RenderSystems/Direct3D9/include/OgreD3D9RenderWindow.h RenderSystems/Direct3D9/src/OgreD3D9RenderWindow.cpp
+description:
+D3D9: RenderWindow::adjustWindow needs to take the current window style into consideration, otherwise the produced values can be off.
+
+
+changeset:   2441:bbb761a431a1
+branch:      v1-7
+user:        David Rogers <masterfalcon@ogre3d.org>
+date:        Sat Oct 16 17:55:51 2010 -0500
+files:       OgreMain/include/OgreString.h OgreMain/include/OgreStringConverter.h OgreMain/src/OgreString.cpp OgreMain/src/OgreStringConverter.cpp
+description:
+[3003231] Specify default values in StringConverter::parse*
+
+
+changeset:   2440:0c7eff27058b
+branch:      v1-7
+user:        David Rogers <masterfalcon@ogre3d.org>
+date:        Sat Oct 16 16:54:47 2010 -0500
+files:       OgreMain/include/OgreCamera.h OgreMain/include/OgreFrustum.h OgreMain/src/OgreCamera.cpp OgreMain/src/OgreFrustum.cpp
+description:
+[3054042] Fix for two frustums attached to one scene node.  Cameras and Frustums should use the name member that they inherit from MoveableObject instead of their own.
+
+
+changeset:   2439:bbe0d7d571ad
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Sat Oct 16 16:18:59 2010 -0500
+files:       CMake/Utils/OgreConfigTargets.cmake CMakeLists.txt OgreMain/include/OgreLog.h
+description:
+[3043021] Use CMake to make sure that GCC visibility settings are passed along to Xcode.
+
+
+changeset:   2438:2a5c3882d30e
+branch:      v1-7
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Sat Oct 16 05:08:44 2010 +0200
+files:       RenderSystems/GL/src/OgreGLRenderSystem.cpp
+description:
+Correctly check for PBuffer support even if FBO is supported in GL rendersystem
+
+
+changeset:   2437:84c33efd0258
+branch:      v1-7
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Sat Oct 16 04:53:52 2010 +0200
+files:       CMake/Packages/FindOGRE.cmake
+description:
+Add threading library's include directory to Ogre include directories in FindOGRE.cmake
+
+
+changeset:   2436:588f73dd4cc8
+branch:      v1-7
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Sat Oct 16 04:43:04 2010 +0200
+files:       Samples/Terrain/include/Terrain.h
+description:
+[3053689] Terrain sample: Add Numpad +/- as alternative key bindings
+
+
+changeset:   2435:a84a1130e5c2
+branch:      v1-7
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Sat Oct 16 04:34:55 2010 +0200
+files:       Samples/Common/include/Sample.h Samples/Common/include/SdkSample.h
+description:
+[3072166] Fixed a crash on exit when SdkSample is initialised before Ogre::Root
+
+
+changeset:   2434:bdccd3f89350
+branch:      v1-7
+parent:      2432:39f7694dce52
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Sat Oct 16 03:49:24 2010 +0200
+files:       OgreMain/src/OgreUTFString.cpp
+description:
+[3002754] Add OGRE_UNICODE_SUPPORT guard to OgreUTFString.cpp
+
+
+changeset:   2433:abeea8874b26
+parent:      2429:232dca160b77
+parent:      2432:39f7694dce52
+user:        Steve Streeting <steve@stevestreeting.com>
+date:        Fri Oct 15 12:34:01 2010 +0100
+files:       CMake/Utils/OgreConfigTargets.cmake Docs/src/manual.texi RenderSystems/Direct3D9/src/OgreD3D9RenderWindow.cpp
+description:
+Merge v1-7 into default
+
+
+changeset:   2432:39f7694dce52
+branch:      v1-7
+user:        Steve Streeting <steve@stevestreeting.com>
+date:        Fri Oct 15 10:22:24 2010 +0100
+files:       Docs/manual/index.html Docs/manual/manual_8.html Docs/src/footer.html Docs/src/manual.texi
+description:
+Change Manual & API license to Creative Commons ShareAlike v3.0.
+Apparently Debian will only accept the 3.0 license and not 2.x
+
+
+changeset:   2431:21caa258447e
+branch:      v1-7
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Thu Oct 14 16:23:49 2010 +0200
+files:       CMake/Templates/VisualStudioUserFile.vcxproj.user.in CMake/Utils/OgreConfigTargets.cmake
+description:
+[3067141] Generate user files with debug paths for Visual Studio 2010
+
+
+changeset:   2430:bebd9bc71451
+branch:      v1-7
+parent:      2428:2047cafeb813
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Thu Oct 14 16:09:29 2010 +0200
+files:       RenderSystems/Direct3D9/src/OgreD3D9RenderWindow.cpp
+description:
+[3032954] Properly adjust window size in D3D9 RenderSystem to get the desired client size when switching from fullscreen to windowed.
+
+
+changeset:   2429:232dca160b77
+parent:      2419:f242e0f26522
+parent:      2428:2047cafeb813
+user:        Steve Streeting <steve@stevestreeting.com>
+date:        Tue Oct 12 16:38:31 2010 +0100
+files:       CMake/InstallDependencies.cmake CMakeLists.txt OgreMain/src/OgreRenderSystemCapabilitiesSerializer.cpp RenderSystems/Direct3D9/include/OgreD3D9RenderSystem.h RenderSystems/Direct3D9/src/OgreD3D9RenderSystem.cpp RenderSystems/GL/src/GLX/OgreGLXWindow.cpp RenderSystems/GLES/include/OgreGLESFBOMultiRenderTarget.h RenderSystems/GLES/include/OgreGLESFBORenderTexture.h RenderSystems/GLES/include/OgreGLESFrameBufferObject.h RenderSystems/GLES/include/OgreGLESRenderSystem.h RenderSystems/GLES/include/OgreGLESRenderTexture.h
+description:
+Merge v1-7 into default
+
+
+changeset:   2428:2047cafeb813
+branch:      v1-7
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Mon Oct 11 18:27:25 2010 +0200
+files:       RenderSystems/Direct3D9/include/OgreD3D9RenderSystem.h RenderSystems/Direct3D9/src/OgreD3D9RenderSystem.cpp
+description:
+[3074121] Fix handling of lights for multiple displays in D3D9 rendersystem.
+
+
+changeset:   2427:a2a6ce1fdccf
+branch:      v1-7
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Mon Oct 11 16:03:07 2010 +0200
+files:       Samples/Browser/src/FileSystemLayerImpl_WIN32.cpp
+description:
+[3078774] Convert home path to OEM codepage in FileSystemLayerImpl_Win32
+
+
+changeset:   2426:31b237ad24b1
+branch:      v1-7
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Sun Oct 10 14:38:19 2010 +0200
+files:       CMakeLists.txt
+description:
+Change required CMake version to >=2.6.2
+
+
+changeset:   2425:a7eaaa5ad379
+branch:      v1-7
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Sat Oct 09 15:19:38 2010 +0200
+files:       PlugIns/PCZSceneManager/src/OgreDefaultZone.cpp
+description:
+[3059963] Fix a slight copy&paste error in PCZSM
+
+
+changeset:   2424:4578cf737163
+branch:      v1-7
+user:        michael.broutin
+date:        Sun Sep 12 22:07:55 2010 +0200
+files:       CMake/InstallDependencies.cmake
+description:
+Installing OIS dependency didn't work on RelWithDebInfo with MingW
+
+
+changeset:   2422:ccc8284d74a3
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Wed Oct 06 23:23:00 2010 -0500
+files:       RenderSystems/GLES/include/OgreGLESContext.h RenderSystems/GLES/include/OgreGLESDefaultHardwareBufferManager.h RenderSystems/GLES/include/OgreGLESFBOMultiRenderTarget.h RenderSystems/GLES/include/OgreGLESFBORenderTexture.h RenderSystems/GLES/include/OgreGLESFrameBufferObject.h RenderSystems/GLES/include/OgreGLESGpuProgramManager.h RenderSystems/GLES/include/OgreGLESHardwareBufferManager.h RenderSystems/GLES/include/OgreGLESHardwareIndexBuffer.h RenderSystems/GLES/include/OgreGLESHardwarePixelBuffer.h RenderSystems/GLES/include/OgreGLESHardwareVertexBuffer.h RenderSystems/GLES/include/OgreGLESPBRenderTexture.h RenderSystems/GLES/include/OgreGLESPBuffer.h RenderSystems/GLES/include/OgreGLESPixelFormat.h RenderSystems/GLES/include/OgreGLESPrerequisites.h RenderSystems/GLES/include/OgreGLESRenderSystem.h RenderSystems/GLES/include/OgreGLESRenderTexture.h RenderSystems/GLES/include/OgreGLESTexture.h RenderSystems/GLES/include/OgreGLESTextureManager.h
+description:
+GLES: Use  _OgreGLESExport instead of _OgrePrivate to control symbol visibility for rendersystem classes.
+
+
+changeset:   2421:9bc348766c9a
+branch:      v1-7
+user:        David Rogers <davidrogers@me.com>
+date:        Wed Oct 06 23:20:27 2010 -0500
+files:       OgreMain/src/OgreRenderSystemCapabilitiesSerializer.cpp
+description:
+Fix errors generated from RenderSystemCapabilitiesTests due to missing or misnamed capability keywords.
+
+
+changeset:   2420:dbe03ede1ce1
+branch:      v1-7
+parent:      2384:3e6f572c437a
+user:        Holger Frydrych <h.frydrych@gmx.de>
+date:        Thu Oct 07 00:24:58 2010 +0200
+files:       RenderSystems/GL/src/GLX/OgreGLXWindow.cpp
+description:
+[3061946] Fix invalid fbConfig check in GL rendersystem
+
+
+changeset:   2419:f242e0f26522
+parent:      2418:05abf2e3b2c3
+parent:      2384:3e6f572c437a
+user:        Steve Streeting   <steve@stevestreeting.com>
+date:        Wed Sep 29 18:09:52 2010 +0100
+files:       RenderSystems/Direct3D9/src/OgreD3D9HLSLProgram.cpp
+description:
+Merge v1-7 into default
+
+
+changeset:   2418:05abf2e3b2c3
+user:        nirhasson <nhasson76@hotmail.com>
+date:        Tue Sep 28 11:36:44 2010 +0200
+files:       Components/RTShaderSystem/src/OgreShaderGenerator.cpp
+description:
+RTSS: Handle shader based technique creation group mismatches.
+
+
+changeset:   2417:67dbfdef93f7
+user:        nirhasson <nhasson76@hotmail.com>
+date:        Mon Sep 27 17:33:00 2010 +0200
+files:       Samples/Dot3Bump/include/Dot3Bump.h
+description:
+Dot3Bump Sample - Fixed RTSS crash. Since the materials are already loaded with the Popular resouce group the re-loading of it to the other RTShaderSystemMaterialsGroup group caused internal mismatches.
+
+
+changeset:   2416:cf8be71d3eb7
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Fri Sep 10 20:12:15 2010 -0300
+files:       Samples/Media/materials/programs/Instancing.program Samples/Media/materials/programs/InstancingMisc.vert Samples/Media/materials/programs/ShaderInstancing.vert Samples/Media/materials/programs/VTFInstancing.vert Samples/Media/materials/scripts/InstancingMisc.material Samples/Media/materials/scripts/VTFInstancing.material
+description:
+Fixed D3D9 InstancingMisc shader (mixing ps 3.0 with vs 2.0)
+Fixed "New Instancing" sample not working in OGL with ATI cards
+
+
+changeset:   2415:d9ed558448d4
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Fri Sep 10 15:45:58 2010 -0300
+files:       OgreMain/src/OgreInstanceBatchVTF.cpp Samples/NewInstancing/include/NewInstancing.h
+description:
+Fixed GCC compile errors
+Added fp40 profile support checking (for the rare case in which GLSL isn't supported) in "New Instancing" sample
+
+
+changeset:   2414:662739934a51
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Fri Sep 10 14:55:41 2010 -0300
+files:       OgreMain/include/OgreSceneManager.h OgreMain/src/OgreInstanceBatchVTF.cpp OgreMain/src/OgreSceneManager.cpp Samples/Media/thumbnails/thumb_newinstancing.png Samples/NewInstancing/include/NewInstancing.h
+description:
+Added SceneManager::getNumInstancesPerBatch()
+VTF Instancing wasn't removing the material caster it cloned in the destructor.
+Added thumb_newinstancing.png
+"New Instancing" sample now checks for hardware compatibility (instead of just crashing)
+
+
+changeset:   2413:342e29a6183c
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Fri Sep 10 13:19:20 2010 -0300
+files:       Samples/NewInstancing/include/NewInstancing.h
+description:
+Added slider to "New Instancing" sample to play with different ammount of instances in scene
+
+
+changeset:   2412:a643c85108a3
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Thu Sep 09 23:50:30 2010 -0300
+files:       Samples/Media/materials/programs/Instancing.frag Samples/Media/materials/programs/Instancing.program Samples/Media/materials/programs/InstancingMisc.cg Samples/Media/materials/programs/InstancingVertexInterpolators.cg Samples/Media/materials/programs/Instancing_ps.cg Samples/Media/materials/programs/ShaderInstancing.cg Samples/Media/materials/programs/ShaderInstancing.vert Samples/Media/materials/programs/VTFInstancing.cg Samples/Media/materials/programs/VTFInstancing.vert Samples/Media/materials/programs/shadows.glsl Samples/Media/materials/scripts/InstancingMisc.material Samples/Media/materials/scripts/ShaderInstancing.material Samples/Media/materials/scripts/VTFInstancing.material Samples/NewInstancing/include/NewInstancing.h
+description:
+Added GLSL shaders for the new InstanceManager implementation
+Changed "New Instancing"'s floor material for one using more fancy vertex & pixel shaders
+
+
+changeset:   2411:ba23bebde406
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Wed Sep 08 22:43:42 2010 -0300
+files:       OgreMain/include/OgreInstanceBatchVTF.h OgreMain/src/OgreInstanceBatchShader.cpp OgreMain/src/OgreInstanceBatchVTF.cpp Samples/Media/materials/programs/Instancing.program Samples/Media/materials/programs/InstancingVertexInterpolators.cg Samples/Media/materials/programs/Instancing_ps.cg Samples/Media/materials/programs/ShaderInstancing.cg Samples/Media/materials/programs/VTFInstancing.cg Samples/Media/materials/scripts/ShaderInstancing.material Samples/Media/materials/scripts/VTFInstancing.material Samples/NewInstancing/include/NewInstancing.h
+description:
+Added shadows to new instancing shaders & materials
+Added texture shadow support for VTF instancing techniques
+Fixed crash in Shader Based instancing techniques where parameter not present in the material but present in the shader could crash the engine, when checking for the max instance per batch count
+
+
+changeset:   2410:86e07c69829a
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Tue Sep 07 21:09:38 2010 -0300
+files:       OgreMain/include/OgreInstanceBatch.h OgreMain/include/OgreInstanceManager.h OgreMain/src/OgreInstanceBatch.cpp OgreMain/src/OgreInstanceBatchVTF.cpp OgreMain/src/OgreInstanceManager.cpp Samples/NewInstancing/include/NewInstancing.h
+description:
+Added InstanceManager::showBoundingBoxes
+Fixed missing instancing in VTF techniques after defragmenting and no instance was animated or moved since then.
+Instances now bounce when they reach the plane limits in "New Instancing" sample
+Pressing SPACE switches between instancing techniques in the sample
+Pressing B toggles batches' bounding boxes
+
+
+changeset:   2409:22babd657fbe
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Tue Sep 07 18:28:16 2010 -0300
+files:       Samples/Media/materials/programs/Instancing_ps.cg Samples/Media/materials/programs/ShaderInstancing.cg Samples/Media/materials/programs/VTFInstancing.cg Samples/NewInstancing/include/NewInstancing.h
+description:
+Fixed specular lighting in the New Instancing sample
+Added option for batch defragmentation in the New Instancing sample
+
+
+changeset:   2408:9f64feb5311e
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Tue Sep 07 15:45:14 2010 -0300
+files:       Samples/NewInstancing/include/NewInstancing.h
+description:
+Greatly improved sample "New Instancing"
+
+
+changeset:   2407:8e447f11d82e
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Tue Sep 07 14:04:25 2010 -0300
+files:       Samples/Media/materials/scripts/ShaderInstancing.material Samples/NewInstancing/include/NewInstancing.h
+description:
+Sample "New Instancing" now supports switching between techniques on the fly
+
+
+changeset:   2406:554550655df0
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Sun Sep 05 02:50:12 2010 -0300
+files:       CMake/Templates/samples.cfg.in OgreMain/include/OgreSceneManager.h OgreMain/src/OgreSceneManager.cpp Samples/CMakeLists.txt Samples/Media/materials/programs/Instancing.program Samples/Media/materials/programs/InstancingVertexInterpolators.cg Samples/Media/materials/programs/Instancing_ps.cg Samples/Media/materials/programs/ShaderInstancing.cg Samples/Media/materials/programs/ShaderInstancing.vert Samples/Media/materials/programs/VTFInstancing.cg Samples/Media/materials/programs/VTFInstancing.vert Samples/Media/materials/scripts/ShaderInstancing.material Samples/Media/materials/scripts/VTFInstancing.material Samples/NewInstancing/CMakeLists.txt Samples/NewInstancing/include/NewInstancing.h Samples/NewInstancing/src/NewInstancing.cpp
+description:
+Added new sample "New Instancing" which shows off the InstanceManager in action
+Changed "SceneManager::createInstanceEntity" function name for "SceneManager::createInstancedEntity"
+
+
+changeset:   2405:bcd99268df41
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Fri Sep 03 19:34:08 2010 -0300
+files:       OgreMain/include/OgreInstanceBatch.h OgreMain/include/OgreInstanceBatchShader.h OgreMain/include/OgreInstanceBatchVTF.h OgreMain/include/OgreInstanceManager.h OgreMain/include/OgreSceneManager.h OgreMain/src/OgreInstanceBatch.cpp OgreMain/src/OgreInstanceBatchShader.cpp OgreMain/src/OgreInstanceBatchVTF.cpp OgreMain/src/OgreInstanceManager.cpp OgreMain/src/OgreSceneManager.cpp
+description:
+Fixed wrong assertion in OgreInstanceBatch constructor
+Updated and expanded instancing's documentation
+Fixed a new bounding box visibility problem
+
+
+changeset:   2404:24fde75f5cfc
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Tue Aug 31 20:52:09 2010 -0300
+files:       OgreMain/src/OgreInstanceBatchShader.cpp
+description:
+Added GLSL support for shader based instancing techniques
+
+
+changeset:   2384:3e6f572c437a
+branch:      v1-7
+parent:      2359:8f7b2186ed5c
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Fri Sep 24 19:52:43 2010 -0300
+files:       OgreMain/src/OgreInstancedGeometry.cpp
+description:
+Fixed nasty memory corruption in OgreInstancedGeometry, when building the GeometryBucket.
+Discussed in http://www.ogre3d.org/forums/viewtopic.php?f=4&t=60432
+
+
+changeset:   2383:ce0aeb113011
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Fri Sep 17 09:53:16 2010 +0000
+files:       RenderSystems/Direct3D11/src/OgreD3D11RenderToVertexBuffer.cpp
+description:
+D3D11 render system: Improved a comment.
+
+
+changeset:   2382:18fa1dda7cbc
+user:        masterfalcon
+date:        Mon Sep 20 22:59:19 2010 -0500
+files:       OgreMain/CMakeLists.txt
+description:
+Tegra2: Don't forget to link with X11 libs
+
+
+changeset:   2381:f7a8e88cc129
+user:        masterfalcon
+date:        Mon Sep 20 00:39:05 2010 -0500
+files:       RenderSystems/GLES2/src/OgreGLES2RenderSystem.cpp
+description:
+GLES2: Add DXT support detection.
+
+
+changeset:   2380:009343adf84e
+user:        masterfalcon
+date:        Mon Sep 20 00:36:48 2010 -0500
+files:       RenderSystems/GLES2/src/EGL/X11/OgreX11EGLWindow.cpp
+description:
+GLES2: Fix EGL config selection so the buffer format is the same as we expected to get. Resolves issues with some textures and color banding.
+
+
+changeset:   2379:b41bf20e265e
+user:        masterfalcon
+date:        Sun Sep 19 22:23:32 2010 -0500
+files:       Samples/Media/materials/scripts/Examples.program
+description:
+GLES2: Fixing a copy/paste error that prevented a few samples from working.
+
+
+changeset:   2378:f594a790604f
+user:        masterfalcon
+date:        Sat Sep 18 19:35:17 2010 -0500
+files:       RenderSystems/GLES2/src/OgreGLES2Plugin.cpp
+description:
+GLES2: For now, always set GLES2 as the active render system if the plugin is installed.  This ensures that the Ogre config file has the render system name written.  This is only an issue on platforms that don't have a config dialog, which happens to be most systems that use GLES2.
+
+
+changeset:   2377:68c1edad8a6d
+user:        masterfalcon
+date:        Sat Sep 18 19:27:27 2010 -0500
+files:       RenderSystems/GLES2/src/OgreGLES2PixelFormat.cpp
+description:
+GLES2: Fix the use of B8G8R8 textures.
+
+
+changeset:   2376:f9f604191d57
+user:        masterfalcon
+date:        Sat Sep 18 19:26:21 2010 -0500
+files:       RenderSystems/GLES2/src/EGL/X11/OgreX11EGLSupport.cpp
+description:
+GLES2: Use the resolution of the display as the video mode instead of hardcoding a value.
+
+
+changeset:   2375:22fcd7e1e150
+user:        masterfalcon
+date:        Sat Sep 18 19:25:01 2010 -0500
+files:       RenderSystems/GLES2/src/EGL/OgreEGLSupport.cpp
+description:
+GLES2: When running on Linux, use FBO's for RTT's by default.
+
+
+changeset:   2374:4f047272feb9
+user:        masterfalcon
+date:        Thu Sep 16 20:54:21 2010 -0500
+files:       CMake/Dependencies.cmake CMake/Packages/FindOpenGLES2.cmake CMake/Utils/L4T_Toolchain.cmake CMakeLists.txt RenderSystems/GLES2/CMakeLists.txt RenderSystems/GLES2/include/EGL/X11/OgreX11EGLSupport.h
+description:
+Tegra 2: Several fixes and tweaks to cross-compiling using the official L4T SDK from NVIDIA.
+
+
+changeset:   2373:088fde671f9b
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Fri Sep 17 09:47:25 2010 +0000
+files:       AUTHORS
+description:
+Added Zhang Heng (ZHing)
+
+
+changeset:   2372:ca77580d0310
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Fri Sep 17 09:31:48 2010 +0000
+files:       RenderSystems/Direct3D11/src/OgreD3D11RenderToVertexBuffer.cpp
+description:
+D3D11 render system: typo fix and removed some double code.
+
+
+changeset:   2371:ed04865acd1f
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Fri Sep 17 00:34:39 2010 +0000
+files:       Samples/Media/materials/programs/particlesgs.fx Samples/Media/materials/scripts/ParticleGS.material Samples/ParticleGS/src/ParticleGS.cpp Samples/ParticleGS/src/RandomTools.cpp
+description:
+D3D11 render system: A backup of the work to get the GS particle sample to work.
+
+
+changeset:   2370:ae0246020875
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Fri Sep 17 00:33:02 2010 +0000
+files:       RenderSystems/Direct3D11/include/OgreD3D11HardwareBuffer.h RenderSystems/Direct3D11/include/OgreD3D11HardwareBufferManager.h RenderSystems/Direct3D11/include/OgreD3D11HardwareVertexBuffer.h RenderSystems/Direct3D11/include/OgreD3D11RenderSystem.h RenderSystems/Direct3D11/include/OgreD3D11RenderToVertexBuffer.h RenderSystems/Direct3D11/src/OgreD3D11HLSLProgram.cpp RenderSystems/Direct3D11/src/OgreD3D11HardwareBuffer.cpp RenderSystems/Direct3D11/src/OgreD3D11HardwareBufferManager.cpp RenderSystems/Direct3D11/src/OgreD3D11HardwareIndexBuffer.cpp RenderSystems/Direct3D11/src/OgreD3D11HardwareVertexBuffer.cpp RenderSystems/Direct3D11/src/OgreD3D11RenderSystem.cpp RenderSystems/Direct3D11/src/OgreD3D11RenderToVertexBuffer.cpp
+description:
+D3D11 render system: A backup commit of the work on getting the render to vertex buffer to work.
+
+
+changeset:   2369:27fde2e770ea
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Fri Sep 17 00:31:04 2010 +0000
+files:       RenderSystems/Direct3D11/src/OgreD3D11RenderSystem.cpp
+description:
+D3D11 render system: a patch to fix a crash on exit by ZHing.
+http://www.ogre3d.org/forums/viewtopic.php?f=4&t=60313
+
+
+changeset:   2368:b6cfb044be5d
+user:        Mattan Furst <matanf@simigon.com>
+date:        Thu Sep 16 10:27:26 2010 +0200
+files:       OgreMain/src/OgreMesh.cpp
+description:
+Fixed vertexes not assigned to bone recive 0 as weight to all bone.
+This fixes visual problems in ill-defined objects when using hardware animation.
+
+
+changeset:   2367:00a9f3f804bb
+user:        Mattan Furst <matanf@simigon.com>
+date:        Thu Sep 16 10:23:50 2010 +0200
+files:       OgreMain/include/OgreNode.h
+description:
+Add virtual keyword to getSquaredViewDepth() to enable overriding the function. Allow greater flexibility in controlling render order.
+
+
+changeset:   2366:c5acb3eba324
+user:        Mattan Furst <matanf@simigon.com>
+date:        Thu Sep 16 10:20:45 2010 +0200
+files:       Components/RTShaderSystem/src/OgreShaderParameter.cpp
+description:
+Fixed Crash in RTSS generated shader when using a parameter with a data value of a float number.
+
+
+changeset:   2365:e210311b7789
+user:        Mattan Furst <matanf@simigon.com>
+date:        Thu Sep 16 10:20:24 2010 +0200
+files:       OgreMain/include/OgreDefaultHardwareBufferManager.h
+description:
+Fixed NULL pointer crash when not using any render system becuase of non-defined (fixed incomplete check-in)
+
+
+changeset:   2364:c53bae44a468
+user:        Mattan Furst <matanf@simigon.com>
+date:        Thu Sep 16 10:17:18 2010 +0200
+files:       OgreMain/src/OgreDefaultHardwareBufferManager.cpp OgreMain/src/OgreHardwareIndexBuffer.cpp OgreMain/src/OgreHardwareVertexBuffer.cpp
+description:
+Fixed NULL pointer crash when not using any render system becuase of non-defined HardwareBufferManager in buffers
+
+
+changeset:   2363:63ca6ba6f739
+user:        Mattan Furst <matanf@simigon.com>
+date:        Thu Sep 16 10:14:57 2010 +0200
+files:       RenderSystems/Direct3D9/src/OgreD3D9Device.cpp
+description:
+Fixed crash when handling multiple devices when a shared window is used.
+Crash occured because system failed to find the original swap chain window.
+
+
+changeset:   2362:61d72db525a4
+user:        Mattan Furst <matanf@simigon.com>
+date:        Thu Sep 16 10:09:54 2010 +0200
+files:       RenderSystems/Direct3D9/src/OgreD3D9Texture.cpp
+description:
+Fixed DDS images loaded in managed pool even if defined as dynamic
+
+
+changeset:   2361:f5307ae4c200
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Sep 14 22:56:06 2010 +0000
+files:       RenderSystems/Direct3D11/include/OgreD3D11HLSLProgram.h RenderSystems/Direct3D11/src/OgreD3D11HLSLProgram.cpp Samples/Media/materials/scripts/Ocean.material
+description:
+D3D11 render system: Added a flag to control if backwards compatibility is enabled for a shader.
+
+
+changeset:   2360:f6d2cf603890
+parent:      2358:a9a08db873b1
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Sep 14 21:11:29 2010 +0000
+files:       Components/Terrain/include/OgreTerrainMaterialGeneratorA.h Components/Terrain/src/OgreTerrainMaterialGeneratorA.cpp
+description:
+D3D11 render system: Started to fix the terrain sample to work with the D3D11 render system.
+
+
+changeset:   2359:8f7b2186ed5c
+branch:      v1-7
+parent:      2311:9dc1a36fded6
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Tue Sep 14 12:07:34 2010 -0300
+files:       RenderSystems/Direct3D9/src/OgreD3D9HLSLProgram.cpp
+description:
+D3D9RenderSystem: Fixed crash when HLSL compilation failed and trying to log errors but D3DXCompileShader returned a NULL pointer
+
+
+changeset:   2358:a9a08db873b1
+user:        masterfalcon
+date:        Thu Sep 09 00:49:15 2010 -0500
+files:       Samples/Media/materials/scripts/StdQuad_vp.program
+description:
+Reorder the StdQuad delegates.  Cg is preferred over GLSL flavors.  This primarily affects the Compositor sample.
+
+
+changeset:   2357:7b29cc4aadd6
+user:        masterfalcon
+date:        Thu Sep 09 00:19:59 2010 -0500
+files:       Samples/Browser/CMakeLists.txt
+description:
+Clean up some odd stuff from a merge that showed up.
+
+
+changeset:   2356:c04cf2925847
+user:        masterfalcon
+date:        Wed Sep 08 23:57:39 2010 -0500
+files:       Samples/Browser/include/SampleBrowser.h Samples/Browser/src/SampleBrowser.cpp Samples/Common/include/SampleContext.h Samples/Media/materials/programs/GrayScale.glsles
+description:
+Enable a few more samples when linking statically.
+
+
+changeset:   2355:b4e5aa3d975a
+user:        masterfalcon
+date:        Wed Sep 08 23:55:42 2010 -0500
+files:       Samples/Media/materials/programs/Example_BumpMappingFp.glsles Samples/Media/materials/programs/Example_BumpMappingVp.glsles Samples/Media/materials/programs/GrayScale.glsles
+description:
+GLES2: Minor bump map demo shader fix
+
+
+changeset:   2354:9f550fcd48fd
+user:        masterfalcon
+date:        Wed Sep 08 23:54:41 2010 -0500
+files:       CMakeLists.txt Samples/Media/materials/programs/GrayScale.glsles
+description:
+iOS: Removed manual architecture specification.  Xcode 4 didn't like this and caused builds to fail for the iPhone Simulator
+
+
+changeset:   2353:3ebd7c79cbdd
+user:        masterfalcon
+date:        Wed Sep 08 23:52:57 2010 -0500
+files:       OgreMain/src/OgreMaterialSerializer.cpp OgreMain/src/OgreSceneManager.cpp Samples/Media/materials/programs/GrayScale.glsles Samples/Media/materials/programs/skinningTwoWeightsShadowCasterVp.glsles Samples/Media/materials/programs/skinningTwoWeightsVp.glsles
+description:
+GLES2: Fixed custom shadow caster fragment programs.  This also fixes the shadows in the Skeletal Animation sample
+
+
+changeset:   2352:d38acecabd6c
+user:        masterfalcon
+date:        Wed Sep 08 23:50:19 2010 -0500
+files:       Samples/Media/materials/programs/GrayScale.glsles Samples/Media/materials/programs/Ocean2GLSLES.frag Samples/Media/materials/programs/Ocean2GLSLES.vert Samples/Media/materials/programs/oceanGLSLES.frag Samples/Media/materials/programs/oceanGLSLES.vert Samples/Media/materials/scripts/Ocean.material
+description:
+GLES2: Ocean demo work in progress update
+
+
+changeset:   2351:1a3206600c69
+user:        masterfalcon
+date:        Wed Sep 08 23:48:13 2010 -0500
+files:       Samples/Compositor/include/Compositor.h Samples/Media/materials/programs/ASCIIFP.glsles Samples/Media/materials/programs/Bloom2_ps20.glsles Samples/Media/materials/programs/Blur1_vs.glsles Samples/Media/materials/programs/Blur_vs.glsles Samples/Media/materials/programs/BrightBloom2_ps20.glsles Samples/Media/materials/programs/ColdCasterFp.glsles Samples/Media/materials/programs/ColdCasterVp.glsles Samples/Media/materials/programs/Combine_fp.glsles Samples/Media/materials/programs/DOF_ps.glsles Samples/Media/materials/programs/DitherFP.glsles Samples/Media/materials/programs/EmbossedFp.glsles Samples/Media/materials/programs/GlassFP.glsles Samples/Media/materials/programs/GrayScale.glsles Samples/Media/materials/programs/GrayScaleFp.glsles Samples/Media/materials/programs/GrayScaleVp.glsles Samples/Media/materials/programs/HalftoneFP.glsles Samples/Media/materials/programs/HeatBlurFp.glsles Samples/Media/materials/programs/HeatBlurVp.glsles Samples/Media/materials/programs/HeatCasterFp.glsles Samples/Media/materials/programs/HeatCasterVp.glsles Samples/Media/materials/programs/HeatVisionFp.glsles Samples/Media/materials/programs/HeatVisionVp.glsles Samples/Media/materials/programs/InvertFP.glsles Samples/Media/materials/programs/LaplaceFP.glsles Samples/Media/materials/programs/LightToHeatFp.glsles Samples/Media/materials/programs/LightToHeatVp.glsles Samples/Media/materials/programs/OldMovieFP.glsles Samples/Media/materials/programs/OldTVFp.glsles Samples/Media/materials/programs/OldTVVp.glsles Samples/Media/materials/programs/PosterizeFP.glsles Samples/Media/materials/programs/Radial_Blur_FP.glsles Samples/Media/materials/programs/SharpenEdgesFP.glsles Samples/Media/materials/programs/StdQuad_Tex2_vp.glsles Samples/Media/materials/programs/StdQuad_Tex2a_vp.glsles Samples/Media/materials/programs/StdQuad_Tex3_vp.glsles Samples/Media/materials/programs/StdQuad_Tex4_vp.glsles Samples/Media/materials/programs/StdQuad_vp.glsles Samples/Media/materials/programs/TilingFP.glsles Samples/Media/materials/programs/depthshadowobjectFp.glsles Samples/Media/materials/programs/depthshadowobjectVp.glsles Samples/Media/materials/programs/hdrFp.glsles Samples/Media/materials/programs/hdrVp.glsles Samples/Media/materials/programs/hdr_bloom.glsles Samples/Media/materials/programs/hdr_downscale2x2luminence.glsles Samples/Media/materials/programs/hdr_downscale3x3brightpass.glsles Samples/Media/materials/programs/hdr_finalToneMapping.glsles Samples/Media/materials/programs/hdr_tonemap_util.glsles Samples/Media/materials/scripts/BlackAndWhite.material Samples/Media/materials/scripts/Bloom.material Samples/Media/materials/scripts/Bloom2.material Samples/Media/materials/scripts/Dither.material Samples/Media/materials/scripts/Embossed.material Samples/Media/materials/scripts/Examples.material Samples/Media/materials/scripts/Examples.program Samples/Media/materials/scripts/Glass.material Samples/Media/materials/scripts/HeatVision.material Samples/Media/materials/scripts/Invert.material Samples/Media/materials/scripts/Laplace.material Samples/Media/materials/scripts/MotionBlur.material Samples/Media/materials/scripts/OldMovie.material Samples/Media/materials/scripts/Posterize.material Samples/Media/materials/scripts/RadialBlur.material Samples/Media/materials/scripts/SharpenEdges.material Samples/Media/materials/scripts/StdQuad_vp.program Samples/Media/materials/scripts/Tiling.material Samples/Media/materials/scripts/hdr.material
+description:
+GLES2: Fixes for many of the Compositor samples. Some are still works in progress.
+
+
+changeset:   2350:9ffe4ad31c7f
+user:        masterfalcon
+date:        Wed Sep 08 22:07:17 2010 -0500
+files:       RenderSystems/GLES2/src/OgreGLES2RenderSystem.cpp Samples/Media/RTShaderLib/FFPLib_Texturing.glsles
+description:
+GLES2: Main depthbuffer isn't attachable in GLES 2, so set the correct flag during initialization. Also fixing a RTSS library issue that could lead to shaders failing to compile.
+
+
+changeset:   2349:7004783fea86
+user:        masterfalcon
+date:        Wed Sep 08 22:02:44 2010 -0500
+files:       Samples/DeferredShading/include/DeferredShading.h
+description:
+Missed this header for the Deferred Shading Demo
+
+
+changeset:   2348:f51e3790e883
+user:        masterfalcon
+date:        Wed Sep 08 22:01:37 2010 -0500
+files:       Samples/DeferredShading/CMakeLists.txt Samples/DeferredShading/include/DeferredShadingDemo.h Samples/DeferredShading/src/DeferredShading.cpp Samples/DeferredShading/src/DeferredShadingDemo.cpp
+description:
+Update the Deferred Shading Demo so that it can be used as a static lib
+
+
+changeset:   2347:cc8a97fcbf7d
+user:        masterfalcon
+date:        Wed Sep 08 21:54:12 2010 -0500
+files:       RenderSystems/GLES2/src/GLSLES/src/OgreGLSLESLinkProgram.cpp
+description:
+GLES2: throw an exception if a program is created without a vertex/fragment shader pair.
+
+
+changeset:   2346:ec906aa1e3ea
+user:        masterfalcon
+date:        Wed Sep 08 21:52:26 2010 -0500
+files:       Samples/Media/materials/programs/AmbientOneTexture.glsles Samples/Media/materials/programs/ShowNormals.glsles Samples/Media/materials/programs/ShowTangents.glsles Samples/Media/materials/programs/ShowUV.glsles Samples/Media/materials/programs/ShowUVdir3D.glsles
+description:
+GLES2: Fix the Show UV/Normal/Tangent shaders
+
+
+changeset:   2345:5eb4ae182ce4
+user:        masterfalcon
+date:        Wed Sep 08 21:50:30 2010 -0500
+files:       Samples/Water/CMakeLists.txt Samples/Water/include/Water.h Samples/Water/src/Water.cpp
+description:
+Reorganize the Water sample so that it can be built as a static module
+
+
+changeset:   2344:3cbcf78249fc
+user:        masterfalcon
+date:        Fri Sep 03 09:14:06 2010 -0500
+files:       Components/RTShaderSystem/src/OgreShaderFunctionAtom.cpp Samples/Media/RTShaderLib/SGXLib_LayeredBlending.glsles
+description:
+GLES2: Fix the strict weak ordering issue in function sorting.  Also, functions that begin with an underscore will be placed before those that begin with alphanumerics when they are sorted.
+
+
+changeset:   2343:78cdebabcab1
+user:        masterfalcon
+date:        Fri Sep 03 09:09:17 2010 -0500
+files:       Samples/Browser/CMakeLists.txt
+description:
+iOS: Clean up how samples are added to a project.
+
+
+changeset:   2342:aaac5a5ac2b0
+user:        masterfalcon
+date:        Fri Sep 03 09:00:26 2010 -0500
+files:       RenderSystems/GL/include/OSX/OgreOSXCarbonWindow.h RenderSystems/GL/include/OSX/OgreOSXCocoaWindow.h RenderSystems/GL/src/OSX/OgreOSXCarbonWindow.cpp RenderSystems/GL/src/OSX/OgreOSXCocoaWindow.mm RenderSystems/GL/src/OSX/OgreOSXGLSupport.mm
+description:
+OS X: VSync enable/disable.  Cannot set the VSync interval on OS X so that functionality has been omitted.
+
+
+changeset:   2338:526b8b093191
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Sep 08 23:38:40 2010 +0000
+files:       RenderSystems/Direct3D11/src/OgreD3D11HLSLProgram.cpp
+description:
+D3D11 render system: Added back some code a removed - it is need after all. This is related to the cg compiler output prefix problems.
+
+
+changeset:   2337:45cae9cb4570
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Sep 08 16:09:28 2010 +0000
+files:       RenderSystems/Direct3D11/src/OgreD3D11HardwareVertexBuffer.cpp
+description:
+D3D11 render system: Fixed a comment typo.
+
+
+changeset:   2336:a86dd6d973d1
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Sep 08 16:06:07 2010 +0000
+files:       RenderSystems/Direct3D11/src/OgreD3D11HardwareVertexBuffer.cpp
+description:
+D3D11 render system: Added code to support copy of vertex buffers that where allocated in system memory. (The terrain sample does such a copy).
+
+
+changeset:   2335:0bad09c577d8
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Sep 08 01:44:04 2010 +0000
+files:       Samples/Fresnel/include/Fresnel.h Samples/Media/materials/programs/Grass.cg Samples/Media/materials/programs/PassthroughFP.cg Samples/Media/materials/scripts/Examples.material Samples/Media/materials/scripts/Examples.program Samples/Media/materials/scripts/OffsetMapping.material
+description:
+D3D11 render system: Made the grass and fresnel samples work in the d3d11 render system.
+
+
+changeset:   2334:ef903cd3456d
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Sep 08 01:42:46 2010 +0000
+files:       RenderSystems/Direct3D11/include/OgreD3D11HLSLProgram.h RenderSystems/Direct3D11/src/OgreD3D11HLSLProgram.cpp
+description:
+D3D11 render system: Improved the cg parameter name hack to support more cases.
+
+
+changeset:   2333:344b782a23e3
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Sep 07 23:20:15 2010 +0000
+files:       Samples/Media/materials/programs/Example_Fresnel.cg Samples/Media/materials/scripts/Examples-Advanced.material
+description:
+D3D11 render system: Fixed the fresnel sample to work with the D3D11 render system.
+
+
+changeset:   2332:363e380c601f
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Sep 07 23:09:15 2010 +0000
+files:       Samples/Media/materials/programs/Example_CelShading.cg Samples/Media/materials/scripts/Examples-Advanced.material
+description:
+D3D11 render system: Fixed cal shading to work with the d3d11 render system.
+
+
+changeset:   2331:5e6ac88e7b68
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Sep 07 15:01:00 2010 +0000
+files:       PlugIns/BSPSceneManager/src/OgreBspSceneManager.cpp
+description:
+D3D11 Render system: Fixed the BSP scene manager to work with the RTSS.
+
+
+changeset:   2330:25f7d8c8a5d1
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Sep 07 15:00:24 2010 +0000
+files:       Samples/Dot3Bump/include/Dot3Bump.h
+description:
+D3D11 render system: Added shader model 4 to the check at the start of the bump map demo - so I will not get "no shader support" msg.
+
+
+changeset:   2329:c7229704750c
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Sep 07 14:58:40 2010 +0000
+files:       Samples/Media/materials/programs/Example_Basic.cg Samples/Media/materials/programs/Example_BumpMapping.cg Samples/Media/materials/programs/OffsetMapping.cg Samples/Media/materials/programs/PassthroughFP.cg Samples/Media/materials/scripts/Examples-Advanced.material Samples/Media/materials/scripts/Examples-DynTex.material Samples/Media/materials/scripts/Examples.material Samples/Media/materials/scripts/Examples.program
+description:
+D3D11 render system: Fixed some of the samples materials to support the D3D11 render system.
+
+
+changeset:   2328:034a0c6f5c41
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Tue Sep 07 14:49:22 2010 +0000
+files:       RenderSystems/Direct3D11/src/OgreD3D11Texture.cpp
+description:
+D3D11 render system: Fixed a render to texture error.
+
+
+changeset:   2327:b574105185f6
+user:        Steve Streeting   <steve@stevestreeting.com>
+date:        Mon Sep 06 10:10:47 2010 +0100
+files:       AUTHORS
+description:
+Added new patch contributors
+
+
+changeset:   2326:df15d50533b1
+user:        dark_sylinc <dark_sylinc@yahoo.com.ar>
+date:        Sat Sep 04 20:05:06 2010 -0300
+files:       OgreMain/include/OgreRenderSystemCapabilities.h RenderSystems/Direct3D11/src/OgreD3D11RenderSystem.cpp
+description:
+D3D11 render system: D3D11 doesn't support RSC_RTT_DEPTHBUFFER_RESOLUTION_LESSEQUAL, but the flag was being set. Fixed
+
+
+changeset:   2325:19f517b71c7c
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Sat Sep 04 21:07:24 2010 +0000
+files:       Samples/Media/materials/scripts/Ocean.material
+description:
+D3D11 render system: Fixed the ocean hlsl shaders to work with the render system.
+
+
+changeset:   2324:8c60dbca5b9c
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Sat Sep 04 15:03:37 2010 +0000
+files:       RenderSystems/Direct3D11/include/OgreD3D11HardwarePixelBuffer.h RenderSystems/Direct3D11/src/OgreD3D11HardwarePixelBuffer.cpp RenderSystems/Direct3D11/src/OgreD3D11RenderSystem.cpp RenderSystems/Direct3D11/src/OgreD3D11Texture.cpp
+description:
+D3d11 render system: Fixed dynamic cube map.
+
+
+changeset:   2323:9d70cdd6498f
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Sat Sep 04 14:39:52 2010 +0000
+files:       RenderSystems/Direct3D11/src/OgreD3D11HardwarePixelBuffer.cpp RenderSystems/Direct3D11/src/OgreD3D11Texture.cpp
+description:
+D3D11 render system: Fixed non-dds cube map loading and mapping.
+
+
+changeset:   2322:db9dc763e029
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Sat Sep 04 13:40:10 2010 +0000
+files:       RenderSystems/Direct3D11/src/OgreD3D11Texture.cpp
+description:
+D3D11 render system: Fixed dds cube map loading.
+
+
+changeset:   2321:85efdb4dbbc8
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Thu Sep 02 20:15:40 2010 +0000
+files:       Samples/Media/materials/scripts/Examples.material
+description:
+D3D11 render system: Fixed water sample.
+
+
+changeset:   2320:2dabb06d9101
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Sep 01 22:54:52 2010 +0000
+files:       Samples/Media/materials/programs/oceanHLSL_Cg.frag Samples/Media/materials/scripts/Ocean.material
+description:
+d3d11 render system: Fixed the Ocean CG shaders to work with the d3d11 render system.
+
+
+changeset:   2319:5b48d19af4c6
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Sep 01 22:42:06 2010 +0000
+files:       RenderSystems/Direct3D11/src/OgreD3D11HardwarePixelBuffer.cpp RenderSystems/Direct3D11/src/OgreD3D11Texture.cpp Samples/DynTex/include/DynTex.h
+description:
+D3D11 render system: Made the DynTex sample work.
+
+
+changeset:   2318:557ee46a33ec
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Sep 01 22:40:45 2010 +0000
+files:       RenderSystems/Direct3D11/include/OgreD3D11RenderSystem.h RenderSystems/Direct3D11/src/OgreD3D11RenderSystem.cpp
+description:
+D3D11 render system: Fixed a bug - now you can switch from the d3d11 render system and then go back to it in the sample browser.
+
+
+changeset:   2317:37ee3904efbc
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Sep 01 19:43:46 2010 +0000
+files:       OgreMain/src/OgreMaterialManager.cpp
+description:
+Added code so I can track MaterialManager::mActiveSchemeName changes by putting a breakpoint in MaterialManager::setActiveScheme.
+
+
+changeset:   2316:b74956d4e860
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Sep 01 19:39:45 2010 +0000
+files:       OgreMain/src/OgreSceneManager.cpp RenderSystems/Direct3D11/src/OgreD3D11DepthBuffer.cpp Samples/Compositor/include/Compositor.h
+description:
+d3d11 render system: Made texture shadow work.
+
+
+changeset:   2315:00ac06eaec84
+user:        Assaf Raman <assaf@assaf.co.il>
+date:        Wed Sep 01 12:43:25 2010 +0000
+files:       OgreMain/src/OgreCompositionTargetPass.cpp RenderSystems/Direct3D11/include/OgreD3D11Prerequisites.h RenderSystems/Direct3D11/include/OgreD3D11Texture.h RenderSystems/Direct3D11/src/OgreD3D11RenderSystem.cpp RenderSystems/Direct3D11/src/OgreD3D11Texture.cpp Samples/Common/include/SdkSample.h Samples/Compositor/include/Compositor.h Samples/Media/materials/programs/ASCIIFP.cg Samples/Media/materials/programs/DitherFP.cg Samples/Media/materials/programs/GlassFP.cg Samples/Media/materials/programs/GrayScale.cg Samples/Media/materials/programs/HalftoneFP.cg Samples/Media/materials/programs/InvertFP.cg Samples/Media/materials/programs/LaplaceFP.cg Samples/Media/materials/programs/NightVisionFP.cg Samples/Media/materials/programs/OldMovieFP.cg Samples/Media/materials/programs/PosterizeFP.cg Samples/Media/materials/programs/SharpenEdgesFP.cg Samples/Media/materials/programs/TilingFP.cg Samples/Media/materials/scripts/ASCII.material Samples/Media/materials/scripts/BlackAndWhite.material Samples/Media/materials/scripts/Dither.material Samples/Media/materials/scripts/Embossed.material Samples/Media/materials/scripts/Glass.material Samples/Media/materials/scripts/Halftone.material Samples/Media/materials/scripts/Invert.material Samples/Media/materials/scripts/Laplace.material Samples/Media/materials/scripts/NightVision.material Samples/Media/materials/scripts/OldMovie.material Samples/Media/materials/scripts/Posterize.material Samples/Media/materials/scripts/SharpenEdges.material Samples/Media/materials/scripts/StdQuad_vp.program Samples/Media/materials/scripts/Tiling.material
+description:
+d3d11 render system: Got the compositor sample working, about half of the compositors are now working in the sample.
+
+

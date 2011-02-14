@@ -47,6 +47,7 @@
     <Compile Include="Adapters\DummyAdapter.cs" />
     <Compile Include="Adapters\BaseAdapter.cs" />
     <Compile Include="Adapters\Git\GitAdapter.cs" />
+    <Compile Include="Adapters\Hg\HgAdapter.cs" />
     <Compile Include="Adapters\IVersioningAdapter.cs" />
     <Compile Include="Adapters\Svn\SvnAdapter.cs" />
     <Compile Include="Adapters\TF\TFAdapter.cs" />

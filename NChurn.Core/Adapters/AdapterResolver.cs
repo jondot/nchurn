@@ -14,6 +14,10 @@ namespace NChurn.Core.Adapters
             {
                 return new GitAdapter();
             }
+            if (Directory.Exists(".hg"))
+            {
+                return new HgAdapter();
+            }
             if(Directory.Exists(".svn"))
             {
                 return new SvnAdapter();
