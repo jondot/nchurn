@@ -9,6 +9,7 @@ The best thing to do is to plug NChurn into your build process and store history
 NChurn currently supports file-level churns for
 
 * Git
+* Hg (Mercurial)
 * SVN
 * TFS (Team Foundation)
 
