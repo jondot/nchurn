@@ -7,7 +7,7 @@ namespace NChurn.Core.Adapters
 {
     internal class DummyAdapter : IVersioningAdapter
     {
-        private string _text;
+        private readonly string _text;
         public DummyAdapter(string text)
         {
             _text = text;
@@ -16,7 +16,7 @@ namespace NChurn.Core.Adapters
         {
             if(_text ==null)
                 return Enumerable.Repeat("this is a string", 10000);
-            return _text.Split(new[] {"\r\n", "\n"},StringSplitOptions.RemoveEmptyEntries);
+            return Parse(_text);
         }
 
         public IEnumerable<string> ChangedResources(DateTime backTo)
@@ -28,6 +28,11 @@ namespace NChurn.Core.Adapters
         {
             get { return null; }
             set {  }
+        }
+
+        public IEnumerable<string> Parse(string text)
+        {
+            return _text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
         }
     }
 }

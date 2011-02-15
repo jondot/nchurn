@@ -10,26 +10,20 @@ namespace NChurn.Core.Adapters.Git
         public override IEnumerable<string> ChangedResources()
         {
             string text = CommandRunner.ExecuteAndGetOutput(@"git log  --name-only --pretty=format:");
-            return ParseLines(text);
+            return Parse(text);
         }
 
         public override IEnumerable<string> ChangedResources(DateTime backTo)
         {
             string text = CommandRunner.ExecuteAndGetOutput(string.Format(@"git log  --after={0} --name-only --pretty=format:", backTo.ToString("yyyy-MM-dd")));
-            return ParseLines(text);
+            return Parse(text);
         }
 
-        private static IEnumerable<string> ParseLines(string text)
+        public override IEnumerable<string> ParseImpl(string text)
         {
-            if (string.IsNullOrEmpty(text))
-            {
-                return Enumerable.Empty<string>();
-            }
-
             string[] strings = text.SplitLines();
 
             return strings;
         }
-
     }
 }

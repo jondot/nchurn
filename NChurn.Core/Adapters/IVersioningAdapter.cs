@@ -9,5 +9,6 @@ namespace NChurn.Core.Adapters
         IEnumerable<string> ChangedResources();
         IEnumerable<string> ChangedResources(DateTime backTo);
         ICommandRunner CommandRunner { get; set; }
+        IEnumerable<string> Parse(string text);
     }
 }

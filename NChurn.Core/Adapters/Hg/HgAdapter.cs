@@ -11,26 +11,20 @@ namespace NChurn.Core.Adapters.Git
         public override IEnumerable<string> ChangedResources()
         {
             string text = CommandRunner.ExecuteAndGetOutput(@"hg log -v");
-            return ParseLines(text);
+            return Parse(text);
         }
 
         public override IEnumerable<string> ChangedResources(DateTime backTo)
         {
             string text = CommandRunner.ExecuteAndGetOutput(string.Format(@"hg log -v -d ""> {0}""", backTo.ToString("yyyy-MM-dd")));
-            return ParseLines(text);
+            return Parse(text);
         }
 
-        private static IEnumerable<string> ParseLines(string text)
+        public override IEnumerable<string> ParseImpl(string text)
         {
-            if (string.IsNullOrEmpty(text))
-            {
-                return Enumerable.Empty<string>();
-            }
-
-            string[] strings = text.SplitLines().Where(x=>x.StartsWith("files:")).SelectMany(x=>Regex.Split(x, @"\s+").Skip(1)).ToArray();
+            string[] strings = text.SplitLines().Where(x => x.StartsWith("files:")).SelectMany(x => Regex.Split(x, @"\s+").Skip(1)).ToArray();
 
             return strings;
         }
-
     }
 }

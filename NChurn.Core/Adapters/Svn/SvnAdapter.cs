@@ -12,16 +12,16 @@ namespace NChurn.Core.Adapters.Svn
         public override IEnumerable<string> ChangedResources()
         {
             string text = CommandRunner.ExecuteAndGetOutput(@"svn log --verbose");
-            return ParseLines(text);
+            return Parse(text);
         }
 
         public override IEnumerable<string> ChangedResources(DateTime backTo)
         {
             string text = CommandRunner.ExecuteAndGetOutput(string.Format(@"svn log --revision {{{0}}}:{{{1}}} --verbose", backTo.ToString("yyyy-MM-dd"), DateTime.Now.ToString("yyyy-MM-dd")));
-            return ParseLines(text);
+            return Parse(text);
         }
 
-        private IEnumerable<string> ParseLines(string text)
+        public override IEnumerable<string> ParseImpl(string text)
         {
             string[] strings = text.SplitLines();
             return from s in strings
