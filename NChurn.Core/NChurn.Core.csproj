@@ -51,7 +51,7 @@
     <Compile Include="Adapters\IVersioningAdapter.cs" />
     <Compile Include="Adapters\Svn\SvnAdapter.cs" />
     <Compile Include="Adapters\TF\TFAdapter.cs" />
-    <Compile Include="Adapters\AdapterResolver.cs" />
+    <Compile Include="Adapters\AutoDiscoveryAdapter.cs" />
     <Compile Include="Analyzers\AnalysisResult.cs" />
     <Compile Include="Analyzers\Analyzer.cs" />
     <Compile Include="Adapters\IAdapterResolver.cs" />

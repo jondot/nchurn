@@ -11,6 +11,5 @@ namespace NChurn.Core.Tests.Integration.Adapters
         {
             TestHelpers.AssertAdapterFixture(new GitAdapter(), "fixtures/git.log", "fixtures/git.log.result");
         }
-
     }
 }

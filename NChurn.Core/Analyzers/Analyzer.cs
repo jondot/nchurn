@@ -7,36 +7,42 @@ namespace NChurn.Core.Analyzers
 {
     public class Analyzer
     {
-        private readonly IAdapterResolver _adapterResolver;
+        private readonly IVersioningAdapter _adapter;
 
         public static Analyzer Create()
         {
-            //todo: ioc resolve
-            return new Analyzer(new AdapterResolver());
+            return new Analyzer(new AutoDiscoveryAdapter());
         }
-        
 
-        internal Analyzer(IAdapterResolver adapterResolver)
+        public static Analyzer Create(IVersioningAdapter adapter)
         {
-            _adapterResolver = adapterResolver;
+            return new Analyzer(adapter);
+        }
+
+        internal Analyzer(IVersioningAdapter adapter)
+        {
+            _adapter = adapter;
+        }
+
+        public AnalysisResult Analyze(string input)
+        {
+            IEnumerable<string> changedResources = _adapter.Parse(input);
+            return AnalyzeChangedResources(changedResources);
         }
 
         public AnalysisResult Analyze(DateTime backTo)
         {
             IEnumerable<string> changedResources = GetChangedResources(backTo);
-
             return AnalyzeChangedResources(changedResources);
         }
         public AnalysisResult Analyze()
         {
             IEnumerable<string> changedResources = GetChangedResources();
-
             return AnalyzeChangedResources(changedResources);
         }
 
         private static AnalysisResult AnalyzeChangedResources(IEnumerable<string> changedResources)
         {
-
             var d = new Dictionary<string, int>();
 
             foreach (var x in changedResources)
@@ -48,17 +54,13 @@ namespace NChurn.Core.Analyzers
 
         private IEnumerable<string> GetChangedResources()
         {
-            IVersioningAdapter versioningAdapter = _adapterResolver.CreateAdapter();
-            return versioningAdapter.ChangedResources();
+            return _adapter.ChangedResources();
         }
 
         private IEnumerable<string> GetChangedResources(DateTime backTo)
         {
-            IVersioningAdapter versioningAdapter = _adapterResolver.CreateAdapter();
-            return versioningAdapter.ChangedResources(backTo);
+            return _adapter.ChangedResources(backTo);
         }
-
-
     }
 }
 

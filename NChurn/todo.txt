@@ -9,7 +9,6 @@ Build
 - (LOW) coverage .net 40
 
 Logic
-- Support Hg
 - Support Darcs
 - look into c# analyzer for methods/class
 

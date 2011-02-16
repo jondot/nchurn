@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using NChurn.Core.Support;
 
 namespace NChurn.Core.Adapters.Git
 {
-    internal class GitAdapter : BaseAdapter
+    public class GitAdapter : BaseAdapter
     {
         public override IEnumerable<string> ChangedResources()
         {

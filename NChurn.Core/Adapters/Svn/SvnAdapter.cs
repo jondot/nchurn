@@ -6,7 +6,7 @@ using NChurn.Core.Support;
 
 namespace NChurn.Core.Adapters.Svn
 {
-    internal class SvnAdapter : BaseAdapter
+    public class SvnAdapter : BaseAdapter
     {
         private readonly Regex _matcher = new Regex(@"\W*[A,M]\W+(\/.*)\b",RegexOptions.Compiled);
         public override IEnumerable<string> ChangedResources()

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using NChurn.Core.Support;
 
-namespace NChurn.Core.Adapters.Git
+namespace NChurn.Core.Adapters.Hg
 {
-    internal class HgAdapter : BaseAdapter
+    public class HgAdapter : BaseAdapter
     {
         public override IEnumerable<string> ChangedResources()
         {

@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace NChurn.Core.Adapters.TF
 {
-    internal class TFAdapter : BaseAdapter
+    public class TFAdapter : BaseAdapter
     {
         private readonly Regex _changedResourceMatcher = new Regex(@"\s+(\w+)\s\$(.*)\s*",RegexOptions.Compiled);
 

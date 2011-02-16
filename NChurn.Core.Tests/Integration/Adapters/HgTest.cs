@@ -1,4 +1,5 @@
 ﻿using NChurn.Core.Adapters.Git;
+using NChurn.Core.Adapters.Hg;
 using NUnit.Framework;
 
 namespace NChurn.Core.Tests.Integration.Adapters

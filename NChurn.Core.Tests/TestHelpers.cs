@@ -14,13 +14,10 @@ namespace NChurn.Core.Tests
         {
             var text = File.ReadAllText(fixturesGitLog);
 
-            var mkresolver = new Mock<IAdapterResolver>();
             var mkrunner = new Mock<ICommandRunner>();
             mkrunner.Setup(x => x.ExecuteAndGetOutput(It.IsAny<string>())).Returns(text);
-
             gitAdapter.CommandRunner = mkrunner.Object;
-            mkresolver.Setup(x => x.CreateAdapter()).Returns(gitAdapter);
-            var analysisResult = new Analyzer(mkresolver.Object).Analyze();
+            var analysisResult = new Analyzer(gitAdapter).Analyze();
             var s = new StringWriter();
            
             var tableReporter = new TableReporter(s);

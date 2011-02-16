@@ -6,7 +6,7 @@ using NChurn.Core.Support.Win32;
 
 namespace NChurn.Core.Adapters
 {
-    internal abstract class BaseAdapter : IVersioningAdapter
+    public abstract class BaseAdapter : IVersioningAdapter
     {
         protected BaseAdapter()
         {
