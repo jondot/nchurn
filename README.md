@@ -4,7 +4,7 @@ NChurn
 NChurn is a utility that helps asses the churn level of your files in your repository.  
 Churn can help you detect which files are changed the most in their life time. This helps identify potential bug hives, and improper design.  
 The best thing to do is to plug NChurn into your build process and store history of each run. Then, you can plot the evolution of your repository's churn.  
-_Developers_ see note about building below
+**Developers see note about building below, if you want to build from source.**
 
 NChurn currently supports file-level churns for
 
@@ -21,7 +21,7 @@ As outputs, NChurn supports
 * XML (recommended for builds)
 
 
-NChurn can also take top # of items to display, cut off churn level, and a date to go back up to.
+Amongst others, NChurn can also take top # of items to display, cut off churn level, and a date to go back up to. See "Getting Started".
 
 Background
 ----------------
@@ -46,12 +46,23 @@ Getting Started
 	NChurn 0.1.0.0
 	Usage: NChurn
 	       NChurn -c 4 -d 24-3-2010 -t 10
+		   NChurn -d 30 -i svn.log -a svn
 
-	  d, from-date    Past date to calculate churn from, to now.
-	  c, churn        Minimal churn rate. Churn results below are cut off.
-	  t, top          Return this number of top records.
-	  r, report       Type of report to output.
-	  help            Dispaly this help screen.
+	d, from-date    Past date to calculate churn from. Absolute in dd-mm-yyyy or
+				    number of days back from now.
+
+	c, churn        Minimal churn rate. Churn results below are cut off.
+
+	t, top          Return this number of top records.
+
+	r, report       Type of report to output.
+
+	a, adapter      Use a specific versioning adapter. Use one of: auto
+				   (default), git, tf, svn, hg
+	i, input        Get input from a file instead of running a versioning system.
+				    Must specify correct adapter via -a.
+
+	help            Dispaly this help screen.
 
   
 Any combination of parameters work.
@@ -59,7 +70,8 @@ Any combination of parameters work.
 	$ NChurn -t 5 -c 3        # take top 5, cut off at level 3 and below.
 	$ NChurn -d 24-12-2010    # calculate for 24th of Dec, 2010 up to now.
 	$ NChurn -c 2 -r xml      # cut off at 2, report output as XML.
-
+	$ NChurn -d 30 -i svn.log -a svn    # go back 30 days, read from pre-made file, adapter is SVN.
+	
 Here is a sample of a run, which cuts off at 8, and uses the default table report:
 
 	$ NChurn -c 8
