@@ -12,6 +12,8 @@ using NChurn.Core.Adapters.Hg;
 using NChurn.Core.Adapters.Svn;
 using NChurn.Core.Adapters.TF;
 using NChurn.Core.Analyzers;
+using NChurn.Core.Processors;
+using NChurn.Core.Processors.Cutoff;
 using NChurn.Core.Reporters;
 using NChurn.Core.Support;
 
@@ -30,13 +32,13 @@ namespace NChurn
                     HelpText = "Past date to calculate churn from. Absolute in dd-mm-yyyy or number of days back from now.")]
             public string Date = String.Empty;
 
-            [Option("c", "churn", Required = false, HelpText = "Minimal churn rate. Churn results below are cut off.")]
-            public int MinimalChurnRate = 0;
+            [Option("c", "churn", Required = false, HelpText = "Minimal churn. Specify either a number for minimum, or float for precent.")]
+            public string MinimalChurnRate = "0";
 
             [Option("t", "top", Required = false, HelpText = "Return this number of top records.")]
             public int Top = int.MaxValue;
 
-            [Option("r", "report", Required = false, HelpText = "Type of report to output.")]
+            [Option("r", "report", Required = false, HelpText = "Type of report to output. Use one of: table (default), xml, csv")]
             public string Report = "table";
 
             [Option("a", "adapter", Required = false, HelpText = "Use a specific versioning adapter. Use one of: auto (default), git, tf, svn, hg")]
@@ -112,6 +114,24 @@ namespace NChurn
 
             try
             {
+                //
+                // set up cutoff
+                //
+
+                IProcessor<KeyValuePair<string, int>> cutoffPolicy = new MinimalCutoffProcessor(0);
+                int minchurn;
+                if(int.TryParse(options.MinimalChurnRate, out minchurn))
+                {
+                    cutoffPolicy = new MinimalCutoffProcessor(minchurn);
+                }
+                else
+                {
+                    float minchurnpcent;
+                    if(float.TryParse(options.MinimalChurnRate, out minchurnpcent))
+                    {
+                        cutoffPolicy = new PrecentCutoffProcessor(minchurnpcent);
+                    }
+                }
 
                 //
                 // set up analyzer
@@ -143,7 +163,7 @@ namespace NChurn
                 
                 Console.OutputEncoding = Encoding.UTF8;
                 var tableReporter = _reporterMap[options.Report](Console.Out);
-                tableReporter.Write(analysisResult, options.MinimalChurnRate, options.Top);
+                tableReporter.Write(analysisResult, cutoffPolicy, options.Top);
             }
             catch (CommandRunnerException e)
             {

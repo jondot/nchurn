@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using NChurn.Core.Analyzers;
+using NChurn.Core.Processors;
 
 namespace NChurn.Core.Reporters
 {
@@ -16,17 +17,16 @@ namespace NChurn.Core.Reporters
              _out = outp;
         }
 
-        public void Write(AnalysisResult r, int minimalChurnRate, int topRecords)
+        public void Write(AnalysisResult r, IProcessor<KeyValuePair<string,int>> cutoffPolicy, int topRecords)
         {
             if (r.FileChurn.Any() == false)
                 return;
 
-            IEnumerable<KeyValuePair<string, int>> fileChurns = r.FileChurn.Where(x => x.Value > minimalChurnRate).Take(topRecords);
+            IEnumerable<KeyValuePair<string, int>> fileChurns = cutoffPolicy.Apply(r.FileChurn).Take(topRecords);
 
             WriteImpl(fileChurns);
             _out.Flush();
         }
-
         protected abstract void WriteImpl(IEnumerable<KeyValuePair<string, int>> fileChurns);
     }
 }

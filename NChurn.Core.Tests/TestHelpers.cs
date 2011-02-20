@@ -2,6 +2,7 @@
 using Moq;
 using NChurn.Core.Adapters;
 using NChurn.Core.Analyzers;
+using NChurn.Core.Processors.Cutoff;
 using NChurn.Core.Reporters;
 using NChurn.Core.Support;
 using Shouldly;
@@ -21,7 +22,7 @@ namespace NChurn.Core.Tests
             var s = new StringWriter();
            
             var tableReporter = new TableReporter(s);
-            tableReporter.Write(analysisResult, 0, int.MaxValue);
+            tableReporter.Write(analysisResult, new MinimalCutoffProcessor(0), int.MaxValue);
             
             s.ToString().ShouldBe(File.ReadAllText(fixturesGitLogResult));
         }

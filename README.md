@@ -43,24 +43,29 @@ Getting Started
 ---------------
 
 	$ NChurn -h
-	NChurn 0.1.0.0
-	Usage: NChurn
-	       NChurn -c 4 -d 24-3-2010 -t 10
-		   NChurn -d 30 -i svn.log -a svn
+	NChurn 0.5.0.0
+	Usage: 	NChurn.CLI
+			NChurn.CLI -c 4 -d 24-3-2010 -t 10
 
 	d, from-date    Past date to calculate churn from. Absolute in dd-mm-yyyy or
-				    number of days back from now.
+				  number of days back from now.
 
-	c, churn        Minimal churn rate. Churn results below are cut off.
+	c, churn        Minimal churn. Specify either a number for minimum, or float
+				  for precent.
 
 	t, top          Return this number of top records.
 
-	r, report       Type of report to output.
+	r, report       Type of report to output. Use one of: table (default), xml,
+				  csv
 
 	a, adapter      Use a specific versioning adapter. Use one of: auto
-				   (default), git, tf, svn, hg
+				  (default), git, tf, svn, hg
+
+	p, env-path     Add to PATH. i.e. for svn.exe you might add "c:\tools". Can
+				  add multiple with ;.
+
 	i, input        Get input from a file instead of running a versioning system.
-				    Must specify correct adapter via -a.
+				  Must specify correct adapter via -a.
 
 	help            Dispaly this help screen.
 
@@ -68,9 +73,11 @@ Getting Started
 Any combination of parameters work.
 
 	$ NChurn -t 5 -c 3        # take top 5, cut off at level 3 and below.
+	$ NChurn -c 0.3           # display files that consist 30% of all changes (0.3)
 	$ NChurn -d 24-12-2010    # calculate for 24th of Dec, 2010 up to now.
 	$ NChurn -c 2 -r xml      # cut off at 2, report output as XML.
 	$ NChurn -d 30 -i svn.log -a svn    # go back 30 days, read from pre-made file, adapter is SVN.
+	$ NChurn -p c:\tools\svn -a svn    # specify path and adapter on an environment that hasn't got a PATH.
 	
 Here is a sample of a run, which cuts off at 8, and uses the default table report:
 
@@ -99,8 +106,8 @@ Here is a sample of a run, which cuts off at 8, and uses the default table repor
 And here is an example of taking the top 4 records on NChurn's git repo, output as xml report.
 
 	$ NChurn -t 4 -r xml
-	<?xml version="1.0" encoding="IBM437"?>
-	<NChurnAnalysisResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/NChurn.Core.Reporters">
+	<?xml version="1.0" encoding="utf-8"?>
+	<NChurnAnalysisResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
 	  <FileChurns>
 	    <FileChurn>
 	      <File>README.md</File>

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using NChurn.Core.Analyzers;
+using NChurn.Core.Processors;
 
 namespace NChurn.Core.Reporters
 {
@@ -14,7 +16,7 @@ namespace NChurn.Core.Reporters
             _out = outp;
         }
 
-        public void Write(AnalysisResult r, int minimalChurnRate, int top)
+        public void Write(AnalysisResult r, IProcessor<KeyValuePair<string,int>> cutoffPolicy , int top)
         {
             if (r.FileChurn.Any() == false)
                 return;
@@ -29,7 +31,7 @@ namespace NChurn.Core.Reporters
             string hline = "+".PadRight(total+3, '-')+"+";
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(hline);
-            foreach (var kvp in r.FileChurn.Where(x=>x.Value > minimalChurnRate).Take(top))
+            foreach (var kvp in cutoffPolicy.Apply(r.FileChurn).Take(top))
             {
                 sb.Append("| ").Append(kvp.Key.PadRight(max)).Append(" | ").Append(kvp.Value.ToString().PadRight(i)).AppendLine(" |");
             }
