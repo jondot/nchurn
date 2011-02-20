@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
+using System.Text;
 using CommandLine;
 using CommandLine.Text;
 using NChurn.Core.Adapters;
@@ -139,7 +140,8 @@ namespace NChurn
                     analysisResult = string.IsNullOrEmpty(options.Date) ? analyzer.Analyze() 
                                                                         : GetAnalysisResultWithDateBackAnalysis(options, analyzer);
                 }
-
+                
+                Console.OutputEncoding = Encoding.UTF8;
                 var tableReporter = _reporterMap[options.Report](Console.Out);
                 tableReporter.Write(analysisResult, options.MinimalChurnRate, options.Top);
             }

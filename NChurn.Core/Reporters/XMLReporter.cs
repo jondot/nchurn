@@ -29,14 +29,14 @@ namespace NChurn.Core.Reporters
             }
         }
     }
-    [DataContract]
+    [DataContract(Namespace="")]
     public class NChurnAnalysisResult
     {
         [DataMember]
         public List<FileChurn> FileChurns;
     }
 
-    [DataContract]
+    [DataContract(Namespace="")]
     public class FileChurn
     {
         [DataMember]
