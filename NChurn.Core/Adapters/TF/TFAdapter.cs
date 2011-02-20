@@ -11,14 +11,14 @@ namespace NChurn.Core.Adapters.TF
 
         public override IEnumerable<string> ChangedResources()
         {
-            string text = CommandRunner.ExecuteAndGetOutput(@"tf history /format:detailed /noprompt /recursive .");
+            string text = DataSource.GetDataWithQuery(@"tf history /format:detailed /noprompt /recursive .");
 
             return Parse(text);
         }
 
         public override IEnumerable<string> ChangedResources(DateTime backTo)
         {
-            string text = CommandRunner.ExecuteAndGetOutput(string.Format(@"tf history /version:D""{0}""~D""{1}"" /format:detailed /noprompt /recursive .", backTo.ToString("dd-MM-yyyy"), DateTime.Now.ToString("dd-MM-yyyy")));
+            string text = DataSource.GetDataWithQuery(string.Format(@"tf history /version:D""{0}""~D""{1}"" /format:detailed /noprompt /recursive .", backTo.ToString("dd-MM-yyyy"), DateTime.Now.ToString("dd-MM-yyyy")));
             return Parse(text);
         }
 

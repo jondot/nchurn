@@ -10,10 +10,10 @@ namespace NChurn.Core.Adapters
     {
         protected BaseAdapter()
         {
-            CommandRunner = new Win32CommandRunner(); //todo: decision point which runner to ins. based on platform.
+            DataSource = new Win32CommandRunnerDataSource(); //todo: decision point which runner to ins. based on platform.
         }
 
-        public ICommandRunner CommandRunner { get; set; }
+        public IAdapterDataSource DataSource { get; set; }
         public abstract IEnumerable<string> ChangedResources();
         public abstract IEnumerable<string> ChangedResources(DateTime backTo);
         public abstract IEnumerable<string> ParseImpl(string text);

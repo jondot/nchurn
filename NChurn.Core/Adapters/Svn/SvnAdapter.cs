@@ -11,13 +11,13 @@ namespace NChurn.Core.Adapters.Svn
         private readonly Regex _matcher = new Regex(@"\W*[A,M]\W+(\/.*)\b",RegexOptions.Compiled);
         public override IEnumerable<string> ChangedResources()
         {
-            string text = CommandRunner.ExecuteAndGetOutput(@"svn log --verbose");
+            string text = DataSource.GetDataWithQuery(@"svn log --verbose");
             return Parse(text);
         }
 
         public override IEnumerable<string> ChangedResources(DateTime backTo)
         {
-            string text = CommandRunner.ExecuteAndGetOutput(string.Format(@"svn log --revision {{{0}}}:{{{1}}} --verbose", backTo.ToString("yyyy-MM-dd"), DateTime.Now.ToString("yyyy-MM-dd")));
+            string text = DataSource.GetDataWithQuery(string.Format(@"svn log --revision {{{0}}}:{{{1}}} --verbose", backTo.ToString("yyyy-MM-dd"), DateTime.Now.ToString("yyyy-MM-dd")));
             return Parse(text);
         }
 

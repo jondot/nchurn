@@ -14,9 +14,9 @@ namespace NChurn.Core.Tests
         {
             var text = File.ReadAllText(fixturesGitLog);
 
-            var mkrunner = new Mock<ICommandRunner>();
-            mkrunner.Setup(x => x.ExecuteAndGetOutput(It.IsAny<string>())).Returns(text);
-            gitAdapter.CommandRunner = mkrunner.Object;
+            var mkrunner = new Mock<IAdapterDataSource>();
+            mkrunner.Setup(x => x.GetDataWithQuery(It.IsAny<string>())).Returns(text);
+            gitAdapter.DataSource = mkrunner.Object;
             var analysisResult = new Analyzer(gitAdapter).Analyze();
             var s = new StringWriter();
            

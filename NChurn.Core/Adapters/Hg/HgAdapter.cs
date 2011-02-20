@@ -10,13 +10,13 @@ namespace NChurn.Core.Adapters.Hg
     {
         public override IEnumerable<string> ChangedResources()
         {
-            string text = CommandRunner.ExecuteAndGetOutput(@"hg log -v");
+            string text = DataSource.GetDataWithQuery(@"hg log -v");
             return Parse(text);
         }
 
         public override IEnumerable<string> ChangedResources(DateTime backTo)
         {
-            string text = CommandRunner.ExecuteAndGetOutput(string.Format(@"hg log -v -d ""> {0}""", backTo.ToString("yyyy-MM-dd")));
+            string text = DataSource.GetDataWithQuery(string.Format(@"hg log -v -d ""> {0}""", backTo.ToString("yyyy-MM-dd")));
             return Parse(text);
         }
 

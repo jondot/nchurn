@@ -62,9 +62,10 @@
     <Compile Include="Reporters\TableReporter.cs" />
     <Compile Include="Reporters\XMLReporter.cs" />
     <Compile Include="Support\CommandRunnerException.cs" />
-    <Compile Include="Support\ICommandRunner.cs" />
+    <Compile Include="Support\DataSourceContextKeys.cs" />
+    <Compile Include="Support\IAdapterDataSource.cs" />
     <Compile Include="Support\SystemExts.cs" />
-    <Compile Include="Support\Win32\Win32CommandRunner.cs" />
+    <Compile Include="Support\Win32\Win32CommandRunnerDataSource.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

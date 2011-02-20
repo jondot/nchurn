@@ -24,7 +24,7 @@ namespace NChurn.Core.Adapters
             return ChangedResources();
         }
 
-        public ICommandRunner CommandRunner
+        public IAdapterDataSource DataSource
         {
             get { return null; }
             set {  }

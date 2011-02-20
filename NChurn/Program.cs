@@ -41,9 +41,8 @@ namespace NChurn
             [Option("a", "adapter", Required = false, HelpText = "Use a specific versioning adapter. Use one of: auto (default), git, tf, svn, hg")]
             public string Adapter = "auto";
 
-            // todo: implement later ?
-            //[Option("p", "adapter-path", Required = false, HelpText = @"Explicitly specify the adapter's executable location (e.g. c:\tools\svn.exe)")]
-            //public string AdapterPath = null;
+            [Option("p", "env-path", Required = false, HelpText = @"Add to PATH. i.e. for svn.exe you might add ""c:\tools"". Can add multiple with ;.")]
+            public string EnvPath = null;
 
             [Option("i", "input", Required = false, HelpText = "Get input from a file instead of running a versioning system. Must specify correct adapter via -a.")]
             public string InputFile = null;
@@ -77,15 +76,22 @@ namespace NChurn
             _reporterMap.Add("csv", x=> new CSVReporter(x));
             _reporterMap.Add("xml", x=> new XMLReporter(x));
 
-            _adapterMap.Add("git", x => new GitAdapter());
-            _adapterMap.Add("svn", x => new SvnAdapter());
-            _adapterMap.Add("tf", x => new TFAdapter());
-            _adapterMap.Add("hg", x => new HgAdapter());
-            _adapterMap.Add("auto", x => new AutoDiscoveryAdapter());
-
-
-
+            _adapterMap.Add("git", x => WithPath(x, new GitAdapter()));
+            _adapterMap.Add("svn", x => WithPath(x,new SvnAdapter()));
+            _adapterMap.Add("tf", x => WithPath(x,new TFAdapter()));
+            _adapterMap.Add("hg", x => WithPath(x,new HgAdapter()));
+            _adapterMap.Add("auto", x => WithPath(x, new AutoDiscoveryAdapter()));
         }
+
+        private static IVersioningAdapter WithPath(string x, IVersioningAdapter gitAdapter)
+        {
+            if(!string.IsNullOrEmpty(x))
+            {
+                gitAdapter.DataSource.SetContext(DataSourceContextKeys.ExePath, x);
+            }
+            return gitAdapter;
+        }
+
         static void Main(string[] args)
         {
             var options = new Options();
@@ -109,7 +115,7 @@ namespace NChurn
                 //
                 // set up analyzer
                 //
-                Analyzer analyzer = Analyzer.Create(_adapterMap[options.Adapter](string.Empty));
+                Analyzer analyzer = Analyzer.Create(_adapterMap[options.Adapter](options.EnvPath));
 
                 if(options.InputFile != null && !File.Exists(options.InputFile))
                 {
