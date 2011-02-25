@@ -47,25 +47,19 @@ Getting Started
   Usage: NChurn
          NChurn -c 4 -d 24-3-2010 -t 10
 
-  d, from-date    Past date to calculate churn from. Absolute in dd-mm-yyyy or
-                  number of days back from now.
+  d, from-date    Past date to calculate churn from. Absolute in dd-mm-yyyy or number of days back from now.
 
-  c, churn        Minimal churn. Specify either a number for minimum, or float
-                  for precent.
+  c, churn        Minimal churn. Specify either a number for minimum, or float for precent.
 
   t, top          Return this number of top records.
 
-  r, report       Type of report to output. Use one of: table (default), xml,
-                  csv
+  r, report       Type of report to output. Use one of: table (default), xml, csv
 
-  a, adapter      Use a specific versioning adapter. Use one of: auto
-                  (default), git, tf, svn, hg
+  a, adapter      Use a specific versioning adapter. Use one of: auto (default), git, tf, svn, hg
 
-  p, env-path     Add to PATH. i.e. for svn.exe you might add "c:\tools". Can
-                  add multiple with ;.
+  p, env-path     Add to PATH. i.e. for svn.exe you might add "c:\tools". Can add multiple with ;.
 
-  i, input        Get input from a file instead of running a versioning system.
-                  Must specify correct adapter via -a.
+  i, input        Get input from a file instead of running a versioning system. Must specify correct adapter via -a.
 
   x, exclude      Exclude resources matching this regular expression
 
