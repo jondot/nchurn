@@ -43,33 +43,38 @@ Getting Started
 ---------------
 
 	$ NChurn -h
-	NChurn 0.5.0.0
-	Usage: 	NChurn.CLI
-			NChurn.CLI -c 4 -d 24-3-2010 -t 10
+  NChurn 0.4.0.0
+  Usage: NChurn
+         NChurn -c 4 -d 24-3-2010 -t 10
 
-	d, from-date    Past date to calculate churn from. Absolute in dd-mm-yyyy or
-				  number of days back from now.
+  d, from-date    Past date to calculate churn from. Absolute in dd-mm-yyyy or
+                  number of days back from now.
 
-	c, churn        Minimal churn. Specify either a number for minimum, or float
-				  for precent.
+  c, churn        Minimal churn. Specify either a number for minimum, or float
+                  for precent.
 
-	t, top          Return this number of top records.
+  t, top          Return this number of top records.
 
-	r, report       Type of report to output. Use one of: table (default), xml,
-				  csv
+  r, report       Type of report to output. Use one of: table (default), xml,
+                  csv
 
-	a, adapter      Use a specific versioning adapter. Use one of: auto
-				  (default), git, tf, svn, hg
+  a, adapter      Use a specific versioning adapter. Use one of: auto
+                  (default), git, tf, svn, hg
 
-	p, env-path     Add to PATH. i.e. for svn.exe you might add "c:\tools". Can
-				  add multiple with ;.
+  p, env-path     Add to PATH. i.e. for svn.exe you might add "c:\tools". Can
+                  add multiple with ;.
 
-	i, input        Get input from a file instead of running a versioning system.
-				  Must specify correct adapter via -a.
+  i, input        Get input from a file instead of running a versioning system.
+                  Must specify correct adapter via -a.
 
-	help            Dispaly this help screen.
+  x, exclude      Exclude resources matching this regular expression
 
-  
+  n, include      Include resources matching this regular expression
+
+  help            Dispaly this help screen.
+
+
+
 Any combination of parameters work.
 
 	$ NChurn -t 5 -c 3        # take top 5, cut off at level 3 and below.
@@ -77,8 +82,9 @@ Any combination of parameters work.
 	$ NChurn -d 24-12-2010    # calculate for 24th of Dec, 2010 up to now.
 	$ NChurn -c 2 -r xml      # cut off at 2, report output as XML.
 	$ NChurn -d 30 -i svn.log -a svn    # go back 30 days, read from pre-made file, adapter is SVN.
-	$ NChurn -p c:\tools\svn -a svn    # specify path and adapter on an environment that hasn't got a PATH.
-	
+	$ NChurn -p c:\tools\svn -a svn     # specify path and adapter on an environment that hasn't got a PATH.
+	$ NChurn -x exe$                    # exclude resources that end with 'exe' 
+
 Here is a sample of a run, which cuts off at 8, and uses the default table report:
 
 	$ NChurn -c 8
