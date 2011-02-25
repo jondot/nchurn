@@ -43,8 +43,8 @@ Getting Started
 ---------------
 
 	$ NChurn -h
-  NChurn 0.4.0.0
-  Usage: NChurn
+     NChurn 0.4.0.0
+     Usage: NChurn
          NChurn -c 4 -d 24-3-2010 -t 10
 
      d, from-date    Past date to calculate churn from. Absolute in dd-mm-yyyy or number of days back from now.
