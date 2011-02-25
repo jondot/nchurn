@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using NChurn.Core.Adapters;
 
 namespace NChurn.Core.Analyzers
@@ -8,6 +9,9 @@ namespace NChurn.Core.Analyzers
     public class Analyzer
     {
         private readonly IVersioningAdapter _adapter;
+        private readonly List<Regex> _includes = new List<Regex>();
+        private readonly List<Regex> _excludes = new List<Regex>();
+
 
         public static Analyzer Create()
         {
@@ -41,15 +45,25 @@ namespace NChurn.Core.Analyzers
             return AnalyzeChangedResources(changedResources);
         }
 
-        private static AnalysisResult AnalyzeChangedResources(IEnumerable<string> changedResources)
+        private AnalysisResult AnalyzeChangedResources(IEnumerable<string> changedResources)
         {
             var d = new Dictionary<string, int>();
 
-            foreach (var x in changedResources)
+            foreach (var x in ApplyExcludeIncludes(changedResources))
             {
                 if (!d.ContainsKey(x)) d[x] = 0; d[x]++;
             }
             return new AnalysisResult {FileChurn = d.OrderByDescending(x=>x.Value).ThenBy( x=>x.Key)};
+        }
+
+        private IEnumerable<string> ApplyExcludeIncludes(IEnumerable<string> changedResources)
+        {
+            if (_includes.Count == 0 && _excludes.Count == 0)
+                return changedResources;
+
+            return changedResources.Where(x => (_excludes.Count == 0 || _excludes.All(y => !y.IsMatch(x)) )
+                                               &&  (_includes.Count == 0 || _includes.Any(y => y.IsMatch(x))));
+                                    
         }
 
         private IEnumerable<string> GetChangedResources()
@@ -60,6 +74,15 @@ namespace NChurn.Core.Analyzers
         private IEnumerable<string> GetChangedResources(DateTime backTo)
         {
             return _adapter.ChangedResources(backTo);
+        }
+
+        public void AddInclude(string pattern)
+        {
+            _includes.Add(new Regex(pattern, RegexOptions.Compiled));
+        }
+        public void AddExclude(string pattern)
+        {
+            _excludes.Add(new Regex(pattern, RegexOptions.Compiled));
         }
     }
 }
