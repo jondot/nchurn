@@ -1,6 +1,7 @@
 GIT
   remote: http://github.com/jondot/Albacore.git
-  revision: 4e56d1405f8d4cdc91a06d61f0bedccf65045f31
+  revision: 1482f70afd109ce67c4f8cfef994d51c133ac5ae
+  branch: dev
   specs:
     albacore (0.2.2)
       rake (>= 0.8.7)

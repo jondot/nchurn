@@ -114,7 +114,7 @@ namespace NChurn
             
             if(!_adapterMap.ContainsKey(options.Adapter))
             {
-                Console.WriteLine(string.Format("Warning: {0} does not exist.", options.Adapter));
+                Console.Error.WriteLine(string.Format("Warning: {0} does not exist.", options.Adapter));
                 options.Adapter = "auto";
             }
 
@@ -151,7 +151,7 @@ namespace NChurn
                 
                 if(options.InputFile != null && !File.Exists(options.InputFile))
                 {
-                    Console.WriteLine(string.Format("Cannot file file {0} to read from.", options.InputFile));
+                    Console.Error.WriteLine(string.Format("Cannot file file {0} to read from.", options.InputFile));
                     ExitWithError();
                 }
 
@@ -173,17 +173,17 @@ namespace NChurn
                 }
                 
                 Console.OutputEncoding = Encoding.UTF8;
-                var tableReporter = _reporterMap[options.Report](Console.Out);
-                tableReporter.Write(analysisResult, cutoffPolicy, options.Top);
+                var reporter = _reporterMap[options.Report](Console.Out);
+                reporter.Write(analysisResult, cutoffPolicy, options.Top);
             }
             catch (CommandRunnerException e)
             {
-                Console.WriteLine(string.Format("Error: {0}. You should make sure that your versioning tool is accessible via command line (set PATH).", e.Message));
+                Console.Error.WriteLine(string.Format("Error: {0}. You should make sure that your versioning tool is accessible via command line (set PATH).", e.Message));
                 ExitWithError();
             }
             catch(Exception e)
             {
-                Console.Write(string.Format("Error: {0}.", e.Message));
+                Console.Error.WriteLine(string.Format("Error: {0}.", e.Message));
                 ExitWithError();
             }
 

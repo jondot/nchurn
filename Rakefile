@@ -14,7 +14,7 @@ msbuild :build => :assemblyinfo do |msb|
   msb.solution = "NChurn.sln"
 end
 
-output :output => [:test, :merge] do |out|
+output :output => [:test, :merge, :churn] do |out|
 	out.from '.'
 	out.to 'out'
 	out.file 'NChurn/bin/release/NChurn.exe', :as=>'NChurn.exe'
@@ -69,4 +69,22 @@ ncoverconsole :coverage do |ncc|
   nunit.assemblies "NChurn.Core.Tests/bin/debug/NChurn.Core.Tests.dll"
 		
   ncc.testrunner = nunit
+end
+
+desc "churn"
+nchurn :churn do |nc|
+  nc.command = "tools/nchurn/nchurn.exe"
+  nc.working_directory = "."
+  # here are some examples: 
+  # nc.input "file.txt"
+  # nc.from DateTime.now #3-12-2010 # Chronic.parse('3 days ago')
+  # nc.churn 4
+  # nc.churn_precent 30
+  # nc.top 10
+  # nc.report_as :xml
+  # nc.env_path 'c:/tools'
+  # nc.adapter :git
+  # nc.exclude "exe"
+  # nc.include "foo"
+  nc.output "out/churn-#{bumper_version.to_s}.txt"
 end
