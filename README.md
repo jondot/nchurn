@@ -19,7 +19,7 @@ As outputs, NChurn supports
 * Table (plain ASCII)
 * CSV
 * XML (recommended for builds)
-
+* HTML - see XSLT in /extras/build. Using XSLT you can integrate and produce HTML in your CI environment.
 
 Amongst others, NChurn can also take top # of items to display, cut off churn level, and a date to go back up to. See "Getting Started".
 
