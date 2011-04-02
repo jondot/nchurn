@@ -21,14 +21,22 @@ output :output => [:test, :merge, :churn] do |out|
 	out.file 'LICENSE.txt'
 	out.file 'README.md'
 	out.file 'VERSION'
+	# output can also build a nuspec :) 
+	out.erb 'build/nchurn.nuspec.erb', :as => 'nchurn.nuspec', :locals => { :version => bumper_version }
 end
 
-zip :deploy => :output do | zip |
+zip :zip => :output do | zip |
     zip.directories_to_zip "out"
     zip.output_file = "nchurn.v#{bumper_version.to_s}.zip"
     zip.output_path = File.dirname(__FILE__)
 end
 
+task :nu => :output do
+	`tools/nuget/nuget.exe p out/nchurn.nuspec`	
+end
+
+task :deploy => [:zip, :nu] do
+end
 
 desc "Test"
 nunit :test => :build do |nunit|
@@ -81,10 +89,10 @@ nchurn :churn do |nc|
   # nc.churn 4
   # nc.churn_precent 30
   # nc.top 10
-  # nc.report_as :xml
+   nc.report_as :xml
   # nc.env_path 'c:/tools'
   # nc.adapter :git
   # nc.exclude "exe"
   # nc.include "foo"
-  nc.output "out/churn-#{bumper_version.to_s}.txt"
+  nc.output "out/churn-#{bumper_version.to_s}.xml"
 end
