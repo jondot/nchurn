@@ -50,8 +50,8 @@ namespace NChurn
             [Option("i", "input", Required = false, HelpText = "Get input from a file instead of running a versioning system. Must specify correct adapter via -a.")]
             public string InputFile = null;
 
-            [Option("x", "exclude", Required = false, HelpText = "Exclude resources matching this regular expression")]
-            public string ExcludePattern = null;
+            [OptionArray("x", "exclude", Required = false, HelpText = "Exclude resources matching this regular expression")]
+            public string[] ExcludePatterns = null;
 
             [Option("n", "include", Required = false, HelpText = "Include resources matching this regular expression")]
             public string IncludePattern = null;
@@ -146,8 +146,8 @@ namespace NChurn
                 
                 if (!string.IsNullOrEmpty(options.IncludePattern))
                     analyzer.AddInclude(options.IncludePattern);
-                if(!string.IsNullOrEmpty(options.ExcludePattern))
-                    analyzer.AddExclude(options.ExcludePattern);
+                if(options.ExcludePatterns.Length > 0)
+                    analyzer.AddExcludes(options.ExcludePatterns);
                 
                 if(options.InputFile != null && !File.Exists(options.InputFile))
                 {
