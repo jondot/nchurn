@@ -80,9 +80,13 @@ namespace NChurn.Core.Analyzers
         {
             _includes.Add(new Regex(pattern, RegexOptions.Compiled));
         }
-        public void AddExclude(string pattern)
+
+        public void AddExcludes(params string[] patterns)
         {
-            _excludes.Add(new Regex(pattern, RegexOptions.Compiled));
+            foreach (var pattern in patterns)
+            {
+                _excludes.Add(new Regex(pattern, RegexOptions.Compiled));
+            }
         }
     }
 }
